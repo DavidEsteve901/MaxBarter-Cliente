@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const { sequelize } = require('./models/index'); 
 
+// import  { sequelize }  from './models/index';
+
 // Setting
 const PORT = process.env.PORT || 3000;
 
