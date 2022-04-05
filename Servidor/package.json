@@ -1,5 +1,5 @@
 {
-  "name": "cli",
+  "name": "MaxBarter",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,7 @@
     "start": "node build/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "David Esteve",
   "license": "ISC",
   "dependencies": {
     "@babel/polyfill": "^7.12.1",

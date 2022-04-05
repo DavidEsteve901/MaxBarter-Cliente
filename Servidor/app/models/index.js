@@ -6,7 +6,7 @@ const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 
 // Configuración
-const config = require('../../config/database');
+const config = require('../config/database');
 
 // Declaración de objeto DB
 const db = {};
