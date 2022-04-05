@@ -4,6 +4,7 @@ import pkg from '../package.json'
 
 //Rutas 
 import ofertasRoutes from "./routes/ofertas.routes"
+import authRoutes from './routes/auth.routes'
 
 //CONFIGURO EXPRESS
 const app = express();
@@ -15,7 +16,8 @@ app.set('pkg',pkg)
 app.use(express.json()); //Para que pueda entender los objetos JSON
 app.use(express.urlencoded({ extended: false }));
 
-app.use(morgan('dev')); //Para mostrar las peticiones por consola
+//Para mostrar las peticiones por consola
+app.use(morgan('dev')); 
 
 app.get('/',(req,res) =>{
     res.json({
@@ -27,6 +29,8 @@ app.get('/',(req,res) =>{
 })
 
 // Rutas
-app.use("/ofertas",ofertasRoutes)
+app.use("api/ofertas",ofertasRoutes)
+app.use("api/auth",authRoutes)
+
 app.use(require('./routes/routes'));
 export default app;
