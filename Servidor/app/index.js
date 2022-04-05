@@ -1,6 +1,5 @@
 import app from './app';
 const { sequelize } = require('./models/index'); 
-const express = require('express');
 // import  { sequelize }  from './models/index';
 
 // Setting
@@ -16,10 +15,7 @@ app.listen(PORT, function () {
     })
 });
 
-// Middleware
-// Para poder rellenar el req.body
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+
 
 
 
