@@ -14,8 +14,7 @@ const db = {};
 // Inicializar la conexión
 const sequelize = new Sequelize(
   config.database,
-  config.username,
-  config.password,
+  config.username,config.password,
   config);
 
 
@@ -42,4 +41,3 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 module.exports = db;
-

@@ -19,7 +19,7 @@ module.exports = {
   migrationStorageTableName: "migrations",
   
   define: {
-    // timestamps: false,
+    timestamps: false,
 
     // Genera claves foraneas de este tipo user_id en vez de userId
     underscored: true
