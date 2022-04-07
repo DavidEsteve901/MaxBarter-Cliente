@@ -1,9 +1,120 @@
 :host {
     flex: 1 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:100px;
 }
 
-p{
-    background-color: red;
+.formulario{
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+
+    background-color: #575757;
 }
 
+.texto{
+    width: 688px;
+    // border: solid white 1px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    font-family: 'Istok Web';
+    font-style: normal;
+    .texto{
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 46px;
+        display: inline;
+        padding-left: 50px;
+        color: #FFFFFF;
+        // border: solid white 1px;
+
+        span{
+            font-weight: bold;
+        }
+    }
+
+    .bienvenida{
+
+        left: 0px;
+        top: 101px;
+
+       
+        font-weight: 700;
+        font-size: 96px;
+        line-height: 138px;
+
+        color: #E4731C;
+
+    }
+   
+}
+
+.authContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    position: static;
+    width: 680px;
+    height: 718px;
+
+    background: #575757;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+
+    .authHeader{
+        // border: solid white 1px;
+
+        height: 100px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        
+        .text{
+            font-family: 'Istok Web';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 48px;
+            line-height: 69px;
+            padding: 20px;
+            color: #FFFFFF;
+        }
+
+        .line{
+            border-bottom: #E4731C solid 1px;
+            width: 100%;
+        }
+
+    }
+
+    .authForm{
+        width: 100%;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        label{
+            font-family: 'Istok Web';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 20px;
+            line-height: 150%;
+            /* identical to box height, or 30px */
+
+
+            color: #E4731C;
+        }
+        .input{
+
+            // @include input;
+            
+          
+        }
+    }
+}
 
