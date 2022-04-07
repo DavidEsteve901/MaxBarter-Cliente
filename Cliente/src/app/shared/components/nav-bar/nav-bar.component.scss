@@ -1,0 +1,37 @@
+.navbar{
+    background: rgba(0, 0, 0,0.35) !important;
+    
+    .container-fluid{
+        display: flex ;
+        align-items: center ;
+        justify-content: space-around ;
+        
+        .navbar-brand{
+            img{
+                width: 150px;
+            }
+        }
+
+        .nav-link{
+            color: white !important;
+            font-size: 1.3em;
+        }
+
+        .navbar-toggler{
+            color: white !important;
+        }
+
+        .navbar-collapse{
+            flex-grow: 0;
+        }
+
+        .navbar-nav{
+            gap: 15px
+        }
+    }
+
+    
+    // border: solid white 1px;
+       
+
+}

@@ -1,1 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+
+//Importamos fuentes
+@import url('https://fonts.googleapis.com/css2?family=Istok+Web&display=swap');
+
+// CLASES GENERALES 
+.active{
+    font-weight:bolder !important;
+}
+
+.bg-animation{
+    background: linear-gradient(327deg, #e4731c, #000000);
+    background-size: 400% 400%;
+
+    -webkit-animation: fondoGradient 15s ease infinite;
+    -moz-animation: fondoGradient 15s ease infinite;
+    -o-animation: fondoGradient 15s ease infinite;
+    animation: fondoGradient 15s ease infinite;
+}
+
+/*Animaciones generales*/
+
+
+// Fondo
+@-webkit-keyframes fondoGradient {
+    0%{background-position:0% 81%}
+    50%{background-position:100% 20%}
+    100%{background-position:0% 81%}
+}
+@-moz-keyframes fondoGradient {
+    0%{background-position:0% 81%}
+    50%{background-position:100% 20%}
+    100%{background-position:0% 81%}
+}
+@-o-keyframes fondoGradient {
+    0%{background-position:0% 81%}
+    50%{background-position:100% 20%}
+    100%{background-position:0% 81%}
+}
+@keyframes fondoGradient {
+    0%{background-position:0% 81%}
+    50%{background-position:100% 20%}
+    100%{background-position:0% 81%}
+}
