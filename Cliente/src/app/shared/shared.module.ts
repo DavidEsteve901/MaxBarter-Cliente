@@ -5,7 +5,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
 
-
+//PrimeNG
+import {ButtonModule} from 'primeng/button';
+import {InputTextModule} from 'primeng/inputtext';
+import {PasswordModule} from 'primeng/password';
+import {KeyFilterModule} from 'primeng/keyfilter';
 
 
 @NgModule({
@@ -16,11 +20,18 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     FontAwesomeModule,
-    RouterModule
+    RouterModule,
   ],
   exports: [
     NavBarComponent,
-    FooterComponent
+    FooterComponent,
+    FontAwesomeModule,
+    //PrimeNG
+    ButtonModule,
+    InputTextModule,
+    PasswordModule,
+    KeyFilterModule
+    
   ]
 
 })

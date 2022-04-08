@@ -3,9 +3,76 @@
 //Importamos fuentes
 @import url('https://fonts.googleapis.com/css2?family=Istok+Web&display=swap');
 
-// CLASES GENERALES 
+
+// **CLASES GENERALES**
 .active{
     font-weight:bolder !important;
+}
+
+//Personalizo componentes del primeNg
+
+//botones
+.p-button{
+    border-radius: 4px;
+    width: 143px;
+    height: 63px;
+
+    font-family: 'Istok Web';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 150%;
+
+    color: #FFFFFF;
+
+    background: linear-gradient(121.1deg, #000000 -200.75%, #E4731C 90.53%) !important;
+
+    &:hover{
+        background: linear-gradient(121.1deg, #000000 -200.75%, #a55314 90.53%)!important;
+    }
+
+
+}
+.p-button-warning{
+    background: linear-gradient(121.1deg, #000000 -200.75%, #E4731C 90.53%) !important;
+    &:hover{
+        background: linear-gradient(121.1deg, #000000 -200.75%, #a55314 90.53%)!important;
+    }
+}
+.p-button-success{
+    background: linear-gradient(115.46deg, #000000 -280.09%, #90FF02 88.28%) !important;
+    &:hover{
+        background: linear-gradient(115.46deg, #000000 -280.09%, #6fc400 88.28%) !important;
+    }
+}
+
+.p-button-danger{
+    background: linear-gradient(115.46deg, #000000 -280.09%, #FF0202 88.28%) !important;
+    &:hover{
+        background: linear-gradient(115.46deg, #000000 -280.09%, #be0000 88.28%) !important;
+    }
+}
+
+.p-button-info{
+    background: linear-gradient(115.46deg, #000000 -280.09%, #0286FF 88.28%) !important;
+    &:hover{
+        background: linear-gradient(115.46deg, #000000 -280.09%, #0067c7 88.28%) !important;
+    }
+}
+
+//inputs
+@mixin input {
+    &:focus {
+        border-color: #e4731c !important;
+        box-shadow: 0px 0px 8px #e4731c !important;
+    }
+
+    &:hover{
+        border-color: #e4731c !important;
+    }
+}
+.p-inputtext{
+    @include input;
 }
 
 .bg-animation{
@@ -18,7 +85,7 @@
     animation: fondoGradient 15s ease infinite;
 }
 
-/*Animaciones generales*/
+/**Animaciones generales**/
 
 
 // Fondo

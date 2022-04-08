@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLinkActive } from '@angular/router';
+
+//PrimeNG ripple
+import { PrimeNGConfig } from 'primeng/api';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,10 +12,12 @@ export class AppComponent implements OnInit{
 
   title = 'Cliente';
   bgAnimado: boolean = false;
-  constructor( private router: Router){}
+  
+  constructor( private router: Router,
+              private PrimeNGConfig: PrimeNGConfig){}
 
   ngOnInit(): void {
-
+    this.PrimeNGConfig.ripple = true;
   }
 
   //Determina el fondo de la página

@@ -12,8 +12,14 @@
 
     <div class="authForm">
         <label>
-            Correo
-            <input type="text" id="correo" placeholder="Escriba su correo...." class="input">
+            <h2>Usuario</h2> 
+
+            <span class="p-input-icon-left">
+                <i><fa-icon [icon]="faUser"></fa-icon></i>
+                <input type="text" pInputText placeholder="Usuario" />
+            </span>
+            
+
         </label>
 
         <label>
@@ -21,7 +27,10 @@
             <input type="text" id="correo" placeholder="Escriba su correo...." class="input">
         </label>
 
-        <button class="boton1">LOGIN</button>
-        
+       
+        <!-- <p-button  label="LOGIN" class="p-button-secondary"></p-button> -->
+        <button pButton  type="button" label="LOGIN" ></button>
+
+
     </div>
 </div>
