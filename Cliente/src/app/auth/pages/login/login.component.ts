@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faUser,faLock } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,8 +10,9 @@ export class LoginComponent implements OnInit {
 
   //Iconos
   faUser = faUser;
-  
-  constructor( ) { }
+  faLock = faLock;
+
+  constructor() { }
 
   ngOnInit(): void {
     

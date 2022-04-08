@@ -6,6 +6,21 @@
     justify-content: center;
     gap:100px;
 }
+//Modifico componentes de primeNG
+:host ::ng-deep{
+    .ng-star-inserted{
+        
+        div{
+            width: 100% !important;
+            position: relative;
+            display: inline-flex;
+            input {
+                width: 100% !important;
+            }
+        }
+    }
+     
+}
 
 .formulario{
     width: 100%;
@@ -60,14 +75,16 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-
+    margin: 20px;
     position: static;
     width: 680px;
     height: 718px;
 
     background: #575757;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
 
+    
     .authHeader{
         // border: solid white 1px;
 
@@ -98,7 +115,12 @@
         padding: 30px;
         display: flex;
         flex-direction: column;
+
         gap: 30px;
+        
+        .login{
+            align-self: center;
+        }
         h2{
             font-family: 'Istok Web';
             font-style: normal;
@@ -108,13 +130,19 @@
             /* identical to box height, or 30px */
 
             color: #E4731C;
+            text-shadow: 0px 0px 5px rgba(27, 6, 6, 0.6);
         }
-        .input{
+        span{
 
-            // @include input;
-            
+            width: 100%;
+ 
           
         }
+        input{
+            width: 100%;
+        }
+
+    
     }
 }
 

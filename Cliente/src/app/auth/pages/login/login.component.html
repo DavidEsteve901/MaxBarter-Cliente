@@ -19,17 +19,24 @@
                 <input type="text" pInputText placeholder="Usuario" />
             </span>
             
-
         </label>
 
         <label>
-            Correo
-            <input type="text" id="correo" placeholder="Escriba su correo...." class="input">
+            <h2>Password</h2> 
+
+            <span class="p-input-icon-left">
+                <i><fa-icon [icon]="faLock"></fa-icon></i>
+                <input type="password" pInputText placeholder="Contraseña" />
+            </span>
+            
+            
+
         </label>
+        
 
        
         <!-- <p-button  label="LOGIN" class="p-button-secondary"></p-button> -->
-        <button pButton  type="button" label="LOGIN" ></button>
+        <button pButton  type="button" label="LOGIN" class="p-button-warning login"></button>
 
 
     </div>
