@@ -1,43 +1,16 @@
-<div class="texto">
+<div class="texto animate__animated animate__fadeInLeft">
     <div class="bienvenida">WELLCOME</div>
-    <div class="texto">to the <span>BEST</span> barter page</div>
+    <div class="texto2">to the <span>BEST</span> barter page</div>
 </div>
 
-<div class="authContainer">
+<div class="authContainer  animate__animated animate__fadeInDown">
     <div class="authHeader">
         <div class="line"></div>
         <div class="text">LOGIN</div>
         <div class="line"></div>
     </div>
 
-    <div class="authForm">
-        <label>
-            <h2>Usuario</h2> 
+    
+    <app-form-login class="authForm"></app-form-login>
 
-            <span class="p-input-icon-left">
-                <i><fa-icon [icon]="faUser"></fa-icon></i>
-                <input type="text" pInputText placeholder="Usuario" />
-            </span>
-            
-        </label>
-
-        <label>
-            <h2>Password</h2> 
-
-            <span class="p-input-icon-left">
-                <i><fa-icon [icon]="faLock"></fa-icon></i>
-                <input type="password" pInputText placeholder="Contraseña" />
-            </span>
-            
-            
-
-        </label>
-        
-
-       
-        <!-- <p-button  label="LOGIN" class="p-button-secondary"></p-button> -->
-        <button pButton  type="button" label="LOGIN" class="p-button-warning login"></button>
-
-
-    </div>
 </div>

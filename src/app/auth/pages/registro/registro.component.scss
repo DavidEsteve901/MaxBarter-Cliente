@@ -1,0 +1,160 @@
+:host {
+    flex: 1 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:100px;
+}
+//Modifico componentes de primeNG
+:host ::ng-deep{
+    // .ng-star-inserted{
+        
+    //     div{
+    //         width: 100% !important;
+    //         position: relative;
+    //         display: inline-flex;
+    //         input {
+    //             width: 100% !important;
+    //         }
+    //     }
+    // }
+     
+}
+
+//Animaciones
+.animate__fadeInRight{
+    animation-duration: 2.5s;
+}
+
+.formulario{
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+
+    background-color: #575757;
+}
+
+
+.texto{
+    width: 688px;
+    // border: solid white 1px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    font-family: 'Istok Web';
+    font-style: normal;
+    margin: 20px;
+
+    .texto2{
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 46px;
+        display: inline;
+        padding-left: 50px;
+        color: #FFFFFF;
+        // border: solid white 1px;
+
+        span{
+            font-weight: bold;
+        }
+    }
+
+    .bienvenida{
+
+        left: 0px;
+        top: 101px;
+
+       
+        font-weight: 700;
+        font-size: 96px;
+        line-height: 138px;
+
+        color: #E4731C;
+
+    }
+   
+}
+
+.authContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    margin: 20px;
+    position: static;
+    width: 680px;
+    min-height: 718px;
+
+    background: #575757;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+
+    
+    .authHeader{
+        // border: solid white 1px;
+
+        height: 100px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        
+        .text{
+            font-family: 'Istok Web';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 48px;
+            line-height: 69px;
+            padding: 20px;
+            color: #FFFFFF;
+        }
+
+        .line{
+            border-bottom: #E4731C solid 1px;
+            width: 100%;
+        }
+
+    }
+
+    .authForm{
+        width: 100%;
+        padding: 30px;
+        padding-top: 0;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 30px;
+
+       
+    
+    }
+}
+
+
+
+//Responsive 
+// `sm` se aplica a dispositivos x-small (teléfonos verticales, menos de 576px)
+@media (max-width: 575.98px) {  }
+
+// `md` se aplica a dispositivos pequeños (teléfonos horizontales, menos de 768px)
+@media (max-width: 767.98px) {  }
+
+// "lg" se aplica a dispositivos medianos (tabletas, menos de 992 px)
+@media (max-width: 991.98px) {  
+    .texto{
+        display: none;
+    }
+
+}
+
+// `xl` se aplica a dispositivos grandes (computadoras de escritorio, menos de 1200 px)
+@media (max-width: 1199.98px) { 
+    .texto{
+        transform: scale(0.5);
+    }
+ }
+
+// `xxl` se aplica a dispositivos de gran tamaño (escritorios grandes, menos de 1400px)
+@media (max-width: 1399.98px) {  }

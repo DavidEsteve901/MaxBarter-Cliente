@@ -5,19 +5,24 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { LoginComponent } from './pages/login/login.component';
 import { SharedModule } from '../shared/shared.module';
-
+import { FormLoginComponent } from './components/form-login/form-login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormRegistroComponent } from './components/form-registro/form-registro.component';
 
 
 
 @NgModule({
   declarations: [
     RegistroComponent,
-    LoginComponent
+    LoginComponent,
+    FormLoginComponent,
+    FormRegistroComponent
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ]
 })
 export class AuthModule { }

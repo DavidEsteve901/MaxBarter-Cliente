@@ -1,0 +1,91 @@
+<form [formGroup]="form" (submit)="guardar()" class="authForm">
+    <div>
+        <label for="usuario">Usuario</label>
+        <span class="p-input-icon-left">
+            <i><fa-icon [icon]="faUser"></fa-icon></i>
+            <input type="text" pInputText id="usuario"  placeholder="Usuario" formControlName="usuario" />
+        </span>
+        <span class="error" *ngIf="campoEsValido('usuario')">
+            Debe escribir un usuario
+        </span>
+
+    </div>
+    
+    <div>
+        <label for="correo">Correo</label>
+        <span class="p-input-icon-left">
+            <i><fa-icon [icon]="faEnvelope"></fa-icon></i>
+            <input type="text" pInputText id="correo"  placeholder="Correo" formControlName="correo" />
+        </span>
+        <span class="error" *ngIf="campoEsValido('correo')">
+            Debe escribir un correo
+        </span>
+
+    </div>
+
+    <div>
+        <label for="nombre">Nombre</label>
+            
+        <input type="text" pInputText  id="nombre" placeholder="Nombre" formControlName="nombre" />
+        
+        <span class="error" *ngIf="campoEsValido('nombre')">
+            Debe escribir su nombre
+        </span>
+
+    </div>
+
+    <div>
+        <label for="apellidos">Apellidos</label>
+        
+            
+        <input type="text" pInputText id="apellidos" placeholder="Apellidos" formControlName="apellidos" />
+        
+        <span class="error" *ngIf="campoEsValido('apellidos')">
+            Debe escribir sus apellidos
+        </span>
+
+    </div>
+
+
+    <div>
+        <label for="password">Password</label>
+        <span class="p-input-icon-left">
+            <!-- <i><fa-icon [icon]="faLock"></fa-icon></i> -->
+    
+            <p-password id="password" placeholder="Contraseña" formControlName="password">
+                <ng-template pTemplate="header">
+                    <h6>Elija una contraseña</h6>
+                </ng-template>
+                <ng-template pTemplate="footer">
+                    <p-divider></p-divider>
+                    <p class="mt-2">Sugerencias</p>
+                    <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+                        <li>Al menos una minuscula</li>
+                        <li>Al menos una mayuscula</li>
+                        <li>Al menos un número</li>
+                        <li>Mínimo 8 caracteres</li>
+                    </ul>
+                </ng-template>
+            </p-password>
+
+            <!-- <input type="password" pInputText id="password" placeholder="Contraseña" formControlName="password" /> -->
+        </span>
+        <span class="error" *ngIf="campoEsValido('password')">
+            Debe escribir su contraseña
+        </span>
+    </div>  
+
+    <div>
+        <label for="confirmPassword">Confirmar password</label>
+        <span class="p-input-icon-left">
+            <i><fa-icon [icon]="faLock"></fa-icon></i>
+            <input type="password" pInputText id="confirmPassword" placeholder="Repetir contraseña" formControlName="confirmPassword" />
+        </span>
+        <span class="error" *ngIf="campoEsValido('confirmPassword')">
+            Las contraseñas deben ser iguales
+        </span>
+    </div>  
+    
+    <button pButton  type="submit" label="Enviar" class="p-button-warning boton"></button>
+    
+</form>

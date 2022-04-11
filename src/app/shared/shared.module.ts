@@ -10,7 +10,7 @@ import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import {PasswordModule} from 'primeng/password';
 import {KeyFilterModule} from 'primeng/keyfilter';
-
+import {DividerModule} from 'primeng/divider';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,8 @@ import {KeyFilterModule} from 'primeng/keyfilter';
     ButtonModule,
     InputTextModule,
     PasswordModule,
-    KeyFilterModule
+    KeyFilterModule,
+    DividerModule
     
   ]
 

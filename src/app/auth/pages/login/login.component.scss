@@ -22,6 +22,11 @@
      
 }
 
+//Animaciones
+.animate__fadeInLeft{
+    animation-duration: 2.5s;
+}
+
 .formulario{
     width: 100%;
     max-width: 600px;
@@ -40,7 +45,9 @@
 
     font-family: 'Istok Web';
     font-style: normal;
-    .texto{
+    margin: 20px;
+
+    .texto2{
         font-weight: 400;
         font-size: 32px;
         line-height: 46px;
@@ -78,7 +85,7 @@
     margin: 20px;
     position: static;
     width: 680px;
-    height: 718px;
+    min-height: 718px;
 
     background: #575757;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
@@ -117,32 +124,34 @@
         flex-direction: column;
 
         gap: 30px;
-        
-        .login{
-            align-self: center;
-        }
-        h2{
-            font-family: 'Istok Web';
-            font-style: normal;
-            font-weight:800;
-            font-size: 20px;
-            line-height: 150%;
-            /* identical to box height, or 30px */
-
-            color: #E4731C;
-            text-shadow: 0px 0px 5px rgba(27, 6, 6, 0.6);
-        }
-        span{
-
-            width: 100%;
- 
-          
-        }
-        input{
-            width: 100%;
-        }
-
+       
     
     }
 }
 
+
+
+//Responsive 
+// `sm` se aplica a dispositivos x-small (teléfonos verticales, menos de 576px)
+@media (max-width: 575.98px) {  }
+
+// `md` se aplica a dispositivos pequeños (teléfonos horizontales, menos de 768px)
+@media (max-width: 767.98px) {  }
+
+// "lg" se aplica a dispositivos medianos (tabletas, menos de 992 px)
+@media (max-width: 991.98px) {  
+    .texto{
+        display: none;
+    }
+
+}
+
+// `xl` se aplica a dispositivos grandes (computadoras de escritorio, menos de 1200 px)
+@media (max-width: 1199.98px) { 
+    .texto{
+        transform: scale(0.5);
+    }
+ }
+
+// `xxl` se aplica a dispositivos de gran tamaño (escritorios grandes, menos de 1400px)
+@media (max-width: 1399.98px) {  }
