@@ -1,11 +1,11 @@
 <form [formGroup]="form" (submit)="guardar()" class="authForm">
     <div>
-        <label for="usuario">Usuario</label>
+        <label for="userName">Usuario</label>
         <span class="p-input-icon-left">
             <i><fa-icon [icon]="faUser"></fa-icon></i>
-            <input type="text" pInputText id="usuario"  placeholder="Usuario" formControlName="usuario" />
+            <input type="text" pInputText id="userName"  placeholder="Usuario" formControlName="userName" />
         </span>
-        <span class="error" *ngIf="campoEsValido('usuario')">
+        <span class="error" *ngIf="campoEsValido('userName')">
             Debe escribir un usuario
         </span>
 
@@ -86,6 +86,12 @@
         </span>
     </div>  
     
-    <button pButton  type="submit" label="Enviar" class="p-button-warning boton"></button>
+    <div class="formButton">
+        <button pButton  type="submit" label="Enviar" class="p-button-warning"></button>
+        <span class="error" *ngIf="error">
+            {{error.message}}
+        </span>
+    </div>
+    
     
 </form>

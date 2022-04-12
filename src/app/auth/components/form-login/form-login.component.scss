@@ -9,6 +9,12 @@
     .boton{
         align-self: center;
     }
+    .formButton{
+        align-self: center;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
     label{
         font-family: 'Istok Web';
         font-style: normal;

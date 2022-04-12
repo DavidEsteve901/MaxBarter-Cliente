@@ -8,6 +8,8 @@ import { SharedModule } from '../shared/shared.module';
 import { FormLoginComponent } from './components/form-login/form-login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormRegistroComponent } from './components/form-registro/form-registro.component';
+import { AuthService } from './services/auth.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -22,7 +24,11 @@ import { FormRegistroComponent } from './components/form-registro/form-registro.
     CommonModule,
     AuthRoutingModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
+  providers:[
+    AuthService
   ]
 })
 export class AuthModule { }
