@@ -11,7 +11,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {PasswordModule} from 'primeng/password';
 import {KeyFilterModule} from 'primeng/keyfilter';
 import {DividerModule} from 'primeng/divider';
-
+import { AuthService } from '../auth/services/auth.service';
 @NgModule({
   declarations: [
     NavBarComponent,
@@ -33,6 +33,9 @@ import {DividerModule} from 'primeng/divider';
     KeyFilterModule,
     DividerModule
     
+  ],
+  providers: [
+    AuthService
   ]
 
 })

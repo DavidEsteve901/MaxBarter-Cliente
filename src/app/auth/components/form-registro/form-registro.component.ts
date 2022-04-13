@@ -66,7 +66,7 @@ export class FormRegistroComponent implements OnInit {
         
         this.error = null;
         //Guardamos el TOKEN que recibimos en el localStorage
-        localStorage.setItem('token', resp.token) 
+        // localStorage.setItem('token', resp.token) 
 
         //Redirigimos a login porque se ha registrado
         this.router.navigate(['/auth/login'])

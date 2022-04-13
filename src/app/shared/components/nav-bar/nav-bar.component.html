@@ -8,8 +8,15 @@
     
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" routerLink="/auth/login" routerLinkActive="active" #auth="routerLinkActive">Login</a>
-        <a class="nav-link" routerLink="/auth/registro" routerLinkActive="active" #auth="routerLinkActive">Registro</a>
+        <ng-container *ngIf="!isLogin()">
+          <a class="nav-link" routerLink="/auth/login" routerLinkActive="active" #auth="routerLinkActive">Login</a>
+          <a class="nav-link" routerLink="/auth/registro" routerLinkActive="active" #auth="routerLinkActive">Registro</a>
+        </ng-container>
+
+        <ng-container *ngIf="isLogin()">
+          <a class="nav-link" (click)="logout()">Logout</a>
+        </ng-container>
+        
       </div>
     </div>
   
