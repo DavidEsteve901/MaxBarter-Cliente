@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light ">
+<nav class="navbar navbar-expand-lg navbar-light " [ngClass]="checkColor()">
   <div class="container-fluid">
     <a class="navbar-brand" href=""><img src="/assets/imagenes/Logo Blanco.png" alt="Imagen Logo"></a>
 
@@ -14,6 +14,8 @@
         </ng-container>
 
         <ng-container *ngIf="isLogin()">
+          <a class="nav-link" routerLink="/ofertas/home" routerLinkActive="active" >Inicio</a>
+          <a class="nav-link" routerLink="/ofertas/ofertas" routerLinkActive="active" >Ofertas</a>
           <a class="nav-link" (click)="logout()">Logout</a>
         </ng-container>
         

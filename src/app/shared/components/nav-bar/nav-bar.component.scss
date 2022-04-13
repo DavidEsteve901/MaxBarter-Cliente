@@ -1,5 +1,4 @@
 .navbar{
-    background: rgba(0, 0, 0,0.35) !important;
     
     .container-fluid{
         display: flex ;
@@ -34,4 +33,12 @@
     // border: solid white 1px;
        
 
+}
+
+.color-auth{
+    background: rgba(0, 0, 0,0) !important;
+}
+
+.color{
+    background: rgba(0, 0, 0) !important;
 }

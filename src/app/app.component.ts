@@ -27,7 +27,7 @@ export class AppComponent implements OnInit{
     if(this.bgAnimado){
       return "bg-animation"
     }else{
-      return ""
+      return "bg-static"
     }
   }
   

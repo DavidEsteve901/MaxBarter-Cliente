@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 
 import { faUser,faLock } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '../../services/auth.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-form-login',
   templateUrl: './form-login.component.html',
@@ -20,8 +20,10 @@ export class FormLoginComponent implements OnInit {
 
   // public formLogin!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder,
-              private authService: AuthService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router) { }
 
   formLogin = this.formBuilder.group({
     userName: ['',[Validators.required]],
@@ -46,6 +48,8 @@ export class FormLoginComponent implements OnInit {
         this.error = null;
         //Guardamos el TOKEN que recibimos en el localStorage
         localStorage.setItem('token', resp.token) 
+
+        this.router.navigate(['/ofertas/home'])
         
       },
       (err: any) =>{
