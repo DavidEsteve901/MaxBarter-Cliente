@@ -1,1 +1,32 @@
-<p>producto-view works!</p>
+<div class="cuerpo">
+    <div class="info">
+        <div class="perfil">
+            <p-avatar icon="pi pi-user" styleClass="mr-2" size="xlarge" shape="circle" ></p-avatar>
+            <span>David Esteve Vicente</span>
+        </div>
+
+        <div class="tipo">
+            Tipo: <span>Cosas</span>
+        </div>
+
+        <div class="titulo">
+            Caja
+        </div>
+
+        <p-scrollPanel  [style]="{width: '100%', height: '100px'}">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia fugiat, odit ipsum quae aliquam eligendi facilis illo molestias ex expedita quasi quod quam illum ipsa repellendus eaque hic dignissimos ab.
+            Aliquam aut veritatis, nulla quidem asperiores sed natus ad et laboriosam voluptas repudiandae aspernatur perferendis cupiditate maxime totam maiores repellat possimus recusandae. Voluptates inventore nobis voluptate voluptatem, beatae excepturi tenetur.
+            Sed cum obcaecati corporis distinctio iure nulla ipsam consectetur, perspiciatis amet sequi deserunt fugit a et maxime corrupti quibusdam, atque molestias earum ipsa consequatur beatae odio! Sapiente fuga eos veniam!
+            
+            <p-scrollTop target="parent" styleClass="custom-scrolltop" [threshold]="150" icon="pi pi-arrow-up"></p-scrollTop>
+        </p-scrollPanel>
+    </div>
+
+    <div class="imagen">
+        <img src="https://www.empack.mx/wp-content/uploads/2018/04/RM-01-1-scaled-500x312.jpg" alt="Imagen Producto" class="img-prod">
+    </div>
+
+    <div class="botones">
+        <button pButton  type="submit" label="Hacer oferta" class="p-button-success boton"></button>
+    </div>
+</div>

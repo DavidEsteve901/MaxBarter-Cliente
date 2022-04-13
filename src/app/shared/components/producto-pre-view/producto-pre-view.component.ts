@@ -9,7 +9,12 @@ export class ProductoPreViewComponent implements OnInit {
 
   constructor() { }
 
+  displayResponsive: boolean = false;
+
   ngOnInit(): void {
   }
 
+  showMaximizableDialog() {
+    this.displayResponsive = true;
+  }
 }

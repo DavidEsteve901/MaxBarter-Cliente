@@ -14,19 +14,27 @@ import {DividerModule} from 'primeng/divider';
 import { AuthService } from '../auth/services/auth.service';
 import { ProductoPreViewComponent } from './components/producto-pre-view/producto-pre-view.component';
 import { ProductoViewComponent } from './components/producto-view/producto-view.component';
-
+import {AvatarModule} from 'primeng/avatar';
+import {DialogModule} from 'primeng/dialog';
+import {ScrollPanelModule} from 'primeng/scrollpanel';
+import {ScrollTopModule} from 'primeng/scrolltop';
 @NgModule({
   declarations: [
     NavBarComponent,
     FooterComponent,
     ProductoPreViewComponent,
     ProductoViewComponent,
-    
   ],
   imports: [
     CommonModule,
     FontAwesomeModule,
     RouterModule,
+    AvatarModule,
+    DialogModule,
+    ButtonModule,
+    ScrollPanelModule,
+    ScrollTopModule
+
   ],
   exports: [
     NavBarComponent,
@@ -39,7 +47,12 @@ import { ProductoViewComponent } from './components/producto-view/producto-view.
     InputTextModule,
     PasswordModule,
     KeyFilterModule,
-    DividerModule
+    DividerModule,
+    AvatarModule,
+    DialogModule,
+    ScrollPanelModule,
+    ScrollTopModule
+
     
   ],
   providers: [

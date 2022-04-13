@@ -1,4 +1,31 @@
-:host{
+:host ::ng-deep{
+
+    //MEDIA QUERY PARA EL MODAL DEL PRODUCTO
+
+    // "lg" se aplica a dispositivos medianos (tabletas, menos de 992 px)
+    @media (max-width: 991.98px) {  
+        
+        .p-dialog{
+            transform: scale(0.8);
+        }
+        .p-dialog-titlebar{
+            transform: scale(0.8);
+        }
+    }
+
+    // `md` se aplica a dispositivos pequeños (teléfonos horizontales, menos de 768px)
+    @media (max-width: 767.98px)  { 
+        .p-dialog{
+            transform: scale(0.6);
+        }
+        .p-dialog-titlebar{
+            transform: scale(0.6);
+        }
+    }
+
+}
+
+.cuerpo{
     position: relative;
     width: 250px;
     height: 400px;
@@ -15,14 +42,12 @@
             transition: transform 1s;
         }
 
+        cursor: pointer;
         background: rgb(228, 115, 28,0.1);
         transition: background 0.5s;
         
     }
-
 }
-
-
 .img{
     position: absolute;
     left: -2.64%;
@@ -136,23 +161,30 @@
 }
 
 
-//Responsive 
-// `sm` se aplica a dispositivos x-small (teléfonos verticales, menos de 576px)
-@media (max-width: 575.98px) {  }
 
-// `md` se aplica a dispositivos pequeños (teléfonos horizontales, menos de 768px)
-@media (max-width: 767.98px) {  }
+//Responsive 
+// `xxl` se aplica a dispositivos de gran tamaño (escritorios grandes, menos de 1400px)
+@media (max-width: 1399.98px) {  }
+
+
+// `xl` se aplica a dispositivos grandes (computadoras de escritorio, menos de 1200 px)
+@media (max-width: 1199.98px) { 
+}
 
 // "lg" se aplica a dispositivos medianos (tabletas, menos de 992 px)
 @media (max-width: 991.98px) {  
-    :host{
+
+    .cuerpo{
         transform: scale(0.7);
     }
 }
 
-// `xl` se aplica a dispositivos grandes (computadoras de escritorio, menos de 1200 px)
-@media (max-width: 1199.98px) { 
- }
+// `md` se aplica a dispositivos pequeños (teléfonos horizontales, menos de 768px)
+@media (max-width: 767.98px)  { 
 
-// `xxl` se aplica a dispositivos de gran tamaño (escritorios grandes, menos de 1400px)
-@media (max-width: 1399.98px) {  }
+}
+
+// `sm` se aplica a dispositivos x-small (teléfonos verticales, menos de 576px)
+@media (max-width: 575.98px) {
+
+}
