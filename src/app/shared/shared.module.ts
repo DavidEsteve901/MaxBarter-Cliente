@@ -18,12 +18,14 @@ import {AvatarModule} from 'primeng/avatar';
 import {DialogModule} from 'primeng/dialog';
 import {ScrollPanelModule} from 'primeng/scrollpanel';
 import {ScrollTopModule} from 'primeng/scrolltop';
+import { PerfilViewComponent } from './components/perfil-view/perfil-view.component';
 @NgModule({
   declarations: [
     NavBarComponent,
     FooterComponent,
     ProductoPreViewComponent,
     ProductoViewComponent,
+    PerfilViewComponent,
   ],
   imports: [
     CommonModule,

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light " [ngClass]="checkColor()">
   <div class="container-fluid">
-    <a class="navbar-brand" href=""><img src="/assets/imagenes/Logo Blanco.png" alt="Imagen Logo"></a>
+    <a class="navbar-brand" ><img src="/assets/imagenes/Logo Blanco.png" alt="Imagen Logo"></a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <fa-icon [icon]="faBars"></fa-icon>
@@ -17,6 +17,12 @@
           <a class="nav-link" routerLink="/ofertas/home" routerLinkActive="active" >Inicio</a>
           <a class="nav-link" routerLink="/ofertas/ofertas" routerLinkActive="active" >Ofertas</a>
           <a class="nav-link" (click)="logout()">Logout</a>
+
+          <div class="perfil">
+            <p-avatar icon="pi pi-user" styleClass="mr-2" size="xlarge" shape="circle" ></p-avatar>
+            <div class="userName">David</div>
+          </div>
+          
         </ng-container>
         
       </div>

@@ -1,6 +1,6 @@
 <div class="cuerpo">
     <div class="info">
-        <div class="perfil">
+        <div class="perfil" (click)="showMaximizableDialog()" >
             <p-avatar icon="pi pi-user" styleClass="mr-2" size="xlarge" shape="circle" ></p-avatar>
             <span>David Esteve Vicente</span>
         </div>
@@ -30,3 +30,11 @@
         <button pButton  type="submit" label="Hacer oferta" class="p-button-success boton"></button>
     </div>
 </div>
+
+
+<p-dialog  [(visible)]="displayResponsive" [modal]="true" [style]="{width: 'auto'}" [maximizable]="false"
+    [draggable]="false" [resizable]="true" 
+    >
+   <app-perfil-view></app-perfil-view>
+   
+</p-dialog>

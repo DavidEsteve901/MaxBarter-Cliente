@@ -23,6 +23,21 @@
         }
     }
 
+
+    //Dialog
+    .p-dialog-content{
+        padding: 0 !important;
+
+        padding-right: 30px !important;
+
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+
+    }
+
+    .p-dialog-header{
+        padding: 5px !important;
+    }
 }
 
 .cuerpo{
