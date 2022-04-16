@@ -50,16 +50,17 @@
     border-radius: 10px;
 
     overflow: hidden;
-
+    transition: background 0.5s;
+    
     &:hover{
         .img-prod{
             transform: scale(1.2);
-            transition: transform 1s;
+            
         }
 
         cursor: pointer;
         background: rgb(228, 115, 28,0.1);
-        transition: background 0.5s;
+
         
     }
 }
@@ -74,8 +75,9 @@
     height: 200px;
 
     border-bottom: solid 1px #E4731C;
+    
     .img-prod{
-        
+        transition: transform 0.8s;
         width: 265px;
         height: 200px;
     }

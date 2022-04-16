@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { Router } from '@angular/router';
+import { RegistroComponent } from '../../../auth/pages/registro/registro.component';
+
+
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -11,13 +14,22 @@ export class NavBarComponent implements OnInit {
 
   faBars = faBars;
   color: boolean = false;
+  user:any = null;
+    
 
   constructor(
     private authService:AuthService,
-    private router:Router
+    private router:Router,
   ) { }
 
   ngOnInit(): void {
+    console.log("usuarioo",this.user);
+    
+    this.authService.getCurrentUser$().subscribe( (user) =>{
+      this.user = user;
+      console.log("USuario",user)
+    })
+    
   }
 
   isLogin(){
@@ -37,5 +49,9 @@ export class NavBarComponent implements OnInit {
     }else{
       return "color"
     }
+  }
+
+  currentUser(){
+    console.log("Usuario",this.user)
   }
 }

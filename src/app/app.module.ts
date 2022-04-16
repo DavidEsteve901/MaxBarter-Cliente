@@ -8,6 +8,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './auth/services/token-interceptor.service';
+import { AuthService } from 'src/app/auth/services/auth.service';
 @NgModule({
   declarations: [
     AppComponent
@@ -20,6 +21,10 @@ import { TokenInterceptorService } from './auth/services/token-interceptor.servi
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  bootstrap: [AppComponent]
+  providers:[
+    AuthService
+  ],
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

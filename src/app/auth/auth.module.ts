@@ -14,6 +14,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 
 
+
 @NgModule({
   declarations: [
     RegistroComponent,

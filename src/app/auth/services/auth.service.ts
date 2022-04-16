@@ -1,16 +1,35 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter, Output} from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http'
 import { Router } from '@angular/router';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
+
+
+
 @Injectable()
 export class AuthService {
 
   private URL = environment.baseUrl;
 
+
+  private currentUser$ = new BehaviorSubject<any>({userName:"HOLA"});
+
+  
+
   constructor(
     private http: HttpClient,
-    private router:Router
+    private router:Router,
     ) { }
+
+
+  setCurrentUser(currentUser: any):void{
+    console.log("SET",currentUser)
+    this.currentUser$.next(currentUser)
+  }
+
+  getCurrentUser$(): Observable<any>{
+    return this.currentUser$.asObservable();
+  }
 
   registrarse(user: any)  {
     return this.http.post(this.URL + 'auth/registro' , user);
@@ -35,4 +54,15 @@ export class AuthService {
 
     this.router.navigate(['/auth/login'])
   }
+
+  setUser(){
+    this.http.post(this.URL + 'auth/currentUser', {token: localStorage.getItem('token')}).subscribe(
+      (resp:any) =>{
+        this.setCurrentUser(resp)
+        // console.log(resp)
+      }
+    )
+  }
+
+
 }

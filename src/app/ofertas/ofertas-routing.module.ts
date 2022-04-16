@@ -10,6 +10,7 @@ const routes: Routes = [
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'ofertas', component: OfertasComponent, canActivate: [AuthGuard]},
+      { path: 'perfil', component: OfertasComponent},
       { path: '**', redirectTo: 'home' },
     ]
   }

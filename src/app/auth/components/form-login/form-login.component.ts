@@ -4,6 +4,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { faUser,faLock } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { EventEmitter } from '@angular/core';
+
 @Component({
   selector: 'app-form-login',
   templateUrl: './form-login.component.html',
@@ -48,6 +50,10 @@ export class FormLoginComponent implements OnInit {
         this.error = null;
         //Guardamos el TOKEN que recibimos en el localStorage
         localStorage.setItem('token', resp.token) 
+
+        //Método para actualizar usuario que tiene sesión iniciada
+        // this.authService.setUser(); 
+        this.authService.setUser();
 
         this.router.navigate(['/ofertas/home'])
         
