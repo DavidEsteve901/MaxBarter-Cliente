@@ -89,6 +89,19 @@
     background: linear-gradient(1.06deg, #E4E4E4 24.23%, rgb(255, 111, 0) 182.16%);
 }
 
+
+//POSICIONAR SPINNER
+
+.overlay{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0,0.5);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 /**Animaciones generales**/
 
 

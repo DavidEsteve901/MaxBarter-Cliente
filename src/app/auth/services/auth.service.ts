@@ -12,16 +12,13 @@ export class AuthService {
   private URL = environment.baseUrl;
 
 
-  private currentUser$ = new BehaviorSubject<any>({userName:"HOLA"});
-
-  
-
   constructor(
     private http: HttpClient,
     private router:Router,
-    ) { }
+  ) { }
 
-
+  private currentUser$ = new BehaviorSubject<any>({userName:"HOLA"});
+  
   setCurrentUser(currentUser: any):void{
     console.log("SET",currentUser)
     this.currentUser$.next(currentUser)
@@ -31,6 +28,9 @@ export class AuthService {
     return this.currentUser$.asObservable();
   }
 
+  getHola(){
+    console.log("HOLAAA")
+  }
   registrarse(user: any)  {
     return this.http.post(this.URL + 'auth/registro' , user);
   }

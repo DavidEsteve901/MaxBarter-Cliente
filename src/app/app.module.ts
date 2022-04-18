@@ -10,6 +10,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './auth/services/token-interceptor.service';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { GeneralService } from './ofertas/services/general.service';
+import { SpinnerService } from './shared/services/spinner.service';
+import { SpinnerInterceptor } from './shared/interceptors/spinner.interceptor';
 @NgModule({
   declarations: [
     AppComponent
@@ -20,11 +22,18 @@ import { GeneralService } from './ofertas/services/general.service';
     SharedModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers:[
     AuthService,
-    GeneralService
+    GeneralService,
+    SpinnerService,
+
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: SpinnerInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent],
   

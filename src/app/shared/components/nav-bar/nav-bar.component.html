@@ -18,7 +18,7 @@
           <a class="nav-link" routerLink="/ofertas/ofertas" routerLinkActive="active" >Ofertas</a>
           <a class="nav-link" (click)="logout()">Logout</a>
 
-          <div class="perfil">
+          <div class="perfil" routerLink="/ofertas/perfil">
             <p-avatar icon="pi pi-user" styleClass="mr-2" size="xlarge" shape="circle" ></p-avatar>
             <div class="userName">{{user.userName}}</div>
           </div>

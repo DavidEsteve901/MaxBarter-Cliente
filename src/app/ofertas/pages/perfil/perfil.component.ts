@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GeneralService } from '../../services/general.service';
+import { Usuario } from '../../../interfaces/interfaces';
 
 @Component({
   selector: 'app-perfil',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilComponent implements OnInit {
 
-  constructor() { }
+  usuario!:Usuario;
+  constructor(
+    private generalService:GeneralService
+  ) { }
 
   ngOnInit(): void {
+    this.generalService.getUserById("david").subscribe(
+      (resp:any) =>{
+        this.usuario = resp.data;
+      }
+    )
   }
 
 }

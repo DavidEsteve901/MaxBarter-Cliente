@@ -19,6 +19,8 @@ import {DialogModule} from 'primeng/dialog';
 import {ScrollPanelModule} from 'primeng/scrollpanel';
 import {ScrollTopModule} from 'primeng/scrolltop';
 import { PerfilViewComponent } from './components/perfil-view/perfil-view.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { SpinnerService } from './services/spinner.service';
 @NgModule({
   declarations: [
     NavBarComponent,
@@ -26,6 +28,7 @@ import { PerfilViewComponent } from './components/perfil-view/perfil-view.compon
     ProductoPreViewComponent,
     ProductoViewComponent,
     PerfilViewComponent,
+    SpinnerComponent,
   ],
   imports: [
     CommonModule,
@@ -43,7 +46,9 @@ import { PerfilViewComponent } from './components/perfil-view/perfil-view.compon
     FooterComponent,
     ProductoPreViewComponent,
     ProductoViewComponent,
+    PerfilViewComponent,
     FontAwesomeModule,
+    SpinnerComponent,
     //PrimeNG
     ButtonModule,
     InputTextModule,
@@ -58,7 +63,8 @@ import { PerfilViewComponent } from './components/perfil-view/perfil-view.compon
     
   ],
   providers: [
-    AuthService
+    AuthService,
+    SpinnerService
   ]
 
 })
