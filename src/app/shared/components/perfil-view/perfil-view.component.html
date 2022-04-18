@@ -1,9 +1,10 @@
+
 <div class="contenido">
     <div class="header">
         <div class="linea1"></div>
         <div class="perfil">
             <p-avatar icon="pi pi-user" styleClass="mr-2" size="xlarge" shape="circle" ></p-avatar>
-            <div class="nombre">David Esteve Vicente</div>
+            <div class="nombre">{{usuario.nombre }} {{usuario.apellidos}}</div>
         </div>
         <div class="linea2"></div>
 
@@ -11,17 +12,17 @@
 
     <div class="datos">
         <div>
-            <div><span>Nombre:</span> <div>David</div></div>
-            <div><span>Apellidos:</span> <div>Esteve Vicente</div></div>
+            <div><span>Nombre:</span> <div>{{usuario.nombre}}</div></div>
+            <div><span>Apellidos:</span> <div>{{usuario.apellidos}}</div></div>
         </div>
 
         <div>
-            <div><span>Correo:</span> <div>davidestevevicente9@gmail.com</div></div>
-            <div><span>Telf.</span> <div>18784644</div></div>
+            <div><span>Correo:</span> <div>{{usuario.correo}}</div></div>
+            <div><span>Telf.</span> <div>{{usuario.telefono}}</div></div>
         </div>
 
         <div>
-            <div><span>Comunidad autónoma:</span> <div>Valencia</div></div>
+            <div><span>Comunidad autónoma:</span> <div>{{usuario.comunidadAutonoma.nombre}}</div></div>
         </div>
 
         <div>

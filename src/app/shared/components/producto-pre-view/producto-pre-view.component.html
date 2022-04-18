@@ -7,21 +7,20 @@
     
     <div class="perfil">
         <p-avatar icon="pi pi-user" styleClass="mr-2" size="large" shape="circle" ></p-avatar>
-        <span>David Esteve</span>
+        <span>{{producto.propietario.nombre}} {{producto.propietario.apellidos}}</span>
     </div>
     
     <div class="datos">
         <div class="titulo">
-            Caja
+            {{producto.titulo}}
         </div>
     
         <div class="tipo">
-            Cosas
+            {{producto.tipo}}
         </div>
     
         <div class="descripcion">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic sint placeat laudantium deleniti dolore autem vitae, cupiditate unde harum quo velit quas, enim distinctio, voluptatem libero? Incidunt voluptatem cupiditate at.
-            Similique iure dolores corporis quo nemo quis harum voluptate assumenda, at vitae alias qui, adipisci soluta quisquam excepturi vel quas quasi architecto ex animi reprehenderit minus quibusdam? Laudantium, earum eos!
+            {{producto.descripcion}}
         </div>
     </div>
 </div>
@@ -32,6 +31,6 @@
 <p-dialog  [(visible)]="displayResponsive" [modal]="true" [style]="{width: 'auto'}" [maximizable]="false"
     [draggable]="false" [resizable]="true" 
     >
-   <app-producto-view></app-producto-view>
+   <app-producto-view [producto]="producto"></app-producto-view>
    
 </p-dialog>

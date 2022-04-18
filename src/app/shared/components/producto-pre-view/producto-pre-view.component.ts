@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Producto } from '../../../interfaces/interfaces';
 
 @Component({
   selector: 'app-producto-pre-view',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./producto-pre-view.component.scss']
 })
 export class ProductoPreViewComponent implements OnInit {
+
+  @Input() producto!:Producto ;
 
   constructor() { }
 

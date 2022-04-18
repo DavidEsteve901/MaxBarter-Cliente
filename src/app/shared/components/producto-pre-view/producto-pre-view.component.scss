@@ -87,8 +87,8 @@
 
 .perfil{
     position: absolute;
-    left: 21.51%;
-    right: 18.49%;
+    left: 0%;
+    right: 0%;
     top: 42.86%;
     bottom: 32.08%;
     display: flex;
@@ -117,7 +117,9 @@
         // bottom: 20.63%;
         // width: 100%;
         font-weight: 700;
-        font-size: 16px;
+        font-size: 13px;
+        width: 100%;
+        text-align: center;
         
     }
 }

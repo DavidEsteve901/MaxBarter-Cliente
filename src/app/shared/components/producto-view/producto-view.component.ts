@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Producto } from '../../../interfaces/interfaces';
 
 @Component({
   selector: 'app-producto-view',
@@ -7,11 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductoViewComponent implements OnInit {
 
+  @Input() producto!:Producto ;
+
   constructor() { }
 
   displayResponsive: boolean = false;
 
   ngOnInit(): void {
+    
   }
 
   showMaximizableDialog() {

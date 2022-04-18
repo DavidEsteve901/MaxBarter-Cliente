@@ -7,6 +7,7 @@ import { OfertasComponent } from './pages/ofertas/ofertas.component';
 import { SharedModule } from '../shared/shared.module';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { AuthService } from '../auth/services/auth.service';
+import { GeneralService } from './services/general.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AuthService } from '../auth/services/auth.service';
     SharedModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    GeneralService
   ]
 })
 export class OfertasModule { }

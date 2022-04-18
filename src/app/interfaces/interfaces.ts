@@ -4,9 +4,11 @@ export interface Usuario{
     nombre:string,
     apellidos:string,
     correo:string,
+    telefono:string,
     imgPerfil:string,
     coords:any,
     roles:any,
+    comunidadAutonoma:ComunidadAutonoma,
     productos:Producto[]
 }
 
@@ -15,7 +17,8 @@ export interface Producto{
     titulo:string,
     descripcion:string,
     match:boolean
-    tipo:Tipo
+    tipo:Tipo,
+    propietario:Usuario
 }
 
 export interface Tipo{

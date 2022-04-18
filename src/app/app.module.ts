@@ -9,6 +9,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './auth/services/token-interceptor.service';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { GeneralService } from './ofertas/services/general.service';
 @NgModule({
   declarations: [
     AppComponent
@@ -22,7 +23,8 @@ import { AuthService } from 'src/app/auth/services/auth.service';
     HttpClientModule
   ],
   providers:[
-    AuthService
+    AuthService,
+    GeneralService
   ],
   bootstrap: [AppComponent],
   
