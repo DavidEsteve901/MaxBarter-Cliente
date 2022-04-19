@@ -102,6 +102,32 @@
     align-items: center;
     justify-content: center;
 }
+
+//Posición botón Up
+.buttonUp{
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 10;
+    background-color: #e4731c;
+    box-shadow: 0 0 2px #757575;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    font-size: 1.5rem;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.3s ease-in-out;
+    &:hover{
+        background-color: #aa5514;
+        
+    }
+}
+
 /**Animaciones generales**/
 
 

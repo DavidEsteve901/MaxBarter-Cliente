@@ -1,5 +1,9 @@
 
 
-<app-producto-pre-view *ngFor="let producto of productos" [producto]="producto">
+<div class="productos" infiniteScroll (scrolled)="onScrollDown()">
+    <app-producto-pre-view *ngFor="let producto of productos" [producto]="producto">
     
-</app-producto-pre-view>
+    </app-producto-pre-view>
+</div>
+
+<div class="buttonUp" *ngIf="showButton" (click)="onScrollTop()"><fa-icon [icon]="faArrowUp"></fa-icon></div>

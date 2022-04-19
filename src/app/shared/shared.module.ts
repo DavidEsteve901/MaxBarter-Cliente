@@ -21,6 +21,7 @@ import {ScrollTopModule} from 'primeng/scrolltop';
 import { PerfilViewComponent } from './components/perfil-view/perfil-view.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { SpinnerService } from './services/spinner.service';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 @NgModule({
   declarations: [
     NavBarComponent,
@@ -58,7 +59,10 @@ import { SpinnerService } from './services/spinner.service';
     AvatarModule,
     DialogModule,
     ScrollPanelModule,
-    ScrollTopModule
+    ScrollTopModule,
+
+    //Infinite scroll
+    InfiniteScrollModule
 
     
   ],

@@ -7,20 +7,20 @@
     
     <div class="perfil">
         <p-avatar icon="pi pi-user" styleClass="mr-2" size="large" shape="circle" ></p-avatar>
-        <span>{{producto.propietario.nombre}} {{producto.propietario.apellidos}}</span>
+        <span>{{producto?.propietario?.nombre}} {{producto?.propietario?.apellidos}}</span>
     </div>
     
     <div class="datos">
         <div class="titulo">
-            {{producto.titulo}}
+            {{producto?.titulo}}
         </div>
     
         <div class="tipo">
-            {{producto.tipo}}
+            {{producto?.tipo}}
         </div>
     
         <div class="descripcion">
-            {{producto.descripcion}}
+            {{producto?.descripcion}}
         </div>
     </div>
 </div>
