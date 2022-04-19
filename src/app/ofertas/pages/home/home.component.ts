@@ -84,7 +84,7 @@ export class HomeComponent implements OnInit {
       (resp:any)=>{
       
         this.productos = this.productos.concat(resp.data.data);
-
+        // console.log(resp.data)
       },
       (error:any) =>{
         console.log(error)
@@ -93,13 +93,14 @@ export class HomeComponent implements OnInit {
   }
 
   doFilter(){
-    console.log('input');
-
+    
     //Reinicio parametros
-    this.productos = [];
+    this.productos.splice(0,this.productos.length);
 
     this.pageNum = 0;
 
     this.onScrollDown(this.filter)
+    
+    
   }
 }
