@@ -2,7 +2,7 @@ import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { GeneralService } from '../../services/general.service';
 import { Producto } from '../../../interfaces/interfaces';
-import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp,faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
 
   //Iconos
   faArrowUp = faArrowUp;
-
+  lupa = faMagnifyingGlass
 
   productos:Producto[] = [];
 
@@ -24,7 +24,15 @@ export class HomeComponent implements OnInit {
   private pageNum = 0;
 
   //Pixeles para que salga el botón de subir scroll
-  private scrollHeight = 500;
+  private scrollHeight = 300;
+
+
+  filter:any ={
+    titulo: '',
+    tipo: '',
+    comunidadAutonoma: '',
+  }
+  
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -42,7 +50,9 @@ export class HomeComponent implements OnInit {
     //   },
     // )
 
-    this.onScrollDown();
+
+
+    this.onScrollDown(this.filter);
     
   }
 
@@ -58,16 +68,38 @@ export class HomeComponent implements OnInit {
     this.document.documentElement.scrollTop = 0;
   }
 
-  onScrollDown(){
+  onScrollDown(opciones:any){
     // console.log("Down");
     this.pageNum++;
 
-    this.generalService.getProductsByPage(this.pageNum).subscribe(
+    this.generalService.getProductsByPage({
+      page: this.pageNum,
+      q: {
+        titulo: opciones.titulo,
+        tipo: opciones.tipo,
+        comunidadAutonoma: opciones.comunidadAutonoma
+      }
+    
+    }).subscribe(
       (resp:any)=>{
       
         this.productos = this.productos.concat(resp.data.data);
 
+      },
+      (error:any) =>{
+        console.log(error)
       }
     )
+  }
+
+  doFilter(){
+    console.log('input');
+
+    //Reinicio parametros
+    this.productos = [];
+
+    this.pageNum = 0;
+
+    this.onScrollDown(this.filter)
   }
 }

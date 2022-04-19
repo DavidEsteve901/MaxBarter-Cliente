@@ -22,6 +22,7 @@ import { PerfilViewComponent } from './components/perfil-view/perfil-view.compon
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { SpinnerService } from './services/spinner.service';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     NavBarComponent,
@@ -50,6 +51,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     PerfilViewComponent,
     FontAwesomeModule,
     SpinnerComponent,
+    FormsModule,
+    
     //PrimeNG
     ButtonModule,
     InputTextModule,

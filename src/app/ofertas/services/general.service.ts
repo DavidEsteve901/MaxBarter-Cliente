@@ -23,7 +23,7 @@ export class GeneralService {
     return this.http.get(this.URL + `user/${userName}` );
   }
 
-  getProductsByPage(pageNum: number){
-    return this.http.post(this.URL + `productos/page`,{ page: pageNum })
+  getProductsByPage(opciones: any){
+    return this.http.post(this.URL + `productos/page`, opciones )
   }
 }
