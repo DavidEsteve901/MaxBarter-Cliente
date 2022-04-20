@@ -18,7 +18,8 @@ export interface Producto{
     descripcion:string,
     match:boolean
     tipo:Tipo,
-    propietario:Usuario
+    propietario:Usuario,
+    tipoProducto:Tipo,
 }
 
 export interface Tipo{

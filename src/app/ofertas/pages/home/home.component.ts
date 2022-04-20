@@ -1,7 +1,7 @@
 import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { GeneralService } from '../../services/general.service';
-import { ComunidadAutonoma, Producto } from '../../../interfaces/interfaces';
+import { ComunidadAutonoma, Producto, Tipo } from '../../../interfaces/interfaces';
 import { faArrowUp,faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { DOCUMENT } from '@angular/common';
 import { FormControl } from '@angular/forms';
@@ -22,6 +22,8 @@ export class HomeComponent implements OnInit {
 
   productos:Producto[] = [];
   comunidadesAutonomas!:ComunidadAutonoma[] ;
+  tipos!:Tipo[] ;
+
 
   showButton = false;
   private pageNum = 0;
@@ -34,7 +36,7 @@ export class HomeComponent implements OnInit {
 
   filter:any ={
     titulo: '',
-    tipo: '',
+    tipo: null,
     comunidadAutonoma: null,
   }
   
@@ -60,6 +62,24 @@ export class HomeComponent implements OnInit {
 
         this.comunidadesAutonomas = comunidadesChange;
       
+      }
+    )
+
+    //Inicianlizamos los datos de los tipos
+    this.generalService.getTipos().subscribe(
+      (resp:any)=>{
+        //mapeo la respuesta para cambiar el nombre de los atributos
+        var tipoChange = resp.data.map((t:any)=>{
+          var tChang:any = {};
+          tChang['name'] = t.nombre;
+          tChang['value'] = t.id;
+
+          return tChang;
+        })
+
+        this.tipos = tipoChange;
+
+        console.log(this.tipos)
       }
     )
 
@@ -121,9 +141,14 @@ export class HomeComponent implements OnInit {
 
     this.pageNum = 0;
 
-    //Si se selecciona una comunidad autonoma extreamos su id y lo pasamos al filtro
+    //Si se selecciona una comunidad autonoma extraemos su id y lo pasamos al filtro
     if(this.filter.comunidadAutonoma){
       this.filter.comunidadAutonoma = this.filter.comunidadAutonoma.value
+    }
+
+    //Si se selecciona un tipo extraemos su id y lo pasamos al filtro
+    if(this.filter.tipo){
+      this.filter.tipo = this.filter.tipo.value
     }
 
     this.onScrollDown(this.filter)
@@ -131,9 +156,4 @@ export class HomeComponent implements OnInit {
     
   }
 
-  doFiltere(){
-    
-    
-    
-  }
 }

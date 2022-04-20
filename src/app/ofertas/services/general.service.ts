@@ -30,4 +30,8 @@ export class GeneralService {
   getComunidadesAutonomas(){
     return this.http.get(this.URL + `comunidadAutonoma`)
   }
+
+  getTipos(){
+    return this.http.get(this.URL + `tipo`)
+  }
 }
