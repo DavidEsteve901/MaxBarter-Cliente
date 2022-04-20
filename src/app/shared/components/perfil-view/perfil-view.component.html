@@ -25,8 +25,8 @@
             <div><span>Comunidad autónoma:</span> <div>{{usuario?.comunidadAutonoma?.nombre}}</div></div>
         </div>
 
-        <div>
-            <button pButton  label="Ubicación" class="p-button-info boton"></button>
+        <div *ngIf="checkRoutePerfil()">
+            <button pButton  (click)="redirectPerfil()" label="Ubicación" class="p-button-info boton" ></button>
         </div>
     </div>
 </div>

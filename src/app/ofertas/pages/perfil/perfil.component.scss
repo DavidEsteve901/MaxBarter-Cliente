@@ -16,5 +16,13 @@ h1{
 
 .contenido{
     margin: 40px 0px; 
+}
 
+//Modifico el margin del componenet perfil
+::ng-deep{
+    
+    .datos{
+        margin-top: 10px !important;
+    }
+    
 }

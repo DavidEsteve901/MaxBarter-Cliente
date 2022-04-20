@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GeneralService } from '../../services/general.service';
 import { Usuario } from '../../../interfaces/interfaces';
+import {ActivatedRoute,Params} from "@angular/router";
+import { CurrentUserService } from 'src/app/shared/services/current-user.service';
 
 @Component({
   selector: 'app-perfil',
@@ -9,17 +11,46 @@ import { Usuario } from '../../../interfaces/interfaces';
 })
 export class PerfilComponent implements OnInit {
 
-  usuario!:Usuario;
+
+  usuario!:any;
+  titulo:string = "PERFIL";
+
   constructor(
-    private generalService:GeneralService
+    private generalService:GeneralService,
+    private rutaActiva: ActivatedRoute,
+    private currentUser: CurrentUserService
   ) { }
 
   ngOnInit(): void {
-    this.generalService.getUserById("david").subscribe(
-      (resp:any) =>{
-        this.usuario = resp.data;
+    //Obsevable que tenecta la ruta
+    this.rutaActiva.params.subscribe(
+      (params: any)=>{
+
+        //Método para obtener datos del usuario
+        this.generalService.getUserById(params.userName).subscribe(
+          (resp:any) =>{
+            this.usuario = resp.data;
+            
+            //Método para saber si es el perfil del usuario logueado
+            this.currentUser.getCurrentUser$().subscribe(
+              (resp:any)=>{
+        
+                if(resp.userName === this.usuario.userName){
+                  this.titulo = 'MI PERFIL'
+                }
+              }
+            )
+    
+          }
+        )
       }
     )
+    
+    
+
+    
   }
+
+
 
 }

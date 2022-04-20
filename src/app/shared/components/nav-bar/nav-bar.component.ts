@@ -16,6 +16,8 @@ export class NavBarComponent implements OnInit {
   color: boolean = false;
   user:any = null;
 
+  rutaPerfil!:string ;
+
   constructor(
     private authService:AuthService,
     private currentUserService:CurrentUserService,
@@ -27,8 +29,11 @@ export class NavBarComponent implements OnInit {
     this.authService.setCurrentUser();
     this.currentUserService.getCurrentUser$().subscribe( (user) =>{
       this.user = user;
+      this.rutaPerfil = `ofertas/perfil/${this.user.userName}`
       console.log("SUB",user)
     })
+
+    
     
   }
 
