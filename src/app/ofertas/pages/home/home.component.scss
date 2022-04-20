@@ -13,6 +13,14 @@
 .filtro{
     align-self: center;
     margin-top: 40px;
+    display: flex;
+    align-items: center;
+    gap:20px;
+    width: 500px;
+
+    &>.p-inputtext{
+        width: 100% !important;
+    }
 }
 
 .productos{

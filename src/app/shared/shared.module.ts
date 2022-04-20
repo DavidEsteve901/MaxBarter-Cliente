@@ -23,6 +23,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { SpinnerService } from './services/spinner.service';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { FormsModule } from '@angular/forms';
+import {DropdownModule} from 'primeng/dropdown';
 @NgModule({
   declarations: [
     NavBarComponent,
@@ -63,7 +64,8 @@ import { FormsModule } from '@angular/forms';
     DialogModule,
     ScrollPanelModule,
     ScrollTopModule,
-
+    DropdownModule,
+    
     //Infinite scroll
     InfiniteScrollModule
 

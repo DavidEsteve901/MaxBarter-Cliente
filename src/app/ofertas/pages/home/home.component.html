@@ -4,9 +4,11 @@
         <label for="userName"></label>
         <span class="p-input-icon-left">
             <i><fa-icon [icon]="lupa"></fa-icon></i>
-            <input type="text" [(ngModel)]="filter.titulo" (input)="doFilter()" pInputText id="userName"  placeholder="Filtrar por título...."  />
+            <input type="text" [(ngModel)]="filter.titulo" [formControl]="search"  pInputText id="userName"  placeholder="Filtrar por título...."  />
         </span>
     </div>
+
+    <p-dropdown [options]="comunidadesAutonomas" (onChange)="doFilter()" [(ngModel)]="filter.comunidadAutonoma" placeholder="Comunidad Autónoma" optionLabel="name" [showClear]="true"></p-dropdown>
 </div>
 
 <div class="productos" infiniteScroll (scrolled)="onScrollDown(this.filter)">

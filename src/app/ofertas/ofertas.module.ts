@@ -8,6 +8,8 @@ import { SharedModule } from '../shared/shared.module';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { AuthService } from '../auth/services/auth.service';
 import { GeneralService } from './services/general.service';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { GeneralService } from './services/general.service';
   imports: [
     CommonModule,
     OfertasRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
   providers: [
     AuthService,

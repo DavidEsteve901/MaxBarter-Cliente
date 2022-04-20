@@ -89,6 +89,31 @@
     background: linear-gradient(1.06deg, #E4E4E4 24.23%, rgb(255, 111, 0) 182.16%);
 }
 
+//select
+.p-dropdown{
+    background-color: #e4731c !important;
+    
+    border: none !important;
+
+    &>*{
+        color: white !important;
+    }
+
+    &:focus {
+        border-color: #e4731c !important;
+        box-shadow: none;
+        box-shadow: 0px 0px 8px #e4731c !important;
+
+    }
+
+    &:hover{
+        border-color: #e4731c !important;
+    }
+}
+
+.p-focus{
+    box-shadow: 0px 0px 8px #e4731c !important;
+}
 
 //POSICIONAR SPINNER
 

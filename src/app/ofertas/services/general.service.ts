@@ -26,4 +26,8 @@ export class GeneralService {
   getProductsByPage(opciones: any){
     return this.http.post(this.URL + `productos/page`, opciones )
   }
+
+  getComunidadesAutonomas(){
+    return this.http.get(this.URL + `comunidadAutonoma`)
+  }
 }
