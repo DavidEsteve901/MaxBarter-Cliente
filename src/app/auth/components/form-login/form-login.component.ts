@@ -52,8 +52,7 @@ export class FormLoginComponent implements OnInit {
         localStorage.setItem('token', resp.token) 
 
         //Método para actualizar usuario que tiene sesión iniciada
-        // this.authService.setUser(); 
-        this.authService.setUser();
+        this.authService.setCurrentUser();
 
         this.router.navigate(['/ofertas/home'])
         

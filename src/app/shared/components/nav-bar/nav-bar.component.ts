@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { CurrentUserService } from '../../services/current-user.service';
 import { Router } from '@angular/router';
 import { RegistroComponent } from '../../../auth/pages/registro/registro.component';
-
 
 @Component({
   selector: 'app-nav-bar',
@@ -15,17 +15,17 @@ export class NavBarComponent implements OnInit {
   faBars = faBars;
   color: boolean = false;
   user:any = null;
-    
 
   constructor(
     private authService:AuthService,
+    private currentUserService:CurrentUserService,
     private router:Router,
   ) { }
 
   ngOnInit(): void {
-    console.log("usuarioo",this.user);
     
-    this.authService.getCurrentUser$().subscribe( (user) =>{
+    this.authService.setCurrentUser();
+    this.currentUserService.getCurrentUser$().subscribe( (user) =>{
       this.user = user;
       console.log("SUB",user)
     })

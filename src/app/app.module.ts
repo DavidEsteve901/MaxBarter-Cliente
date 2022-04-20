@@ -12,6 +12,7 @@ import { GeneralService } from './ofertas/services/general.service';
 import { SpinnerService } from './shared/services/spinner.service';
 import { SpinnerInterceptor } from './shared/interceptors/spinner.interceptor';
 import { TokenInterceptorService } from './auth/services/token-interceptor.service';
+import { CurrentUserService } from './shared/services/current-user.service';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { TokenInterceptorService } from './auth/services/token-interceptor.servi
     AuthService,
     GeneralService,
     SpinnerService,
+    CurrentUserService,
 
     {
       provide: HTTP_INTERCEPTORS,
@@ -40,7 +42,8 @@ import { TokenInterceptorService } from './auth/services/token-interceptor.servi
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
       multi: true
-    }
+    },
+
   ],
   bootstrap: [AppComponent],
   
