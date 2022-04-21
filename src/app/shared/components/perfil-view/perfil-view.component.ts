@@ -24,7 +24,7 @@ export class PerfilViewComponent implements OnInit {
 
   ngOnInit(): void {
     
-    if(!this.imgPerfil){
+    if(!this.imgPerfil && this.usuario){
       //Buscamos foto perfil
       this.generalService.getImagenPerfil(this.usuario).subscribe(
         (resp:any)=>{
@@ -49,7 +49,6 @@ export class PerfilViewComponent implements OnInit {
   }
 
   redirectPerfil(){
-    console.log("click")
     this.router.navigate([ `ofertas/perfil/${this.usuario.userName}`])
   }
 
