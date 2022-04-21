@@ -9,7 +9,7 @@ import { Producto } from '../../../interfaces/interfaces';
 export class ProductoViewComponent implements OnInit {
 
   @Input() producto!:Producto ;
-
+  @Input() imgPerfil!:any;
   constructor() { }
 
   displayResponsive: boolean = false;

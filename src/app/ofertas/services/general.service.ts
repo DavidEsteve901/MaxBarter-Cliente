@@ -34,4 +34,23 @@ export class GeneralService {
   getTipos(){
     return this.http.get(this.URL + `tipo`)
   }
+
+  getImagen(url:any){
+    return this.http.post<File>(this.URL + `imagen`,url,{ responseType: 'blob' as 'json' })
+  }
+
+  getImagenPerfil(user:any){
+    return this.http.post<File>(this.URL + `user/perfil`,user,{ responseType: 'blob' as 'json' })
+  }
+  
+  //Método para convertir blob a base64
+  blobToBase64(blob:any) {
+    const reader = new FileReader();
+    reader.readAsDataURL(blob);
+    return new Promise(resolve => {
+      reader.onloadend = () => {
+        resolve(reader.result);
+      };
+    });
+  };
 }

@@ -15,8 +15,10 @@
     margin-top: 40px;
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     gap:20px;
-    width: 500px;
+    width: 100%;
 
     &>.p-inputtext{
         width: 100% !important;
@@ -33,4 +35,31 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
+}
+
+//Responsive 
+// `xxl` se aplica a dispositivos de gran tamaño (escritorios grandes, menos de 1400px)
+@media (max-width: 1399.98px) {  }
+
+
+// `xl` se aplica a dispositivos grandes (computadoras de escritorio, menos de 1200 px)
+@media (max-width: 1199.98px) { 
+}
+
+// "lg" se aplica a dispositivos medianos (tabletas, menos de 992 px)
+@media (max-width: 991.98px) {  
+
+    // .filtro{
+    //     flex-wrap: wrap;
+    // }
+}
+
+// `md` se aplica a dispositivos pequeños (teléfonos horizontales, menos de 768px)
+@media (max-width: 767.98px)  { 
+
+}
+
+// `sm` se aplica a dispositivos x-small (teléfonos verticales, menos de 576px)
+@media (max-width: 575.98px) {
+
 }

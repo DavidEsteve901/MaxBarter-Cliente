@@ -180,6 +180,27 @@
     }
 }
 
+//Estilos avatar
+.avatar{
+    width: 60px;
+    height: 60px;
+    border-radius: 300px;
+    background-color: #DEE2E6 ;
+    border: #E4731C solid 1px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    div{
+        font-size: 2em;
+    }
+    img{
+        width: 60px;
+        height: 60px;
+        border-radius: 300px;
+        border: #E4731C solid 1px;
+    }
+}
 
 
 //Responsive 

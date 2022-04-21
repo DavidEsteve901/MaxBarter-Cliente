@@ -6,7 +6,10 @@
     </div>
     
     <div class="perfil">
-        <p-avatar icon="pi pi-user" styleClass="mr-2" size="large" shape="circle" ></p-avatar>
+        <div class="avatar">
+            <img [src]="imgPerfil" alt="Imagen perfil" class="avatarImg" *ngIf="imgPerfil">
+            <div class="pi pi-user p-avatar-icon" *ngIf="!imgPerfil"></div>
+        </div>
         <span>{{producto?.propietario?.nombre}} {{producto?.propietario?.apellidos}}</span>
     </div>
     
@@ -31,6 +34,6 @@
 <p-dialog  [(visible)]="displayResponsive" [modal]="true" [style]="{width: 'auto'}" [maximizable]="false"
     [draggable]="false" [resizable]="true" 
     >
-   <app-producto-view [producto]="producto"></app-producto-view>
+   <app-producto-view [producto]="producto" [imgPerfil]="imgPerfil"></app-producto-view>
    
 </p-dialog>

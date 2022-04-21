@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 import { CurrentUserService } from '../../services/current-user.service';
 import { Router } from '@angular/router';
 import { RegistroComponent } from '../../../auth/pages/registro/registro.component';
+import { GeneralService } from 'src/app/ofertas/services/general.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -17,22 +18,45 @@ export class NavBarComponent implements OnInit {
   user:any = null;
 
   rutaPerfil!:string ;
+  imgPerfil!:any;
 
   constructor(
     private authService:AuthService,
     private currentUserService:CurrentUserService,
     private router:Router,
+    private generalService:GeneralService
   ) { }
 
   ngOnInit(): void {
-    
+    //Actualizamos Usuario Logueado
     this.authService.setCurrentUser();
+
+    //Nos suscribismo al servicio para obtener el usuario logueado (gracias al obsevable se notificario si cambia)
     this.currentUserService.getCurrentUser$().subscribe( (user) =>{
       this.user = user;
       this.rutaPerfil = `ofertas/perfil/${this.user.userName}`
-      console.log("SUB",user)
+      
+      if(user){
+        //Buscamos foto perfil
+        this.generalService.getImagenPerfil(this.user).subscribe(
+          (resp:any)=>{
+            
+            this.generalService.blobToBase64(resp).then(base64 => {
+              this.imgPerfil = base64;
+            });
+            
+          },
+          (error:any)=>{
+            console.log(error)
+          },
+        )
+      }
+      
+
+      // console.log("SUB",user)
     })
 
+    
     
     
   }

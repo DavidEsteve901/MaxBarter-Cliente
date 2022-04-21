@@ -79,7 +79,7 @@ export class HomeComponent implements OnInit {
 
         this.tipos = tipoChange;
 
-        console.log(this.tipos)
+        
       }
     )
 
@@ -91,7 +91,7 @@ export class HomeComponent implements OnInit {
         )
         .subscribe(v => {
           this.doFilter()
-          console.log(v);
+          // console.log(v);
        });
 
 
