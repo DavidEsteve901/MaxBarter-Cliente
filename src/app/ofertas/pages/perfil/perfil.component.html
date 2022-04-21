@@ -1,5 +1,12 @@
 <h1>{{titulo}}</h1>
 
 <div class="contenido">
+    <div class="opciones" *ngIf="optionsUser">
+        <button pButton  label="Modificar" class="p-button-warning boton"></button>
+        <button pButton  label="Logout" class="p-button-danger boton"></button>
+    </div>
+
     <app-perfil-view [usuario]="usuario" [imgPerfil]="imgPerfil"></app-perfil-view>
+
+    
 </div>

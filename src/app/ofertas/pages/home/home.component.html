@@ -13,7 +13,7 @@
 </div>
 
 <div class="productos" infiniteScroll (scrolled)="onScrollDown(this.filter)">
-    <app-producto-pre-view *ngFor="let producto of productos" [producto]="producto">
+    <app-producto-pre-view class="animate__animated animate__flipInX" *ngFor="let producto of productos" [producto]="producto" >
     
     </app-producto-pre-view>
 </div>
