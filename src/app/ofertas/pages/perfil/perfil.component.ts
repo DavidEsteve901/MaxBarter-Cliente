@@ -1,8 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { GeneralService } from '../../services/general.service';
 import { Usuario } from '../../../interfaces/interfaces';
-import {ActivatedRoute,Params} from "@angular/router";
+import {ActivatedRoute,Params, Router} from "@angular/router";
 import { CurrentUserService } from 'src/app/shared/services/current-user.service';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 
 @Component({
@@ -23,7 +24,9 @@ export class PerfilComponent implements OnInit {
   constructor(
     private generalService:GeneralService,
     private rutaActiva: ActivatedRoute,
-    private currentUser: CurrentUserService
+    private currentUser: CurrentUserService,
+    private authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -37,17 +40,16 @@ export class PerfilComponent implements OnInit {
         this.generalService.getUserById(params.userName).subscribe(
           (resp:any) =>{
             this.usuario = resp.data;
-            // console.log(this.usuario)
-            // console.log(this.optionsUser)
-            
+
+            //Actualizamos Usuario Logueado
+            this.authService.setCurrentUser();
+
             //Método para saber si es el perfil del usuario logueado
             this.currentUser.getCurrentUser$().subscribe(
               (resp:any)=>{
-                console.log(resp)
                 if(resp.userName === this.usuario.userName){
                   this.titulo = 'MI PERFIL';
                   this.optionsUser = true;
-                  
                 }
               }
             )
@@ -60,23 +62,30 @@ export class PerfilComponent implements OnInit {
                 this.generalService.blobToBase64(resp).then(base64 => {
                   this.imgPerfil = base64;
                 });
-                
+
               },
               (error:any)=>{
                 console.log(error)
               },
             )
 
-            
-    
           }
         )
       }
     )
-    
-     
+
+
   }
 
+
+  logout(){
+    this.authService.logout()
+  }
+
+  redirectProductos(){
+    return this.router.navigate([`ofertas/productos/${this.usuario.userName}`])
+  }
+  
 
 
 }

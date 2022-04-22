@@ -15,6 +15,7 @@
 
         <ng-container *ngIf="isLogin() && checkRoute()">
           <a class="nav-link" routerLink="/ofertas/home" routerLinkActive="active" >Inicio</a>
+          <a class="nav-link" (click)="redirectProductos()" routerLinkActive="active" >Productos</a>
           <a class="nav-link" routerLink="/ofertas/ofertas" routerLinkActive="active" >Ofertas</a>
           <a class="nav-link" (click)="logout()">Logout</a>
 

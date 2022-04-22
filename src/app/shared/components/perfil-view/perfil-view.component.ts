@@ -23,7 +23,6 @@ export class PerfilViewComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    
     if(!this.imgPerfil && this.usuario){
       //Buscamos foto perfil
       this.generalService.getImagenPerfil(this.usuario).subscribe(

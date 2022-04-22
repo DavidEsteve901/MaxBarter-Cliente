@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { OfertasComponent } from './pages/ofertas/ofertas.component';
 import { AuthGuard } from '../auth/guards/auth.guard';
 import { PerfilComponent } from './pages/perfil/perfil.component';
+import { ProductosComponent } from './pages/productos/productos.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,7 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'ofertas', component: OfertasComponent, canActivate: [AuthGuard]},
       { path: 'perfil/:userName', component: PerfilComponent},
+      { path: 'productos/:userName', component: ProductosComponent},
       { path: '**', redirectTo: 'home' },
     ]
   }

@@ -1,0 +1,15 @@
+<div class="perfil" (click)="showMaximizableDialog()" >
+    <div class="avatar">
+        <img [src]="imgPerfil" alt="Imagen perfil" class="avatarImg" *ngIf="imgPerfil">
+        <div class="pi pi-user p-avatar-icon" *ngIf="!imgPerfil"></div>
+    </div>
+    <span>{{usuario?.nombre}} {{usuario?.apellidos}}</span>
+</div>
+
+
+<p-dialog  [(visible)]="displayResponsive" [modal]="true" [style]="{width: 'auto'}" [maximizable]="false"
+    [draggable]="false" [resizable]="true" 
+    >
+   <app-perfil-view [usuario]="usuario" [imgPerfil]="imgPerfil"></app-perfil-view>
+   
+</p-dialog>

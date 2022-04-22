@@ -1,0 +1,10 @@
+
+<app-user-target class="perfil" [imgPerfil]="imgPerfil" [usuario]="usuario" ></app-user-target>
+
+<div class="productos" infiniteScroll (scrolled)="onScrollDown(filter)">
+    <app-producto-pre-view class="animate__animated animate__flipInX" *ngFor="let producto of productos" [producto]="producto" >
+    
+    </app-producto-pre-view>
+</div>
+
+<div class="buttonUp" *ngIf="showButton" (click)="onScrollTop()"><fa-icon [icon]="faArrowUp"></fa-icon></div>

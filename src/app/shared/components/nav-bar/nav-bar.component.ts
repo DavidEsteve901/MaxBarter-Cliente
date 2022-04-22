@@ -87,4 +87,8 @@ export class NavBarComponent implements OnInit {
   currentUser(){
     console.log("Usuario",this.user)
   }
+
+  redirectProductos(){
+    this.router.navigate([`ofertas/productos/${this.user.userName}`])
+  }
 }

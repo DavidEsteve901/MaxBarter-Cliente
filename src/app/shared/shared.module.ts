@@ -24,6 +24,7 @@ import { SpinnerService } from './services/spinner.service';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { FormsModule } from '@angular/forms';
 import {DropdownModule} from 'primeng/dropdown';
+import { UserTargetComponent } from './components/user-target/user-target.component';
 @NgModule({
   declarations: [
     NavBarComponent,
@@ -32,6 +33,7 @@ import {DropdownModule} from 'primeng/dropdown';
     ProductoViewComponent,
     PerfilViewComponent,
     SpinnerComponent,
+    UserTargetComponent,
   ],
   imports: [
     CommonModule,
@@ -50,6 +52,7 @@ import {DropdownModule} from 'primeng/dropdown';
     ProductoPreViewComponent,
     ProductoViewComponent,
     PerfilViewComponent,
+    UserTargetComponent,
     FontAwesomeModule,
     SpinnerComponent,
     FormsModule,

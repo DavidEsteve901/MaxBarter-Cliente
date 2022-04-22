@@ -11,7 +11,7 @@ export class GeneralService {
 
   constructor(
     private http: HttpClient,
-    ) { }
+  ) { }
 
 
 

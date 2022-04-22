@@ -1,9 +1,11 @@
 <h1>{{titulo}}</h1>
 
 <div class="contenido">
-    <div class="opciones" *ngIf="optionsUser">
-        <button pButton  label="Modificar" class="p-button-warning boton"></button>
-        <button pButton  label="Logout" class="p-button-danger boton"></button>
+
+    <div class="opciones" >
+        <button pButton  label="Productos" (click)="redirectProductos()" class="p-button-success boton"></button>
+        <button pButton *ngIf="optionsUser" label="Modificar" class="p-button-warning boton"></button>
+        <button pButton *ngIf="optionsUser" (click)="logout()" label="Logout" class="p-button-danger boton"></button>
     </div>
 
     <app-perfil-view [usuario]="usuario" [imgPerfil]="imgPerfil"></app-perfil-view>
