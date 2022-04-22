@@ -28,7 +28,10 @@
     </div>
 
     <div class="botones">
-        <button pButton  type="submit" label="Hacer oferta" class="p-button-success boton"></button>
+        <button pButton *ngIf="!isCurrentUser" type="submit" label="Hacer oferta" class="p-button-success boton"></button>
+        <button pButton *ngIf="isCurrentUser" type="submit" label="Modificar" class="p-button-info boton"></button>
+        <button pButton *ngIf="isCurrentUser" type="submit" label="Eliminar" class="p-button-danger boton"></button>
+
     </div>
 </div>
 

@@ -48,7 +48,9 @@ export class PerfilViewComponent implements OnInit {
   }
 
   redirectPerfil(){
+
     this.router.navigate([ `ofertas/perfil/${this.usuario.userName}`])
+    
   }
 
   setUser(user:any){

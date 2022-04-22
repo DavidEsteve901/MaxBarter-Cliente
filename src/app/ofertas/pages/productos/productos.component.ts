@@ -3,7 +3,7 @@ import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from 'src/app/auth/services/auth.service';
-import { Producto } from 'src/app/interfaces/interfaces';
+import { Producto, Tipo } from 'src/app/interfaces/interfaces';
 import { CurrentUserService } from 'src/app/shared/services/current-user.service';
 import { GeneralService } from '../../services/general.service';
 
@@ -17,12 +17,16 @@ export class ProductosComponent implements OnInit {
   //Iconos
   faArrowUp = faArrowUp;
 
-
+  
   showButton = false;
   private pageNum = 0;
 
+  //Filtro
+  tipos!:Tipo[] ;
+
   filter:any ={
-    userName: null
+    userName: null,
+    tipo: null
   }
 
   //Pixeles para que salga el botón de subir scroll
@@ -43,6 +47,25 @@ export class ProductosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    //Elimino los productos al entrar a la página
+    this.productos.splice(0,this.productos.length);
+
+    //Inicianlizamos los datos de los tipos
+    this.generalService.getTipos().subscribe(
+      (resp:any)=>{
+        //mapeo la respuesta para cambiar el nombre de los atributos
+        var tipoChange = resp.data.map((t:any)=>{
+          var tChang:any = {};
+          tChang['name'] = t.nombre;
+          tChang['value'] = t.id;
+
+          return tChang;
+        })
+
+        this.tipos = tipoChange;
+      }
+    )
+
     //Obsevable que tenecta la ruta
     this.rutaActiva.params.subscribe(
       (params: any)=>{
@@ -51,24 +74,25 @@ export class ProductosComponent implements OnInit {
         this.generalService.getUserById(params.userName).subscribe(
           (resp:any) =>{
             this.usuario = resp.data;
-
+            
             this.filter.userName = this.usuario.userName;
-
+            console.log(this.usuario.userName)
             this.onScrollDown({userName: this.usuario.userName});
 
-            // console.log(this.usuario)
+    
+            
 
-            //Actualizamos Usuario Logueado
-            this.authService.setCurrentUser();
+            // //Actualizamos Usuario Logueado
+            // this.authService.setCurrentUser();
 
-            //Método para saber si es el perfil del usuario logueado
-            this.currentUser.getCurrentUser$().subscribe(
-              (resp:any)=>{
-                if(resp.userName === this.usuario.userName){
+            // //Método para saber si es el perfil del usuario logueado
+            // this.currentUser.getCurrentUser$().subscribe(
+            //   (resp:any)=>{
+            //     if(resp.userName === this.usuario.userName){
 
-                }
-              }
-            )
+            //     }
+            //   }
+            // )
 
           
             //Buscamos foto perfil
@@ -107,22 +131,49 @@ export class ProductosComponent implements OnInit {
   onScrollDown(options:any){
     
     this.pageNum++;
+    // console.log("opciones",options)
 
-    this.generalService.getProductsByPage({
-      page: this.pageNum,
-      q: {
-        userName: options.userName
-      }
-    
-    }).subscribe(
-      (resp:any)=>{
+    if(options.userName){
+      this.generalService.getProductsByPage({
+        page: this.pageNum,
+        q: {
+          userName: options.userName
+        }
       
-        this.productos = this.productos.concat(resp.data.data);
-      },
-      (error:any) =>{
-        console.log(error)
-      }
-    )
+      }).subscribe(
+        (resp:any)=>{
+        
+          this.productos = this.productos.concat(resp.data.data);
+        },
+        (error:any) =>{
+          console.log(error)
+        }
+      )
+    }else{
+      this.pageNum--;
+    }
+    
   }
 
+  doFilter(){
+    
+    //Reinicio parametros
+    this.productos.splice(0,this.productos.length);
+
+    this.pageNum = 0;
+
+    //Si se selecciona una comunidad autonoma extraemos su id y lo pasamos al filtro
+    if(this.filter.comunidadAutonoma){
+      this.filter.comunidadAutonoma = this.filter.comunidadAutonoma.value
+    }
+
+    //Si se selecciona un tipo extraemos su id y lo pasamos al filtro
+    if(this.filter.tipo){
+      this.filter.tipo = this.filter.tipo.value
+    }
+
+    this.onScrollDown(this.filter)
+    
+    
+  }
 }

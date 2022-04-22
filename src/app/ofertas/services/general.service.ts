@@ -38,7 +38,7 @@ export class GeneralService {
   getImagen(url:any){
     return this.http.post<File>(this.URL + `imagen`,url,{ responseType: 'blob' as 'json' })
   }
-
+  
   getImagenPerfil(user:any){
     return this.http.post<File>(this.URL + `user/perfil`,user,{ responseType: 'blob' as 'json' })
   }
