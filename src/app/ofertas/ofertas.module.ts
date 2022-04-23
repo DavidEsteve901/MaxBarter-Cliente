@@ -10,6 +10,8 @@ import { AuthService } from '../auth/services/auth.service';
 import { GeneralService } from './services/general.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductosComponent } from './pages/productos/productos.component';
+import { ProductoComponent } from './pages/producto/producto.component';
+import { FormProductoComponent } from './components/form-producto/form-producto.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { ProductosComponent } from './pages/productos/productos.component';
     HomeComponent,
     OfertasComponent,
     PerfilComponent,
-    ProductosComponent
+    ProductosComponent,
+    ProductoComponent,
+    FormProductoComponent
   ],
   imports: [
     CommonModule,

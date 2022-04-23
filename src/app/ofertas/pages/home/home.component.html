@@ -8,8 +8,8 @@
         </span>
     </div>
 
-    <p-dropdown [options]="comunidadesAutonomas" (onChange)="doFilter()" [(ngModel)]="filter.comunidadAutonoma" placeholder="Comunidad Autónoma" optionLabel="name" [showClear]="true"></p-dropdown>
-    <p-dropdown [options]="tipos" (onChange)="doFilter()" [(ngModel)]="filter.tipo" placeholder="Categoría" optionLabel="name" [showClear]="true"></p-dropdown>
+    <p-dropdown [options]="comunidadesAutonomas" (onChange)="changeHover();doFilter()" [(ngModel)]="filter.comunidadAutonoma" [placeholder]="placeHolderComunidad" optionLabel="name" [showClear]="true"></p-dropdown>
+    <p-dropdown [options]="tipos" (onChange)="changeHover();doFilter()" [(ngModel)]="filter.tipo" [placeholder]="placeHolderTipo" optionLabel="name" [showClear]="true"></p-dropdown>
 </div>
 
 <div class="productos" infiniteScroll (scrolled)="onScrollDown(this.filter)">

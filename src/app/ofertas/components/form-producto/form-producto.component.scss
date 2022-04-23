@@ -1,0 +1,61 @@
+:host ::ng-deep{
+    .p-password-panel{
+        width: 100%;
+    }
+
+    .p-password{
+        width: 100%;
+    }
+    .p-password-input{
+        width: 100%;
+    }
+    .p-inputtext{
+        width: 100%;
+    }
+}
+.form{
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+    
+    .boton{
+        align-self: center;
+    }
+    .formButton{
+        align-self: center;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    label{
+        font-family: 'Istok Web';
+        font-style: normal;
+        font-weight:800;
+        font-size: 20px;
+        line-height: 150%;
+        /* identical to box height, or 30px */
+
+        color: #E4731C;
+        text-shadow: 0px 0px 5px rgba(27, 6, 6, 0.6);
+    }
+    span{
+
+        width: 100%;
+
+      
+    }
+    input{
+        width: 100%;
+    }
+
+
+}
+
+.error{
+    color:red;
+    padding: 5px;
+    font-weight: bold;
+}

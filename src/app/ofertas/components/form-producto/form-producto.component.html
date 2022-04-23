@@ -1,0 +1,46 @@
+<form [formGroup]="form" (submit)="guardar()" class="form">
+    <div>
+        <label for="titulo">Título</label>
+
+        <input type="text" pInputText id="titulo"  placeholder="Título" formControlName="titulo" />
+
+        <span class="error" *ngIf="campoEsValido('titulo')">
+            Debe escribir un título
+        </span>
+
+    </div>
+    
+    <div>
+        <label for="tipo">Tipo</label>
+        <span class="p-input-icon-left">
+            <i><fa-icon [icon]="faPencil"></fa-icon></i>
+            <input type="text" pInputText id="tipo"  placeholder="Tipo" formControlName="tipo" />
+        </span>
+        <span class="error" *ngIf="campoEsValido('tipo')">
+            Debe seleccionar un tipo
+        </span>
+
+    </div>
+
+    <div>
+        <label for="descripcion">Descripción</label>
+        <span class="p-input-icon-left">
+            <i><fa-icon [icon]="faPencil"></fa-icon></i>
+            <input type="text" pInputText id="descripcion"  placeholder="Descripción" formControlName="descripcion" />
+        </span>
+        <span class="error" *ngIf="campoEsValido('descripcion')">
+            Debe sescribir una descripción
+        </span>
+
+    </div>
+
+     
+    <div class="formButton">
+        <button pButton  type="submit" label="Crear" class="p-button-success boton"></button>
+        <span class="error" *ngIf="error">
+            {{error.message}}
+        </span>
+    </div>
+
+</form>
+

@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { GeneralService } from 'src/app/ofertas/services/general.service';
 import { Producto } from '../../../interfaces/interfaces';
+import { CurrentUserService } from '../../services/current-user.service';
+import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({
   selector: 'app-producto-pre-view',
@@ -15,9 +17,13 @@ export class ProductoPreViewComponent implements OnInit {
 
   imgPerfil!:any;
 
+  isCurrentUser!:boolean;
 
   constructor(
-    private generalService:GeneralService
+    private generalService:GeneralService,
+    private currentUser: CurrentUserService,
+
+
   ) { }
 
   displayResponsive: boolean = false;
@@ -40,6 +46,8 @@ export class ProductoPreViewComponent implements OnInit {
         console.log(error)
       },
     )
+
+    
   }
 
   showMaximizableDialog() {

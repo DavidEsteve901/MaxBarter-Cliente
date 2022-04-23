@@ -14,17 +14,21 @@ export class GeneralService {
   ) { }
 
 
-
-  getProductos()  {
-    return this.http.get(this.URL + 'productos/' );
-  }
-
   getUserById(userName:string){
     return this.http.get(this.URL + `user/${userName}` );
   }
 
+  //PRODUCTOS
+  getProductos()  {
+    return this.http.get(this.URL + 'productos/' );
+  }
+
   getProductsByPage(opciones: any){
     return this.http.post(this.URL + `productos/page`, opciones )
+  }
+
+  getProductById(id:number){
+    return this.http.get(this.URL + `productos/${id}`)
   }
 
   getComunidadesAutonomas(){

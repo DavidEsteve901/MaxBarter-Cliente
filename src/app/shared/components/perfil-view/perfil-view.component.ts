@@ -11,7 +11,7 @@ import { Usuario } from '../../../interfaces/interfaces';
 })
 export class PerfilViewComponent implements OnInit {
 
-  @Input() usuario!:Usuario;
+  @Input() usuario!:any;
   
   rutaPerfil!:string;
 

@@ -24,6 +24,9 @@ export class HomeComponent implements OnInit {
   comunidadesAutonomas!:ComunidadAutonoma[] ;
   tipos!:Tipo[] ;
 
+  placeHolderTipo:string = "Categoría";
+  placeHolderComunidad:string = "Comunidad Autónoma";
+
 
   showButton = false;
   private pageNum = 0;
@@ -153,6 +156,21 @@ export class HomeComponent implements OnInit {
 
     this.onScrollDown(this.filter)
     
+    
+  }
+
+  changeHover(){
+    if(this.filter.tipo){
+      this.placeHolderTipo = this.filter.tipo.name
+    }else{
+      this.placeHolderTipo = "Categoría";
+    }
+
+    if(this.filter.comunidadAutonoma){
+      this.placeHolderComunidad = this.filter.comunidadAutonoma.name
+    }else{
+      this.placeHolderComunidad = "Comunidad Autónoma";
+    }
     
   }
 

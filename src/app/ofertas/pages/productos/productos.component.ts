@@ -1,6 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, HostListener, Inject, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { Producto, Tipo } from 'src/app/interfaces/interfaces';
@@ -21,8 +21,12 @@ export class ProductosComponent implements OnInit {
   showButton = false;
   private pageNum = 0;
 
+  isCurrentUser!:boolean;
+
   //Filtro
   tipos!:Tipo[] ;
+  placeHolderTipo:string = "Categoría";
+
 
   filter:any ={
     userName: null,
@@ -43,6 +47,7 @@ export class ProductosComponent implements OnInit {
     private rutaActiva: ActivatedRoute,
     private currentUser: CurrentUserService,
     private authService: AuthService,
+    private router: Router,
     @Inject(DOCUMENT) private document: Document,
   ) { }
 
@@ -76,23 +81,23 @@ export class ProductosComponent implements OnInit {
             this.usuario = resp.data;
             
             this.filter.userName = this.usuario.userName;
-            console.log(this.usuario.userName)
+            
             this.onScrollDown({userName: this.usuario.userName});
 
     
             
 
-            // //Actualizamos Usuario Logueado
-            // this.authService.setCurrentUser();
+            //Actualizamos Usuario Logueado
+            this.authService.setCurrentUser();
 
-            // //Método para saber si es el perfil del usuario logueado
-            // this.currentUser.getCurrentUser$().subscribe(
-            //   (resp:any)=>{
-            //     if(resp.userName === this.usuario.userName){
-
-            //     }
-            //   }
-            // )
+            //Método para saber si es el perfil del usuario logueado
+            this.currentUser.getCurrentUser$().subscribe(
+              (resp:any)=>{
+                if(resp.userName === this.usuario.userName){
+                  this.isCurrentUser = true;
+                }
+              }
+            )
 
           
             //Buscamos foto perfil
@@ -137,7 +142,9 @@ export class ProductosComponent implements OnInit {
       this.generalService.getProductsByPage({
         page: this.pageNum,
         q: {
-          userName: options.userName
+          userName: options.userName,
+          tipo: options.tipo,
+
         }
       
       }).subscribe(
@@ -162,11 +169,6 @@ export class ProductosComponent implements OnInit {
 
     this.pageNum = 0;
 
-    //Si se selecciona una comunidad autonoma extraemos su id y lo pasamos al filtro
-    if(this.filter.comunidadAutonoma){
-      this.filter.comunidadAutonoma = this.filter.comunidadAutonoma.value
-    }
-
     //Si se selecciona un tipo extraemos su id y lo pasamos al filtro
     if(this.filter.tipo){
       this.filter.tipo = this.filter.tipo.value
@@ -176,4 +178,17 @@ export class ProductosComponent implements OnInit {
     
     
   }
+
+  changeHover(){
+    if(this.filter.tipo){
+      this.placeHolderTipo = this.filter.tipo.name
+    }else{
+      this.placeHolderTipo = "Categoría";
+    }
+    
+  }
+
+  redirectProducto(){
+    this.router.navigate([`ofertas/productos/producto/${null}`]);
+  } 
 }
