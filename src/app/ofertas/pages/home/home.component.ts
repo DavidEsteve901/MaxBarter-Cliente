@@ -145,12 +145,12 @@ export class HomeComponent implements OnInit {
     this.pageNum = 0;
 
     //Si se selecciona una comunidad autonoma extraemos su id y lo pasamos al filtro
-    if(this.filter.comunidadAutonoma){
+    if(this.filter.comunidadAutonoma && typeof this.filter.comunidadAutonoma === 'object'){
       this.filter.comunidadAutonoma = this.filter.comunidadAutonoma.value
     }
 
     //Si se selecciona un tipo extraemos su id y lo pasamos al filtro
-    if(this.filter.tipo){
+    if(this.filter.tipo && typeof this.filter.tipo === 'object'){
       this.filter.tipo = this.filter.tipo.value
     }
 
@@ -160,16 +160,20 @@ export class HomeComponent implements OnInit {
   }
 
   changeHover(){
-    if(this.filter.tipo){
+    if(this.filter.tipo && typeof this.filter.tipo === 'object'){
       this.placeHolderTipo = this.filter.tipo.name
     }else{
-      this.placeHolderTipo = "Categoría";
+      if(!this.filter.tipo){
+        this.placeHolderTipo = "Categoría";
+      }
     }
 
-    if(this.filter.comunidadAutonoma){
+    if(this.filter.comunidadAutonoma && typeof this.filter.comunidadAutonoma === 'object'){
       this.placeHolderComunidad = this.filter.comunidadAutonoma.name
     }else{
-      this.placeHolderComunidad = "Comunidad Autónoma";
+      if(!this.filter.comunidadAutonoma){
+        this.placeHolderComunidad = "Comunidad Autónoma";
+      }
     }
     
   }
