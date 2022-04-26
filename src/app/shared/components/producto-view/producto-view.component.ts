@@ -3,6 +3,7 @@ import { Producto } from '../../../interfaces/interfaces';
 import { CurrentUserService } from '../../services/current-user.service';
 import { AuthService } from '../../../auth/services/auth.service';
 import { Router } from '@angular/router';
+import { GeneralService } from 'src/app/ofertas/services/general.service';
 
 @Component({
   selector: 'app-producto-view',
@@ -11,15 +12,17 @@ import { Router } from '@angular/router';
 })
 export class ProductoViewComponent implements OnInit {
 
-  @Input() producto!:Producto ;
+  @Input() producto!:Producto | any ;
   @Input() imgPerfil!:any;
+  @Input() showButtons:boolean = true;
 
   @Input() isCurrentUser!:boolean;
 
   constructor(
     private currentUser: CurrentUserService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private generalService: GeneralService
 
   ) { }
 
@@ -36,6 +39,9 @@ export class ProductoViewComponent implements OnInit {
         }
       }
     )
+
+    
+    
   }
 
   showMaximizableDialog() {
@@ -46,8 +52,5 @@ export class ProductoViewComponent implements OnInit {
     this.router.navigate([`ofertas/productos/producto/${this.producto.id}`]);
   }
 
-  canShow(){
-    console.log(this.router.isActive("producto",true))
-    return !this.router.isActive("producto",false);
-  }
+
 }

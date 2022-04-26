@@ -25,6 +25,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { FormsModule } from '@angular/forms';
 import {DropdownModule} from 'primeng/dropdown';
 import { UserTargetComponent } from './components/user-target/user-target.component';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+
 @NgModule({
   declarations: [
     NavBarComponent,
@@ -68,6 +70,7 @@ import { UserTargetComponent } from './components/user-target/user-target.compon
     ScrollPanelModule,
     ScrollTopModule,
     DropdownModule,
+    InputTextareaModule,
     
     //Infinite scroll
     InfiniteScrollModule

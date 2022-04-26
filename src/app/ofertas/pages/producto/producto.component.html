@@ -1,4 +1,4 @@
 
-<app-form-producto></app-form-producto>
+<app-form-producto [producto]="producto" (editProducto)="producto = $event" [edit]="edit"></app-form-producto>
 
-<app-producto-view [producto]="producto"></app-producto-view>
+<app-producto-view [producto]="producto" [showButtons]="false" [imgPerfil]="imgPerfil" ></app-producto-view>

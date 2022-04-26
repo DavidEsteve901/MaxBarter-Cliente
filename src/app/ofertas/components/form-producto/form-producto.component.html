@@ -2,7 +2,7 @@
     <div>
         <label for="titulo">Título</label>
 
-        <input type="text" pInputText id="titulo"  placeholder="Título" formControlName="titulo" />
+        <input type="text" pInputText id="titulo" [(ngModel)]="producto.titulo"  placeholder="Título" formControlName="titulo" />
 
         <span class="error" *ngIf="campoEsValido('titulo')">
             Debe escribir un título
@@ -12,10 +12,9 @@
     
     <div>
         <label for="tipo">Tipo</label>
-        <span class="p-input-icon-left">
-            <i><fa-icon [icon]="faPencil"></fa-icon></i>
-            <input type="text" pInputText id="tipo"  placeholder="Tipo" formControlName="tipo" />
-        </span>
+        <br>
+        <p-dropdown [options]="tipos" (onChange)="changeHover()" [(ngModel)]="tipoSelected" [placeholder]="placeHolderTipo" optionLabel="name" [showClear]="true" formControlName="tipo"></p-dropdown>
+        <br>
         <span class="error" *ngIf="campoEsValido('tipo')">
             Debe seleccionar un tipo
         </span>
@@ -26,7 +25,7 @@
         <label for="descripcion">Descripción</label>
         <span class="p-input-icon-left">
             <i><fa-icon [icon]="faPencil"></fa-icon></i>
-            <input type="text" pInputText id="descripcion"  placeholder="Descripción" formControlName="descripcion" />
+            <textarea pInputTextarea [(ngModel)]="producto.descripcion" id="descripcion" [(ngModel)]="producto.descripcion" placeholder="Descripción" formControlName="descripcion"></textarea>
         </span>
         <span class="error" *ngIf="campoEsValido('descripcion')">
             Debe sescribir una descripción
@@ -36,7 +35,9 @@
 
      
     <div class="formButton">
-        <button pButton  type="submit" label="Crear" class="p-button-success boton"></button>
+        <button pButton *ngIf="!edit" type="submit" label="Crear" class="p-button-success boton"></button>
+        <button pButton *ngIf="edit" type="submit" label="Editar" class="p-button-info boton"></button>
+
         <span class="error" *ngIf="error">
             {{error.message}}
         </span>

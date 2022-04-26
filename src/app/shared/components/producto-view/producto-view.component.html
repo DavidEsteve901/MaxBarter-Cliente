@@ -27,7 +27,7 @@
         <img src="https://www.empack.mx/wp-content/uploads/2018/04/RM-01-1-scaled-500x312.jpg" alt="Imagen Producto" class="img-prod">
     </div>
 
-    <div class="botones" *ngIf="canShow()">
+    <div class="botones" *ngIf="showButtons">
         <button pButton *ngIf="!isCurrentUser"  label="Hacer oferta" class="p-button-success boton"></button>
         <button pButton *ngIf="isCurrentUser"  label="Modificar" (click)="modifyProduct()" class="p-button-info boton"></button>
         <button pButton *ngIf="isCurrentUser"  label="Eliminar" class="p-button-danger boton"></button>
@@ -39,6 +39,6 @@
 <p-dialog  [(visible)]="displayResponsive" [modal]="true" [style]="{width: 'auto'}" [maximizable]="false"
     [draggable]="false" [resizable]="true" 
     >
-   <app-perfil-view [usuario]="producto?.propietario"></app-perfil-view>
+   <app-perfil-view [usuario]="producto?.propietario" [imgPerfil]="imgPerfil"></app-perfil-view>
    
 </p-dialog>
