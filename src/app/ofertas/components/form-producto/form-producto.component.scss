@@ -21,6 +21,13 @@
 
     gap: 20px;
     
+    textarea{
+        height: 150px;
+
+        &::-webkit-scrollbar{
+            display: none;
+        }
+    }
     .boton{
         align-self: center;
     }

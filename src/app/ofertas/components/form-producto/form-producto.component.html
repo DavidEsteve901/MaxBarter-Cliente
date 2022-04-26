@@ -25,6 +25,7 @@
         <label for="descripcion">Descripción</label>
         <span class="p-input-icon-left">
             <i><fa-icon [icon]="faPencil"></fa-icon></i>
+            
             <textarea pInputTextarea [(ngModel)]="producto.descripcion" id="descripcion" [(ngModel)]="producto.descripcion" placeholder="Descripción" formControlName="descripcion"></textarea>
         </span>
         <span class="error" *ngIf="campoEsValido('descripcion')">
