@@ -8,6 +8,7 @@ import { EventEmitter } from '@angular/core';
 import { Producto, Tipo } from 'src/app/interfaces/interfaces';
 import { Subject } from 'rxjs';
 import { GeneralService } from '../../services/general.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-form-producto',
@@ -36,7 +37,9 @@ export class FormProductoComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private generalService: GeneralService,
-    private router: Router) { }
+    private router: Router,
+    private messageService: MessageService
+    ) { }
 
   
 
@@ -49,7 +52,7 @@ export class FormProductoComponent implements OnInit {
     })
 
     
-     //Inicianlizamos los datos de los tipos
+     //Inicializamos los datos de los tipos
      this.generalService.getTipos().subscribe(
       (resp:any)=>{
         //mapeo la respuesta para cambiar el nombre de los atributos
@@ -62,10 +65,6 @@ export class FormProductoComponent implements OnInit {
         })
 
         this.tipos = tipoChange;
-
-        console.log(this.tipos)
-
-        
       }
     )
   }
@@ -77,10 +76,17 @@ export class FormProductoComponent implements OnInit {
       return
     }
 
+    this.generalService.updateProducto(this.producto).subscribe();
     
-    console.log(this.form.value)
-
-    this.form.reset(); 
+    //Añadimos el toast (Notificación)
+    this.messageService.add({severity:'info', summary:'Producto modificado', detail:'El producto fue modificado'});
+    
+    //Redirigimos a la página d eproductos
+    this.authService.getCurrentUser().subscribe(
+      (resp:any) =>{
+        this.router.navigate([`/ofertas/productos/${resp.data.userName}`])
+      }
+    )
   }
 
   campoEsValido(campo: string){
@@ -90,6 +96,8 @@ export class FormProductoComponent implements OnInit {
 
   changeHover(){
     console.log(this.producto)
+    console.log(this.tipoSelected)
+
 
     if(this.tipoSelected){
       this.placeHolderTipo = this.tipoSelected.name;

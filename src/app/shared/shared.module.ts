@@ -26,6 +26,7 @@ import { FormsModule } from '@angular/forms';
 import {DropdownModule} from 'primeng/dropdown';
 import { UserTargetComponent } from './components/user-target/user-target.component';
 import {InputTextareaModule} from 'primeng/inputtextarea';
+import {ToastModule} from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
     ScrollTopModule,
     DropdownModule,
     InputTextareaModule,
+    ToastModule,
     
     //Infinite scroll
     InfiniteScrollModule

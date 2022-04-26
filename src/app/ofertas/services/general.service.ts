@@ -31,6 +31,10 @@ export class GeneralService {
     return this.http.get(this.URL + `productos/${id}`)
   }
 
+  updateProducto(producto:any){
+    return this.http.put(this.URL + `productos/${producto.id}`,producto)
+  }
+
   getComunidadesAutonomas(){
     return this.http.get(this.URL + `comunidadAutonoma`)
   }

@@ -60,6 +60,7 @@ export class ProductoComponent implements OnInit {
           this.producto = {
             titulo:"",
             tipo:"",
+            match: false,
             tipoProducto:{
               id: "",
               nombre: ""
