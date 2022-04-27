@@ -58,7 +58,6 @@ export class FormRegistroComponent implements OnInit {
       this.form.markAllAsTouched();
       return
     }
-    console.log(this.form.value)
     
     this.authService.registrarse(this.form.value).subscribe(
       (resp: any) =>{

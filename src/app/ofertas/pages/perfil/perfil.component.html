@@ -13,3 +13,9 @@
     <app-map  *ngIf="usuario" [coordenadas]="usuario.coordenadas"></app-map>
 </div>
 
+<p-dialog  [(visible)]="displayResponsive" [modal]="true" [style]="{width: 'auto'}" [maximizable]="false"
+    [draggable]="false" [resizable]="true" 
+    >
+   <app-form-perfil *ngIf="usuario" [usuario]="usuario"></app-form-perfil>
+   
+</p-dialog>

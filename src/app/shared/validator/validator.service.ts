@@ -8,6 +8,8 @@ export class ValidatorService {
 
   public emailPattern: string = "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$";
   
+  public numeroTelefono: string = "(\+34|0034|34)?[ -]*(6|7)[ -]*([0-9][ -]*){8}";
+  
   constructor() { }
 
   //Metodos

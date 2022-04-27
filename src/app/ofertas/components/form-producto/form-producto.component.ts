@@ -29,7 +29,6 @@ export class FormProductoComponent implements OnInit {
 
   @Input() producto:Producto | any ;
   @Input() edit: boolean = false;
-  @Output() editProducto = new EventEmitter<Producto>();
 
   public form!: FormGroup;
 

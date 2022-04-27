@@ -109,7 +109,12 @@
 }
 
 .bg-static{
-    background: linear-gradient(1.06deg, #E4E4E4 24.23%, rgb(255, 111, 0) 182.16%);
+    background: linear-gradient(1.06deg, #E4E4E4 24.23%, #ff6f00 182.16%);
+
+    -webkit-animation: fondoGradient 5s ease infinite;
+    -moz-animation: fondoGradient 5s ease infinite;
+    -o-animation: fondoGradient 5s ease infinite;
+    animation: fondoGradient 5s ease infinite;
 }
 
 //select

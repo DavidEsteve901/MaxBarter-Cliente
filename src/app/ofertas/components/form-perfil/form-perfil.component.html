@@ -1,1 +1,86 @@
-<p>form-perfil works!</p>
+<form [formGroup]="form" (submit)="guardar()" class="form">
+    <div>
+        <label for="nombre">Nombre</label>
+
+        <input type="text" pInputText id="nombre" [(ngModel)]="usuario.nombre"  placeholder="Nombre" formControlName="nombre" />
+
+        <span class="error" *ngIf="campoEsValido('nombre')">
+            <div *ngIf="titulo.errors.required">
+                Debe escribir un nombre
+            </div>
+
+            <div *ngIf="titulo.errors.maxlength">
+                Alcanzaste el máximo de carácteres
+            </div>
+            
+        </span>
+
+    </div>
+
+
+    <div>
+        <label for="apellidos">Apellidos</label>
+       
+            
+        <input type="text" pInputText  id="apellidos" [(ngModel)]="usuario.apellidos" placeholder="Apellidos" formControlName="apellidos" />
+        
+        <span class="error" *ngIf="campoEsValido('apellidos')">
+            <div *ngIf="descripcion.errors.required">
+                Debe escribir los apellidos
+            </div>
+
+            <div *ngIf="descripcion.errors.maxlength">
+                Alcanzaste el máximo de carácteres
+            </div>
+        </span>
+
+    </div>
+
+    <div>
+        <label for="correo">Correo</label>
+       
+            
+        <input type="text" pInputText  id="correo" [(ngModel)]="usuario.correo" placeholder="Correo" formControlName="correo" />
+        
+        <span class="error" *ngIf="campoEsValido('correo')">
+            <div *ngIf="descripcion.errors.required">
+                Debe escribir un correo
+            </div>
+
+            <div *ngIf="descripcion.errors.maxlength">
+                Alcanzaste el máximo de carácteres
+            </div>
+        </span>
+
+    </div>
+
+    <div>
+        <label for="telefono">Teléfono</label>
+       
+            
+        <input type="text" pInputText [(ngModel)]="usuario.telefono" id="telefono"  placeholder="Teléfono" formControlName="telefono" />
+        
+        <span class="error" *ngIf="campoEsValido('telefono')">
+            <div *ngIf="descripcion.errors.required">
+                Debe escribir un teléfono
+            </div>
+
+            <div *ngIf="descripcion.errors.maxlength">
+                Alcanzaste el máximo de carácteres
+            </div>
+        </span>
+
+    </div>
+
+     
+    <div class="formButton">
+        <button pButton *ngIf="!edit" type="submit" label="Crear" class="p-button-success boton"></button>
+        <button pButton *ngIf="edit" type="submit" label="Editar" class="p-button-info boton"></button>
+
+        <span class="error" *ngIf="error">
+            {{error.message}}
+        </span>
+    </div>
+
+</form>
+
