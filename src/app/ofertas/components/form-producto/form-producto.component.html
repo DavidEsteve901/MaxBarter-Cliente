@@ -5,7 +5,14 @@
         <input type="text" pInputText id="titulo" [(ngModel)]="producto.titulo"  placeholder="Título" formControlName="titulo" />
 
         <span class="error" *ngIf="campoEsValido('titulo')">
-            Debe escribir un título
+            <div *ngIf="titulo.errors.required">
+                Debe escribir un título
+            </div>
+
+            <div *ngIf="titulo.errors.maxlength">
+                Alcanzaste el máximo de carácteres
+            </div>
+            
         </span>
 
     </div>
@@ -29,7 +36,13 @@
             <textarea pInputTextarea [(ngModel)]="producto.descripcion" id="descripcion" [(ngModel)]="producto.descripcion" placeholder="Descripción" formControlName="descripcion"></textarea>
         </span>
         <span class="error" *ngIf="campoEsValido('descripcion')">
-            Debe sescribir una descripción
+            <div *ngIf="descripcion.errors.required">
+                Debe escribir un título
+            </div>
+
+            <div *ngIf="descripcion.errors.maxlength">
+                Alcanzaste el máximo de carácteres
+            </div>
         </span>
 
     </div>
