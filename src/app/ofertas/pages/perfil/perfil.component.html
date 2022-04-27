@@ -4,11 +4,12 @@
 
     <div class="opciones" >
         <button pButton  label="Productos" (click)="redirectProductos()" class="p-button-success boton"></button>
-        <button pButton *ngIf="optionsUser" label="Modificar" class="p-button-warning boton"></button>
+        <button pButton *ngIf="optionsUser" (click)="showMaximizableDialog()" label="Modificar" class="p-button-warning boton"></button>
         <button pButton *ngIf="optionsUser" (click)="logout()" label="Logout" class="p-button-danger boton"></button>
     </div>
 
     <app-perfil-view [usuario]="usuario" [imgPerfil]="imgPerfil"></app-perfil-view>
 
-    
+    <app-map  *ngIf="usuario" [coordenadas]="usuario.coordenadas"></app-map>
 </div>
+

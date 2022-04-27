@@ -52,6 +52,13 @@ export class ProductosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    //Nos suscribimos al servicio que notificará si se hacen cambios en los productos
+    this.generalService.getUpdateProducts$().subscribe(
+      (resp:any)=>{
+        this.doFilter();
+      }
+    )
+
     //Elimino los productos al entrar a la página
     this.productos.splice(0,this.productos.length);
 

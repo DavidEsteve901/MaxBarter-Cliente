@@ -1,0 +1,13 @@
+.botones{
+    // border: solid black 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    button{
+        width: auto !important;
+
+        transform: scale(0.7);
+    }
+}

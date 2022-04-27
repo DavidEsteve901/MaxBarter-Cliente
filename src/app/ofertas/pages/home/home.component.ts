@@ -50,6 +50,12 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    //Nos suscribimos al servicio que notificará si se hacen cambios en los productos
+    this.generalService.getUpdateProducts$().subscribe(
+      (resp:any)=>{
+        this.doFilter();
+      }
+    )
     
     //Inicianlizamos los datos de las comunidades 
     this.generalService.getComunidadesAutonomas().subscribe(

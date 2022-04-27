@@ -20,7 +20,10 @@ export class PerfilComponent implements OnInit {
   imgPerfil!:any;
   titulo:string = "PERFIL";
   optionsUser:boolean = false;
+  coordenadas!:any;
 
+  displayResponsive: boolean = false;
+  
   constructor(
     private generalService:GeneralService,
     private rutaActiva: ActivatedRoute,
@@ -39,7 +42,12 @@ export class PerfilComponent implements OnInit {
         //Método para obtener datos del usuario
         this.generalService.getUserById(params.userName).subscribe(
           (resp:any) =>{
+
             this.usuario = resp.data;
+            
+            //Convertimos la coordenadas en JSON
+            this.usuario.coordenadas = JSON.parse(this.usuario.coordenadas);
+            
 
             //Actualizamos Usuario Logueado
             this.authService.setCurrentUser();
@@ -74,6 +82,8 @@ export class PerfilComponent implements OnInit {
       }
     )
 
+    
+
 
   }
 
@@ -86,6 +96,8 @@ export class PerfilComponent implements OnInit {
     return this.router.navigate([`ofertas/productos/${this.usuario.userName}`])
   }
   
-
+  showMaximizableDialog() {
+    this.displayResponsive = true;
+  }
 
 }

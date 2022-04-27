@@ -16,58 +16,58 @@
             font-size: 1.3em;
             position: relative;
 
-            &:after,
-            &:before {
-            content: "";
-            position: absolute;
-            display: block;
-            border: 0px solid transparent;
-            width: 0%;
-            height: 0%;
-            transition: all 0.5s ease;
-            }
+            // &:after,
+            // &:before {
+            // content: "";
+            // position: absolute;
+            // display: block;
+            // border: 0px solid transparent;
+            // width: 0%;
+            // height: 0%;
+            // transition: all 0.5s ease;
+            // }
 
-            &:after {
-            width: 0%;
-            height: 0%;
-            top: 0;
-            left: 0;
-            border-top: 2px solid transparent;
-            border-left: 2px solid transparent;
-            }
+            // &:after {
+            // width: 0%;
+            // height: 0%;
+            // top: 0;
+            // left: 0;
+            // border-top: 2px solid transparent;
+            // border-left: 2px solid transparent;
+            // }
 
-            &:before {
-            width: 0%;
-            height: 0%;
-            right: 0;
-            bottom: 0;
-            border-bottom: 2px solid transparent;
-            border-right: 2px solid transparent;
-            }
+            // &:before {
+            // width: 0%;
+            // height: 0%;
+            // right: 0;
+            // bottom: 0;
+            // border-bottom: 2px solid transparent;
+            // border-right: 2px solid transparent;
+            // }
 
-            &:hover::before,
-            &:hover::after {
-            width: calc(100% + 5px) ;
-            height:  calc(100% + 5px);
-            border-color: #fff;
-            }
+            // &:hover::before,
+            // &:hover::after {
+            // width: calc(100% + 5px) ;
+            // height:  calc(100% + 5px);
+            // border-color: #fff;
+            // }
 
             //Efecto linea de abajo 
 
-            // &:after {
-            //     content: "";
-            //     position: absolute;
-            //     width: 0%;
-            //     height: 1px;
-            //     display: block;
-            //     transition: all 0.3s ease;
-            //     bottom: 25%;
-            // }
-            // &:hover::after {
-            //     width: 85%;    
-            //     height: 1px;
-            //     background-color: #fff;
-            // }
+            &:after {
+                content: "";
+                position: absolute;
+                width: 0%;
+                height: 1px;
+                display: block;
+                transition: all 0.3s ease;
+                bottom: 25%;
+            }
+            &:hover::after {
+                width: 85%;    
+                height: 1px;
+                background-color: #fff;
+            }
 
     
         }

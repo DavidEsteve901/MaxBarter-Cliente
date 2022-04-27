@@ -65,8 +65,22 @@ export class FormProductoComponent implements OnInit {
         })
 
         this.tipos = tipoChange;
+
+        //Establecemos el valor del tipo en el select (del producto que vamos a modificar)
+        if(this.producto.tipo != null){
+
+          this.tipoSelected = this.tipos.filter((e:any)=>{
+            return e['value'] == this.producto.tipo
+          })[0]
+        
+          this.placeHolderTipo = this.tipoSelected.name;
+          this.producto.tipo = this.tipoSelected.value;
+        }
+        
+
       }
     )
+    
   }
 
   guardar(){

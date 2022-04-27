@@ -13,7 +13,7 @@ import { SpinnerService } from './shared/services/spinner.service';
 import { SpinnerInterceptor } from './shared/interceptors/spinner.interceptor';
 import { TokenInterceptorService } from './auth/services/token-interceptor.service';
 import { CurrentUserService } from './shared/services/current-user.service';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -33,6 +33,7 @@ import { MessageService } from 'primeng/api';
     SpinnerService,
     CurrentUserService,
     MessageService,
+    ConfirmationService,
 
     {
       provide: HTTP_INTERCEPTORS,

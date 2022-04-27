@@ -34,7 +34,9 @@ export class NavBarComponent implements OnInit {
     //Nos suscribismo al servicio para obtener el usuario logueado (gracias al obsevable se notificario si cambia)
     this.currentUserService.getCurrentUser$().subscribe( (user) =>{
       this.user = user;
-      this.rutaPerfil = `ofertas/perfil/${this.user.userName}`
+      this.rutaPerfil = `ofertas/perfil/${this.user.userName}`;
+      
+      
       
       if(user){
         //Buscamos foto perfil
@@ -89,6 +91,12 @@ export class NavBarComponent implements OnInit {
   }
 
   redirectProductos(){
-    this.router.navigate([`ofertas/productos/${this.user.userName}`])
+    if(this.user){
+      return `ofertas/productos/${this.user.userName}`;
+
+    }else{
+      return ""
+    }
   }
+
 }

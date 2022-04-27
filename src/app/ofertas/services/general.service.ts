@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http'
+import { Observable, Subject } from 'rxjs';
+import { Statement } from '@angular/compiler';
 
 @Injectable()
 export class GeneralService {
@@ -12,6 +14,18 @@ export class GeneralService {
   constructor(
     private http: HttpClient,
   ) { }
+
+  private updateProducts$ = new Subject<any>();
+  
+
+  setUpdateProducts(state: any):void{
+    // console.log("SET",currentUser)
+    this.updateProducts$.next(state)
+  }
+
+  getUpdateProducts$(): Observable<any>{
+    return this.updateProducts$.asObservable();
+  }
 
 
   getUserById(userName:string){
@@ -33,6 +47,10 @@ export class GeneralService {
 
   updateProducto(producto:any){
     return this.http.put(this.URL + `productos/${producto.id}`,producto)
+  }
+
+  deleteProducto(id:any){
+    return this.http.delete(this.URL + `productos/${id}`)
   }
 
   getComunidadesAutonomas(){

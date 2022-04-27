@@ -59,7 +59,7 @@ export class ProductoComponent implements OnInit {
           //Creamos el objeto producto con los datos que necesitaremos
           this.producto = {
             titulo:"",
-            tipo:"",
+            tipo: null,
             match: false,
             tipoProducto:{
               id: "",

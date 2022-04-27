@@ -27,6 +27,10 @@ import {DropdownModule} from 'primeng/dropdown';
 import { UserTargetComponent } from './components/user-target/user-target.component';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {ToastModule} from 'primeng/toast';
+import {GMapModule} from 'primeng/gmap';
+
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -46,7 +50,8 @@ import {ToastModule} from 'primeng/toast';
     DialogModule,
     ButtonModule,
     ScrollPanelModule,
-    ScrollTopModule
+    ScrollTopModule,
+    ConfirmDialogModule,
 
   ],
   exports: [
@@ -73,9 +78,14 @@ import {ToastModule} from 'primeng/toast';
     DropdownModule,
     InputTextareaModule,
     ToastModule,
+    ConfirmDialogModule,
+    
     
     //Infinite scroll
-    InfiniteScrollModule
+    InfiniteScrollModule,
+
+    //Mapa 
+    GMapModule
 
     
   ],

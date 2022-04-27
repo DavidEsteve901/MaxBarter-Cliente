@@ -12,6 +12,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProductosComponent } from './pages/productos/productos.component';
 import { ProductoComponent } from './pages/producto/producto.component';
 import { FormProductoComponent } from './components/form-producto/form-producto.component';
+import { MapComponent } from './components/map/map.component';
+import { FormPerfilComponent } from './components/form-perfil/form-perfil.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { FormProductoComponent } from './components/form-producto/form-producto.
     PerfilComponent,
     ProductosComponent,
     ProductoComponent,
-    FormProductoComponent
+    FormProductoComponent,
+    MapComponent,
+    FormPerfilComponent
   ],
   imports: [
     CommonModule,

@@ -61,6 +61,28 @@
     }
 }
 
+//Botones de dialogo confirmación
+.p-confirm-dialog{
+    .p-button{
+        border-radius: 4px;
+        width: auto;
+        height: 63px;
+
+        font-family: 'Istok Web';
+        font-style: normal;
+        font-weight: 200;
+        font-size: 17px;
+        
+
+        color: #FFFFFF;
+
+        background: linear-gradient(121.1deg, #000000 -200.75%, #b9d2e9 90.53%) !important;
+
+        &:hover{
+            background: linear-gradient(121.1deg, #000000 -200.75%, #afd0ee 90.53%)!important;
+        }
+    }
+}
 //inputs
 @mixin input {
     &:focus {
