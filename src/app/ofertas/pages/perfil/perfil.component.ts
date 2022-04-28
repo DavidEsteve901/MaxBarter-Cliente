@@ -100,4 +100,14 @@ export class PerfilComponent implements OnInit {
     this.displayResponsive = true;
   }
 
+  checkUser(){
+    //Cada vez que cierre el dialogo que refresque el usuario por si ha modificado los datos
+    //Método para obtener datos del usuario
+    this.generalService.getUserById(this.usuario.userName).subscribe(
+      (resp:any)=>{
+        this.usuario = resp.data;
+      }
+    )
+  }
+
 }

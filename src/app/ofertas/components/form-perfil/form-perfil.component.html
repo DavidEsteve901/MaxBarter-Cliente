@@ -1,86 +1,112 @@
 <form [formGroup]="form" (submit)="guardar()" class="form">
-    <div>
-        <label for="nombre">Nombre</label>
+    <div class="contenido">
+       <section >
+            <div>
+                <label for="nombre">Nombre</label>
 
-        <input type="text" pInputText id="nombre" [(ngModel)]="usuario.nombre"  placeholder="Nombre" formControlName="nombre" />
+                <input type="text" pInputText id="nombre" [(ngModel)]="usuario.nombre"  placeholder="Nombre" formControlName="nombre" />
 
-        <span class="error" *ngIf="campoEsValido('nombre')">
-            <div *ngIf="titulo.errors.required">
-                Debe escribir un nombre
+                <span class="error" *ngIf="campoEsValido('nombre')">
+                    <div *ngIf="nombre.errors.required">
+                        Debe escribir un nombre
+                    </div>
+
+                    <div *ngIf="nombre.errors.maxlength">
+                        Alcanzaste el máximo de carácteres
+                    </div>
+                    
+                </span>
+
             </div>
 
-            <div *ngIf="titulo.errors.maxlength">
-                Alcanzaste el máximo de carácteres
+
+            <div>
+                <label for="apellidos">Apellidos</label>
+            
+                    
+                <input type="text" pInputText  id="apellidos" [(ngModel)]="usuario.apellidos" placeholder="Apellidos" formControlName="apellidos" />
+                
+                <span class="error" *ngIf="campoEsValido('apellidos')">
+                    <div *ngIf="apellidos.errors.required">
+                        Debe escribir los apellidos
+                    </div>
+
+                    <div *ngIf="apellidos.errors.maxlength">
+                        Alcanzaste el máximo de carácteres
+                    </div>
+                </span>
+
             </div>
+
+            <div>
+                <label for="correo">Correo</label>
             
-        </span>
+                    
+                <input type="text" pInputText  id="correo" [(ngModel)]="usuario.correo" placeholder="Correo" formControlName="correo" />
+                
+                <span class="error" *ngIf="campoEsValido('correo')">
+                    <div *ngIf="correo.errors.required">
+                        Debe escribir un correo
+                    </div>
 
-    </div>
+                    <div *ngIf="correo.errors.pattern">
+                        Correo introducido inválido
+                    </div>
+                </span>
 
+            </div>
 
-    <div>
-        <label for="apellidos">Apellidos</label>
-       
+            <div>
+                <label for="telefono">Teléfono</label>
             
-        <input type="text" pInputText  id="apellidos" [(ngModel)]="usuario.apellidos" placeholder="Apellidos" formControlName="apellidos" />
+                    
+                <input type="text" pInputText [(ngModel)]="usuario.telefono" id="telefono"  placeholder="Teléfono" formControlName="telefono" />
+                
+                <span class="error" *ngIf="campoEsValido('telefono')">
+                    <div *ngIf="telefono.errors.required">
+                        Debe escribir un teléfono
+                    </div>
+
+                    <div *ngIf="telefono.errors.pattern">
+                        Teléfono introducido inválido
+                    </div>
+                </span>
+
+            </div>
+
+            <div>
+                <label for="comunidadAutonoma">Comunidad Autónoma</label>
+                <br>
+                <p-dropdown [options]="comunidadesAutonomas" (onChange)="changeHover()" [(ngModel)]="comunidadSelected" [placeholder]="placeHolderComunidad" optionLabel="name" [showClear]="true" formControlName="comunidadAutonoma"></p-dropdown>
+                <br>
+                <span class="error" *ngIf="campoEsValido('comunidadAutonoma')">
+                    Debe seleccionar un tipo
+                </span>
         
-        <span class="error" *ngIf="campoEsValido('apellidos')">
-            <div *ngIf="descripcion.errors.required">
-                Debe escribir los apellidos
             </div>
 
-            <div *ngIf="descripcion.errors.maxlength">
-                Alcanzaste el máximo de carácteres
-            </div>
-        </span>
+        </section>
+    
 
+        <section>
+
+            <app-map  *ngIf="usuario" [coordenadas]="usuario.coordenadas"></app-map>
+
+        </section>
     </div>
+    
 
-    <div>
-        <label for="correo">Correo</label>
-       
-            
-        <input type="text" pInputText  id="correo" [(ngModel)]="usuario.correo" placeholder="Correo" formControlName="correo" />
-        
-        <span class="error" *ngIf="campoEsValido('correo')">
-            <div *ngIf="descripcion.errors.required">
-                Debe escribir un correo
-            </div>
+    
 
-            <div *ngIf="descripcion.errors.maxlength">
-                Alcanzaste el máximo de carácteres
-            </div>
-        </span>
-
-    </div>
-
-    <div>
-        <label for="telefono">Teléfono</label>
-       
-            
-        <input type="text" pInputText [(ngModel)]="usuario.telefono" id="telefono"  placeholder="Teléfono" formControlName="telefono" />
-        
-        <span class="error" *ngIf="campoEsValido('telefono')">
-            <div *ngIf="descripcion.errors.required">
-                Debe escribir un teléfono
-            </div>
-
-            <div *ngIf="descripcion.errors.maxlength">
-                Alcanzaste el máximo de carácteres
-            </div>
-        </span>
-
-    </div>
-
-     
     <div class="formButton">
-        <button pButton *ngIf="!edit" type="submit" label="Crear" class="p-button-success boton"></button>
-        <button pButton *ngIf="edit" type="submit" label="Editar" class="p-button-info boton"></button>
+        <button pButton  type="submit" label="Modificar" class="p-button-success boton"></button>
 
         <span class="error" *ngIf="error">
             {{error.message}}
         </span>
     </div>
+    
+
 
 </form>
 

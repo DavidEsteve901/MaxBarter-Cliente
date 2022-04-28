@@ -23,9 +23,9 @@ export class FormPerfilComponent implements OnInit {
 
   //Variables comunes
   error:any = null;
-  comunidadesAtonomas!:Tipo[] ;
+  comunidadesAutonomas!:Tipo[] ;
   comunidadSelected!: any;
-  placeHolderTipo:string = "Categoría";
+  placeHolderComunidad:string = "Comunidad Autónoma";
 
 
   @Input() usuario:Usuario | any ;
@@ -47,16 +47,17 @@ export class FormPerfilComponent implements OnInit {
   ngOnInit(): void {
     //Creamos el formulario
     this.form = this.formBuilder.group({
-      nombre: ['',[Validators.required, Validators.maxLength(23)]],
+      nombre: ['',[Validators.required, Validators.maxLength(10)]],
+      apellidos: ['',[Validators.required,Validators.maxLength(20)]],
       correo: ['',
         [
           Validators.required,
           Validators.pattern(this.validatorService.emailPattern)
         ]
       ],
-      telefono: ['',[Validators.required]],
+      telefono: ['',[Validators.required,Validators.pattern(this.validatorService.numeroTelefono)]],
       comunidadAutonoma: ['',[Validators.required]],
-      apellidos: ['',[Validators.required,Validators.maxLength(1000)]]
+      
     })
 
     
@@ -72,17 +73,17 @@ export class FormPerfilComponent implements OnInit {
           return cChang;
         })
 
-        this.comunidadesAtonomas = comunidadesChange;
+        this.comunidadesAutonomas = comunidadesChange;
 
         //Establecemos el valor del tipo en el select (del producto que vamos a modificar)
-        if(this.usuario.tipo != null){
+        if(this.usuario.comunidadAutonoma != null){
 
-          this.comunidadSelected = this.comunidadesAtonomas.filter((e:any)=>{
-            return e['value'] == this.usuario.tipo
+          this.comunidadSelected = this.comunidadesAutonomas.filter((e:any)=>{
+            return e['value'] == this.usuario.comunidadAutonomaId
           })[0]
-        
-          this.placeHolderTipo = this.comunidadSelected.name;
-          this.usuario.tipo = this.comunidadSelected.value;
+          console.log(this.usuario.comunidadAutonoma)
+          this.placeHolderComunidad = this.comunidadSelected.name;
+          this.usuario.comunidadAutonomaId = this.comunidadSelected.value;
         }
       
       }
@@ -101,17 +102,17 @@ export class FormPerfilComponent implements OnInit {
       return
     }
 
-    this.generalService.updateProducto(this.usuario).subscribe();
+    // this.generalService.updateProducto(this.usuario).subscribe();
     
-    //Añadimos el toast (Notificación)
-    this.messageService.add({severity:'info', summary:'Producto modificado', detail:'El producto fue modificado'});
+    // //Añadimos el toast (Notificación)
+    // this.messageService.add({severity:'info', summary:'Producto modificado', detail:'El producto fue modificado'});
     
-    //Redirigimos a la página d eproductos
-    this.authService.getCurrentUser().subscribe(
-      (resp:any) =>{
-        this.router.navigate([`/ofertas/productos/${resp.data.userName}`])
-      }
-    )
+    // //Redirigimos a la página d eproductos
+    // this.authService.getCurrentUser().subscribe(
+    //   (resp:any) =>{
+    //     this.router.navigate([`/ofertas/productos/${resp.data.userName}`])
+    //   }
+    // )
   }
 
   campoEsValido(campo: string){
@@ -125,20 +126,24 @@ export class FormPerfilComponent implements OnInit {
 
 
     if(this.comunidadSelected){
-      this.placeHolderTipo = this.comunidadSelected.name;
+      this.placeHolderComunidad = this.comunidadSelected.name;
       this.usuario.comunidadAutonomaId = this.comunidadSelected.value;
 
       this.usuario.comunidadAutonoma.nombre = this.comunidadSelected.name;
-      this.usuario.tipoProducto.id = this.comunidadSelected.value;
+      this.usuario.comunidadAutonoma.id = this.comunidadSelected.value;
 
     }else{
-      this.placeHolderTipo = "Comunidad Autónoma";
+      this.placeHolderComunidad = "Comunidad Autónoma";
     }
     
   }
 
-  get titulo():any{ return this.form.get('titulo')}
-  get descripcion():any{ return this.form.get('descripcion')}
+
+  get nombre():any{ return this.form.get('nombre')}
+  get apellidos():any{ return this.form.get('apellidos')}
+  get correo():any{ return this.form.get('correo')}
+  get telefono():any{ return this.form.get('telefono')}
+  get comunidadAutonoma():any{ return this.form.get('comunidadAutonoma')}
 
 }
 

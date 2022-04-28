@@ -20,9 +20,20 @@
     padding: 30px;
     display: flex;
     flex-direction: column;
-
     gap: 20px;
     
+    .contenido{
+        display: flex;
+        gap: 50px;
+    }
+    
+    section{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        width: 300px;
+    }
     textarea{
         height: 150px;
 
@@ -34,7 +45,7 @@
         align-self: center;
     }
     .formButton{
-        align-self: center;
+        align-self: flex-end;
         display: flex;
         align-items: center;
         flex-direction: column;
