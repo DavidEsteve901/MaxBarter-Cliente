@@ -90,7 +90,7 @@
 
         <section>
 
-            <app-map  *ngIf="usuario" [coordenadas]="usuario.coordenadas"></app-map>
+            <app-map  *ngIf="usuario" [coordenadas]="usuario.coordenadas" [edit]="true" (updateCoords)="updateCoords($event)"></app-map>
 
         </section>
     </div>

@@ -106,6 +106,11 @@ export class PerfilComponent implements OnInit {
     this.generalService.getUserById(this.usuario.userName).subscribe(
       (resp:any)=>{
         this.usuario = resp.data;
+
+        //Convertimos la coordenadas en JSON
+        this.usuario.coordenadas = JSON.parse(this.usuario.coordenadas);
+
+        this.generalService.setUpdateCoords(this.usuario.coordenadas);
       }
     )
   }

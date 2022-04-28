@@ -27,6 +27,18 @@ export class GeneralService {
     return this.updateProducts$.asObservable();
   }
 
+  private updateCoords$ = new Subject<any>();
+  
+
+  setUpdateCoords(state: any):void{
+    this.updateCoords$.next(state)
+  }
+
+  getUpdateCoords$(): Observable<any>{
+    return this.updateCoords$.asObservable();
+  }
+
+
 
   getUserById(userName:string){
     return this.http.get(this.URL + `user/${userName}` );
@@ -51,6 +63,12 @@ export class GeneralService {
 
   deleteProducto(id:any){
     return this.http.delete(this.URL + `productos/${id}`)
+  }
+
+
+  //Usuarios
+  updateUsuario(usuario:any){
+    return this.http.put(this.URL + `user/updateUser`,usuario)
   }
 
   getComunidadesAutonomas(){

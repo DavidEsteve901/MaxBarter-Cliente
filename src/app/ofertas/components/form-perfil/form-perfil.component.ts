@@ -55,7 +55,7 @@ export class FormPerfilComponent implements OnInit {
           Validators.pattern(this.validatorService.emailPattern)
         ]
       ],
-      telefono: ['',[Validators.required,Validators.pattern(this.validatorService.numeroTelefono)]],
+      telefono: ['',[Validators.required]],
       comunidadAutonoma: ['',[Validators.required]],
       
     })
@@ -102,17 +102,18 @@ export class FormPerfilComponent implements OnInit {
       return
     }
 
-    // this.generalService.updateProducto(this.usuario).subscribe();
+    //Convertimos las coordenadas a string
+    this.usuario.coordenadas = JSON.stringify(this.usuario.coordenadas);
+
+    this.generalService.updateUsuario(this.usuario).subscribe();
+
+    //Volvemos a pasarlas a json
+    this.usuario.coordenadas = JSON.parse(this.usuario.coordenadas);
+
+    //Añadimos el toast (Notificación)
+    this.messageService.add({severity:'info', summary:'Producto modificado', detail:'El perfil fue modificado'});
     
-    // //Añadimos el toast (Notificación)
-    // this.messageService.add({severity:'info', summary:'Producto modificado', detail:'El producto fue modificado'});
-    
-    // //Redirigimos a la página d eproductos
-    // this.authService.getCurrentUser().subscribe(
-    //   (resp:any) =>{
-    //     this.router.navigate([`/ofertas/productos/${resp.data.userName}`])
-    //   }
-    // )
+
   }
 
   campoEsValido(campo: string){
@@ -138,6 +139,9 @@ export class FormPerfilComponent implements OnInit {
     
   }
 
+  updateCoords(event :any){
+    this.usuario.coordenadas = event
+  }
 
   get nombre():any{ return this.form.get('nombre')}
   get apellidos():any{ return this.form.get('apellidos')}

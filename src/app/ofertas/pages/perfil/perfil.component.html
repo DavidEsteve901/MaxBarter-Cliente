@@ -10,7 +10,7 @@
 
     <app-perfil-view [usuario]="usuario" [imgPerfil]="imgPerfil"></app-perfil-view>
 
-    <app-map  *ngIf="usuario" [coordenadas]="usuario.coordenadas"></app-map>
+    <app-map  *ngIf="usuario" [coordenadas]="usuario.coordenadas" ></app-map>
 </div>
 
 <p-dialog  [(visible)]="displayResponsive" [modal]="true" [style]="{width: 'auto'}" [maximizable]="false"
