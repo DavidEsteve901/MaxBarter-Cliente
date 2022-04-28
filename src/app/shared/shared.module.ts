@@ -87,7 +87,6 @@ import {ConfirmationService} from 'primeng/api';
     //Mapa 
     GMapModule
 
-    
   ],
   providers: [
     AuthService,
