@@ -26,9 +26,13 @@ export class FormProductoComponent implements OnInit {
   tipoSelected!: any;
   placeHolderTipo:string = "Categoría";
 
+  uploadedFiles: any[] = [];
 
   @Input() producto:Producto | any ;
   @Input() edit: boolean = false;
+
+  @Output() updateImages = new EventEmitter<any[]>();
+
 
   public form!: FormGroup;
 
@@ -102,6 +106,37 @@ export class FormProductoComponent implements OnInit {
     )
   }
 
+  //Métodos Files
+  onUpload(event: any) {
+    for(let file of event.files) {
+        this.uploadedFiles.push(file);
+    }
+
+    this.messageService.add({severity: 'info', summary: 'Imagen subida', detail: ''});
+
+    this.updateImages.emit(this.uploadedFiles)
+
+  }
+
+  removeFile(event: any){
+    
+    //Eliminamos file del array
+    this.uploadedFiles.splice(this.uploadedFiles.indexOf(event.file),1)
+
+    this.messageService.add({severity: 'warn', summary: 'Imagen eliminada', detail: ''});
+
+    this.updateImages.emit(this.uploadedFiles)
+
+  }
+
+  onClear(){
+    this.uploadedFiles = [];
+
+    this.updateImages.emit(this.uploadedFiles)
+  }
+
+
+  //Métodos forms
   campoEsValido(campo: string){
     return this.form.controls[campo]?.errors
             && this.form.controls[campo]?.touched
@@ -125,6 +160,7 @@ export class FormProductoComponent implements OnInit {
     
   }
 
+  //Getters
   get titulo():any{ return this.form.get('titulo')}
   get descripcion():any{ return this.form.get('descripcion')}
 }

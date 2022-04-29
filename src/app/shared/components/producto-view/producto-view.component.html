@@ -26,7 +26,7 @@
     
         <!-- <img src="https://www.empack.mx/wp-content/uploads/2018/04/RM-01-1-scaled-500x312.jpg" alt="Imagen Producto" class="img-prod"> -->
 
-        <p-galleria [value]="images"  [numVisible]="5"
+        <!-- <p-galleria [value]="images"  [numVisible]="5"
             [circular]="true" [showItemNavigators]="true" [showThumbnails]="false" [showIndicators]="true" [showItemNavigatorsOnHover]="true"
             [showIndicatorsOnItem]="true"> 
             <ng-template pTemplate="item" let-item>
@@ -37,7 +37,9 @@
                     <img [src]="item.thumbnailImageSrc" style="display: block;" />
                 </div>
             </ng-template>
-        </p-galleria>
+        </p-galleria> -->
+
+        <app-gallery  class="galeria" [imagenes]="images"></app-gallery>
     
 
     <div class="botones" *ngIf="showButtons">
@@ -47,9 +49,6 @@
     </div>
     
 </div>
-
-
-
 
 <p-dialog  [(visible)]="displayResponsive" [modal]="true" [style]="{width: 'auto'}" [maximizable]="false"
     [draggable]="false" [resizable]="true" 

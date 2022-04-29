@@ -1,4 +1,4 @@
 
-<app-form-producto *ngIf="producto" [producto]="producto" (editProducto)="producto = $event" [edit]="edit"></app-form-producto>
+<app-form-producto *ngIf="producto" [producto]="producto" (editProducto)="producto = $event" [edit]="edit" (updateImages)="updateImages($event)"></app-form-producto>
 
 <app-producto-view *ngIf="producto" [producto]="producto" [showButtons]="false" [imgPerfil]="imgPerfil" ></app-producto-view>

@@ -35,48 +35,48 @@
     }
 
     //Galeria de imagenes
-    .p-galleria-item-wrapper{
+    // .p-galleria-item-wrapper{
         
-        position: absolute !important;
+    //     position: absolute !important;
 
-        box-shadow: 0 0 10px #DEE2E6;
+    //     box-shadow: 0 0 10px #DEE2E6;
 
-        right: 10px;
-        top: calc(50% - 170px );
-        width:  300px !important;
-        height:  300px !important;
-        padding: 10px;
-        // height: 300px !important;
+    //     right: 10px;
+    //     top: calc(50% - 170px );
+    //     width:  300px !important;
+    //     height:  300px !important;
+    //     padding: 10px;
+    //     // height: 300px !important;
         
-        .p-galleria-content{
-            border-radius: 10px !important;
-        }
+    //     .p-galleria-content{
+    //         border-radius: 10px !important;
+    //     }
 
-        .p-galleria-indicators{
-            height: 20px;
-            align-items: center !important;
-            background-color: rgba(227, 114, 28,0.4);
-            &>*{
-                transform: scale(0.9);
-            }
-        }
-        .p-galleria-thumbnail-container{
-            width: 400px !important;
-            height: 200px !important;
-        }
+    //     .p-galleria-indicators{
+    //         height: 20px;
+    //         align-items: center !important;
+    //         background-color: rgba(227, 114, 28,0.4);
+    //         &>*{
+    //             transform: scale(0.9);
+    //         }
+    //     }
+    //     .p-galleria-thumbnail-container{
+    //         width: 400px !important;
+    //         height: 200px !important;
+    //     }
     
-        .p-galleria-item-nav{
-            width: 40px !important;
-            height: 40px !important;
+    //     .p-galleria-item-nav{
+    //         width: 40px !important;
+    //         height: 40px !important;
 
-            color: #E4731C;
+    //         color: #E4731C;
 
-            &:focus{
-                color: #E4731C;
-            }
+    //         &:focus{
+    //             color: #E4731C;
+    //         }
 
-            top:calc(50% - 40px)
-        }
+    //         top:calc(50% - 40px)
+    //     }
 
         // display: flex;
         // align-items: center;
@@ -88,7 +88,7 @@
         //     height: 300px !important;
             
         // }
-    }
+    // }
 
     //Dialog
     .p-dialog-content{
@@ -99,6 +99,20 @@
         padding: 5px !important;
     }
 }
+
+
+.galeria{
+    position: absolute !important;
+
+    box-shadow: 0 0 10px #DEE2E6;
+
+    right: 10px;
+    top: calc(50% - 170px );
+    width:  300px !important;
+    height:  300px !important;
+    padding: 10px;
+}
+
 .cuerpo{
     color: black;
     position: relative;

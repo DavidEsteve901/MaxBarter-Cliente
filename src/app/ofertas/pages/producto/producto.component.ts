@@ -16,6 +16,8 @@ export class ProductoComponent implements OnInit {
   producto !:Producto | any;
   imgPerfil!:any;
 
+  imagenesProducto:any[] = [];
+
   edit: boolean = false;
 
   editProducto = new Subject<Producto>();
@@ -104,6 +106,35 @@ export class ProductoComponent implements OnInit {
 
     
     
+  }
+
+  //Pasamos las imagenes al componente Producto
+  updateImages(imagenes: any){
+    
+    this.imagenesProducto = [];
+
+    imagenes.forEach((img: any) => {
+
+      this.generalService.extraerBase64(img).then(
+        (img: any) =>{
+          this.imagenesProducto.push({
+            previewImageSrc: img.base,
+            thumbnailImageSrc: img.base,
+            alt: "Imagen producto",
+            title: "Imagen producto"
+          })
+        }
+      )
+
+    });
+
+    // this.imagenesProducto.push({
+    //   previewImageSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFUKfhPSZVeJUiThwzjz0CJuIiEnWcbAIfHg&usqp=CAU",
+    //   thumbnailImageSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFUKfhPSZVeJUiThwzjz0CJuIiEnWcbAIfHg&usqp=CAU",
+    //   alt: "Description for Image 2",
+    //   title: "Title 2"
+    // })
+    this.generalService.setUpdateImageProducto(this.imagenesProducto)
   }
 
 }

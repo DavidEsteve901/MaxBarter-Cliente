@@ -12,6 +12,20 @@
     .p-inputtext{
         width: 100%;
     }
+
+    //Upload Files
+    //Botones
+    .p-fileupload-buttonbar{
+        .p-button{
+            transform: scale(0.7);
+        }
+    }
+
+    .p-fileupload-content{
+        .p-fileupload-row{
+            transform: scale(0.9);
+        }
+    }
 }
 .form{
     width: 100%;

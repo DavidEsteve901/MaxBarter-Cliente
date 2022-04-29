@@ -19,7 +19,8 @@ export class ProductoViewComponent implements OnInit {
 
   @Input() isCurrentUser!:boolean;
 
-  images!:any[];
+  @Input() images :any[] = [];
+
 
   constructor(
     private currentUser: CurrentUserService,
@@ -46,20 +47,21 @@ export class ProductoViewComponent implements OnInit {
     )
 
     this.images = [
-      {
-      previewImageSrc: "https://www.empack.mx/wp-content/uploads/2018/04/RM-01-1-scaled-500x312.jpg",
-      thumbnailImageSrc: "https://www.empack.mx/wp-content/uploads/2018/04/RM-01-1-scaled-500x312.jpg",
-      alt: "Description for Image 2",
-      title: "Title 2"
-      },
-      {
-        previewImageSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFUKfhPSZVeJUiThwzjz0CJuIiEnWcbAIfHg&usqp=CAU",
-        thumbnailImageSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFUKfhPSZVeJUiThwzjz0CJuIiEnWcbAIfHg&usqp=CAU",
-        alt: "Description for Image 2",
-        title: "Title 2"
-      },
-    
+      "https://www.empack.mx/wp-content/uploads/2018/04/RM-01-1-scaled-500x312.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFUKfhPSZVeJUiThwzjz0CJuIiEnWcbAIfHg&usqp=CAU"
     ]
+
+    this.generalService.getUpdateImageProducto$().subscribe(
+      (resp:any)=>{
+        console.log("imagenes",resp)
+        console.log("imagenesAntes",this.images)
+
+        this.images = resp
+
+        // this.imagen = resp [0];
+        console.log(this.images)
+      }
+    )
     
   }
 

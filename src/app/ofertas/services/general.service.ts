@@ -3,6 +3,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http'
 import { Observable, Subject } from 'rxjs';
 import { Statement } from '@angular/compiler';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Injectable()
 export class GeneralService {
@@ -13,6 +14,7 @@ export class GeneralService {
 
   constructor(
     private http: HttpClient,
+    private sanitizer: DomSanitizer
   ) { }
 
   private updateProducts$ = new Subject<any>();
@@ -38,6 +40,18 @@ export class GeneralService {
     return this.updateCoords$.asObservable();
   }
 
+
+  //Actualizar img producto
+  private updateImageProducto$ = new Subject<any>();
+  
+
+  setUpdateImageProducto(state: any):void{
+    this.updateImageProducto$.next(state)
+  }
+
+  getUpdateImageProducto$(): Observable<any>{
+    return this.updateImageProducto$.asObservable();
+  }
 
 
   getUserById(userName:string){
@@ -97,4 +111,27 @@ export class GeneralService {
       };
     });
   };
+
+  //Método extraer base64 de file
+  extraerBase64 = async ($event: any) => new Promise((resolve, reject) :any=> {
+    try {
+      const unsafeImg = window.URL.createObjectURL($event);
+      const image = this.sanitizer.bypassSecurityTrustUrl(unsafeImg);
+      const reader = new FileReader();
+      reader.readAsDataURL($event);
+      reader.onload = () => {
+        resolve({
+          base: reader.result
+        });
+      };
+      reader.onerror = error => {
+        resolve({
+          base: null
+        });
+      };
+
+    } catch (e) {
+      return null;
+    }
+  })
 }

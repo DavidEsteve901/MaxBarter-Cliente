@@ -47,6 +47,13 @@
 
     </div>
 
+    
+    
+    <p-fileUpload  (onSelect)="onUpload($event)"
+            [multiple]="true" accept="image/*" [maxFileSize]="1000000" [showUploadButton]="false"
+            (onRemove)="removeFile($event)" (onClear)="onClear()">
+            
+    </p-fileUpload>
      
     <div class="formButton">
         <button pButton *ngIf="!edit" type="submit" label="Crear" class="p-button-success boton"></button>

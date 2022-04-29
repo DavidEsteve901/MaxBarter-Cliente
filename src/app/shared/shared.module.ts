@@ -32,6 +32,8 @@ import {GalleriaModule} from 'primeng/galleria';
 
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
+import {FileUploadModule} from 'primeng/fileupload';
+import { GalleryComponent } from './components/gallery/gallery.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import {ConfirmationService} from 'primeng/api';
     PerfilViewComponent,
     SpinnerComponent,
     UserTargetComponent,
+    GalleryComponent,
   ],
   imports: [
     CommonModule,
@@ -82,6 +85,7 @@ import {ConfirmationService} from 'primeng/api';
     ToastModule,
     ConfirmDialogModule,
     GalleriaModule,
+    FileUploadModule,
     
     
     //Infinite scroll

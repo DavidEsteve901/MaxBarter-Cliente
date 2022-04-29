@@ -1,0 +1,41 @@
+:host{
+    height: 100%;
+    width: 100%;
+}
+
+.carousel{
+    width: 100%;
+    height: 100%;
+    // background-color: aqua;
+    fa-icon{
+        font-size: 20px;
+        color: #E57722 !important;
+    }
+
+    .carousel-indicators{
+        button{
+            
+            background-color: #E57722;
+        }
+    }
+    
+    .carousel-inner{
+        .carousel-item{
+
+        }
+    }
+    img{
+        width:  100px !important;
+        max-height:  100px !important;
+        margin-top: calc(50% - 100px);
+    }
+}
+
+.carousel-control-prev{
+    
+    
+        
+    
+    
+   
+}
