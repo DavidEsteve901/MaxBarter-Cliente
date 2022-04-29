@@ -90,7 +90,7 @@ export class FormPerfilComponent implements OnInit {
     )
 
 
-        console.log(this.usuario)
+    console.log(this.usuario)
       
     
   }

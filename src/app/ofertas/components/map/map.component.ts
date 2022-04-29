@@ -33,23 +33,51 @@ export class MapComponent implements OnInit {
 
     this.generalService.getUpdateCoords$().subscribe(
       (resp:any)=>{
-        if(this.edit){
-          this.coordenadas = resp;
-          this.clear()
-          this.ngOnInit()
-        }
         
+        this.coordenadas = resp;
+
+        //Convertimos la coordenadas en JSON
+        if(typeof this.coordenadas !== "object"){
+          this.coordenadas = JSON.parse(this.coordenadas);
+        }
+
+
+        this.clear()
+        this.ngOnInit()
+      
+        
+           
       }
     )
 
-    this.options = {
-      center: { lat: this.coordenadas.lat, lng: this.coordenadas.lng },
-      zoom: 12
-    };
+    //Convertimos la coordenadas en JSON
+    if(typeof this.coordenadas !== "object"){
+      this.coordenadas = JSON.parse(this.coordenadas);
+    }
+    
+    if(this.coordenadas){
+      this.options = {
+        center: { lat: this.coordenadas.lat, lng: this.coordenadas.lng },
+        zoom: 12
+      };
 
-    // console.log(this.coordenadas)
+      this.initOverlays();
+      
+    }else{
+      this.coordenadas = {
+        lat: null,
+        lng: null
+      }
 
-    this.initOverlays();
+      this.options = {
+        center: { lat: 40.416729, lng: -3.703339 },
+        zoom: 5.5
+      };
+    }
+    
+
+    
+    
 
     this.infoWindow = new google.maps.InfoWindow();
   }
@@ -81,17 +109,25 @@ export class MapComponent implements OnInit {
     this.dialogVisible = false;
   }
 
-  addMarkerClick(event: any) {
+  addMarkerClick(event: any, map:any) {
     //Si podemos editar el mapa eliminamos los markers y añadimos el nuevo
     if(this.edit){
       this.clear();
 
+      
+
       this.selectedPosition = event.latLng;
+
+      //Convertimos la coordenadas en JSON
+      if(typeof this.coordenadas !== "object"){
+        this.coordenadas = JSON.parse(this.coordenadas);
+      }
 
       this.coordenadas.lat = this.selectedPosition.lat();
       this.coordenadas.lng = this.selectedPosition.lng();
 
-      
+      map.setCenter(this.coordenadas)
+
       this.updateCoords.emit(this.coordenadas)
       
       this.overlays.push(new google.maps.Marker({ position: { lat: this.selectedPosition.lat(), lng: this.selectedPosition.lng() }, title: "Ubicación", draggable: this.draggable }));
@@ -111,8 +147,10 @@ export class MapComponent implements OnInit {
       this.overlays = [
         new google.maps.Marker({ position: { lat: this.coordenadas.lat, lng: this.coordenadas.lng }, title: "Ubicación" }),
       ];
+
     }
   }
+
 
   zoomIn(map: any) {
     map.setZoom(map.getZoom() + 1);
@@ -123,6 +161,10 @@ export class MapComponent implements OnInit {
   }
 
   clear() {
+    if(this.edit){
+      this.updateCoords.emit(null)
+    }
+
     this.overlays = [];
   }
 
