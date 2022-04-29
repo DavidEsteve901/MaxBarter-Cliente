@@ -34,6 +34,62 @@
         }
     }
 
+    //Galeria de imagenes
+    .p-galleria-item-wrapper{
+        
+        position: absolute !important;
+
+        box-shadow: 0 0 10px #DEE2E6;
+
+        right: 10px;
+        top: calc(50% - 170px );
+        width:  300px !important;
+        height:  300px !important;
+        padding: 10px;
+        // height: 300px !important;
+        
+        .p-galleria-content{
+            border-radius: 10px !important;
+        }
+
+        .p-galleria-indicators{
+            height: 20px;
+            align-items: center !important;
+            background-color: rgba(227, 114, 28,0.4);
+            &>*{
+                transform: scale(0.9);
+            }
+        }
+        .p-galleria-thumbnail-container{
+            width: 400px !important;
+            height: 200px !important;
+        }
+    
+        .p-galleria-item-nav{
+            width: 40px !important;
+            height: 40px !important;
+
+            color: #E4731C;
+
+            &:focus{
+                color: #E4731C;
+            }
+
+            top:calc(50% - 40px)
+        }
+
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        // padding-bottom: 60px ;
+
+        // img{
+        //     width: 300px !important;
+        //     height: 300px !important;
+            
+        // }
+    }
+
     //Dialog
     .p-dialog-content{
         padding: 0 !important;
@@ -121,27 +177,27 @@
         }
     }
 
-    .imagen{
-        position: absolute;
-        left: 65.51%;
-        right: 5.21%;
-        top: 6.24%;
-        bottom: 6.63%;
+    // .imagen{
+    //     position: absolute;
+    //     left: 65.51%;
+    //     right: 5.21%;
+    //     top: 6.24%;
+    //     bottom: 6.63%;
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-bottom: 60px ;
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: center;
+    //     padding-bottom: 60px ;
 
-        // background-color: blue;
+    //     // background-color: blue;
 
-        img{
-            width: 400px;
-            height: 200px;
-            border: #E4731C solid 1px;
-            border-radius: 10px;
-        }
-    }
+    //     img{
+    //         width: 400px;
+    //         height: 200px;
+    //         border: #E4731C solid 1px;
+    //         border-radius: 10px;
+    //     }
+    // }
 
     .botones{
         position: absolute;

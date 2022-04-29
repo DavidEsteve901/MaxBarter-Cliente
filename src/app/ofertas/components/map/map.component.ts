@@ -1,7 +1,9 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MessageService } from 'primeng/api';
 
+
 import { GeneralService } from '../../services/general.service';
+
 declare var google: any
 
 @Component({
@@ -15,6 +17,7 @@ export class MapComponent implements OnInit {
   @Input() edit:boolean = false ;
 
   @Output() updateCoords = new EventEmitter<any>();
+
 
   options: any;
   overlays: any[] = [];
@@ -61,8 +64,9 @@ export class MapComponent implements OnInit {
         zoom: 12
       };
 
+
       this.initOverlays();
-      
+
     }else{
       this.coordenadas = {
         lat: null,
@@ -74,7 +78,6 @@ export class MapComponent implements OnInit {
         zoom: 5.5
       };
     }
-    
 
     
     

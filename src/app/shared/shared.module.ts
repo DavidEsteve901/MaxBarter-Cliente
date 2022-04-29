@@ -28,6 +28,7 @@ import { UserTargetComponent } from './components/user-target/user-target.compon
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {ToastModule} from 'primeng/toast';
 import {GMapModule} from 'primeng/gmap';
+import {GalleriaModule} from 'primeng/galleria';
 
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
@@ -52,6 +53,7 @@ import {ConfirmationService} from 'primeng/api';
     ScrollPanelModule,
     ScrollTopModule,
     ConfirmDialogModule,
+    GalleriaModule,
 
   ],
   exports: [
@@ -79,6 +81,7 @@ import {ConfirmationService} from 'primeng/api';
     InputTextareaModule,
     ToastModule,
     ConfirmDialogModule,
+    GalleriaModule,
     
     
     //Infinite scroll
