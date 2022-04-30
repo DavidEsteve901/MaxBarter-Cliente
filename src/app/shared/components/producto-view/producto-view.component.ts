@@ -46,22 +46,7 @@ export class ProductoViewComponent implements OnInit {
       }
     )
 
-    this.images = [
-      "https://www.empack.mx/wp-content/uploads/2018/04/RM-01-1-scaled-500x312.jpg",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFUKfhPSZVeJUiThwzjz0CJuIiEnWcbAIfHg&usqp=CAU"
-    ]
-
-    this.generalService.getUpdateImageProducto$().subscribe(
-      (resp:any)=>{
-        console.log("imagenes",resp)
-        console.log("imagenesAntes",this.images)
-
-        this.images = resp
-
-        // this.imagen = resp [0];
-        console.log(this.images)
-      }
-    )
+      console.log(this.producto)
     
   }
 

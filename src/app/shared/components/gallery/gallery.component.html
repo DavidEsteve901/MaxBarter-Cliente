@@ -1,23 +1,30 @@
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-    <!-- <div class="carousel-indicators" [innerHtml]="botonesHtml">
-      
-    </div> -->
-    <div class="carousel-inner" [innerHtml]="imagenesHtml">
-      <!-- <div class="carousel-item active">
-        <img src="https://www.empack.mx/wp-content/uploads/2018/04/RM-01-1-scaled-500x312.jpg" class="d-block w-100 img-fluid" alt="...">
-      </div>
-      <div class="carousel-item ">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFUKfhPSZVeJUiThwzjz0CJuIiEnWcbAIfHg&usqp=CAU" class="d-block w-100 img-fluid" alt="...">
-      </div> -->
-      <!-- <div class="carousel-item">
-        <img src="..." class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="..." class="d-block w-100" alt="...">
-      </div> -->
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" >
 
+    <div class="carousel-inner" >
+
+      <div class="carousel-item active" >
+          <img [src]="imagenes[0]" class="d-block w-100 img-fluid" alt="Producto" *ngIf="imagenes.length != 0">
+      </div>
+
+      <!-- <div *ngIf="!imagenes" class="carousel-item active" >
+        <img [src]=" https://cdn-icons-png.flaticon.com/512/85/85488.png" class="d-block w-100 img-fluid" alt="Producto">
+      </div> -->
+      
+      <div class="carousel-item" *ngFor="let img of imagenesCortadas" >
+        <img [src]="img" class="d-block w-100 img-fluid" alt="Producto">
+      </div>
 
     </div>
+
+    <!-- <div class="carousel-inner"  *ngIf="!imagenes">
+
+      <div class="carousel-item active">
+          <img [src]=" https://cdn-icons-png.flaticon.com/512/85/85488.png" class="d-block w-100 img-fluid" alt="Producto">
+      </div>
+
+    </div> -->
+
+   
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
         <fa-icon [icon]="faArrowLeft"></fa-icon>
 

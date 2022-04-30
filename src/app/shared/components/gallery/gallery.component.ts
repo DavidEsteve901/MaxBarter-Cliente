@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ComponentFactoryResolver, Input, OnInit } from '@angular/core';
 import { faArrowLeft,faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { GeneralService } from '../../../ofertas/services/general.service';
 
 @Component({
   selector: 'app-gallery',
@@ -12,40 +13,43 @@ export class GalleryComponent implements OnInit {
   //Iconos
   faArrowLeft = faArrowLeft;
   faArrowRight = faArrowRight;
-  @Input() imagenes!:any[];
+  @Input() imagenes:any[] = ["https://cdn-icons-png.flaticon.com/512/85/85488.png"];
 
-  imagenesHtml:string = "";
-  botonesHtml:string = "";
+  imagenesCortadas:any = null;
+  
 
 
-  constructor() { }
+  constructor(
+    private generalService:GeneralService
+  ) { }
 
   ngOnInit(): void {
-    console.log(this.imagenes)
-
-    this.imagenes.forEach((img,index)=>{
-      if(index == 0){
-        this.imagenesHtml += `<div class="carousel-item active">
-          <img src="${img}"   class="d-block w-100" alt="Producto">
-        </div>`
-        
-        // this.botonesHtml += ` <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${index}" class="active" aria-current="true" aria-label="Slide ${index}"></button>`
-      }else{
-        this.imagenesHtml += `<div class="carousel-item">
-        <img src="${img}"   class="d-block w-100" alt="Producto">
-      </div>`
-
-      // this.botonesHtml += ` 
-      //   <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${index}" aria-label="Slide ${index}"></button>
-      //   `
-      }
-      
-    })
-
-    console.log(this.imagenesHtml)
-    console.log(this.botonesHtml)
-
     
+    this.generalService.getUpdateImageProducto$().subscribe(
+      (resp:any[])=>{
+        
+        if(resp.length != 0){
+
+          if(resp.length == 1){
+            this.imagenes = resp;
+            this.imagenesCortadas = [] ;
+          }else{
+            this.imagenes = resp;
+            this.imagenesCortadas = resp.slice(1,resp.length) ;
+          }
+          
+
+          // this.imagenesCortadas.splice(0,1)
+        }else{
+          this.imagenes = ["https://cdn-icons-png.flaticon.com/512/85/85488.png"],
+          this.imagenesCortadas = null;
+        }
+
+        console.log("respuesta",resp)
+        console.log("imagenes",this.imagenes)
+        console.log("imagenesCortadas",this.imagenesCortadas)
+      }
+    )
     
   }
 

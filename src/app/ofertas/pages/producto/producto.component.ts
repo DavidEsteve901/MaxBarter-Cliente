@@ -109,32 +109,19 @@ export class ProductoComponent implements OnInit {
   }
 
   //Pasamos las imagenes al componente Producto
-  updateImages(imagenes: any){
+  updateImages(imagenes: any) {
     
     this.imagenesProducto = [];
 
-    imagenes.forEach((img: any) => {
 
-      this.generalService.extraerBase64(img).then(
-        (img: any) =>{
-          this.imagenesProducto.push({
-            previewImageSrc: img.base,
-            thumbnailImageSrc: img.base,
-            alt: "Imagen producto",
-            title: "Imagen producto"
-          })
-        }
-      )
+    // imagenes.forEach((img: any) => {
 
-    });
-
-    // this.imagenesProducto.push({
-    //   previewImageSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFUKfhPSZVeJUiThwzjz0CJuIiEnWcbAIfHg&usqp=CAU",
-    //   thumbnailImageSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFUKfhPSZVeJUiThwzjz0CJuIiEnWcbAIfHg&usqp=CAU",
-    //   alt: "Description for Image 2",
-    //   title: "Title 2"
-    // })
-    this.generalService.setUpdateImageProducto(this.imagenesProducto)
+    this.generalService.extraerImagenesBase64(imagenes).then(
+      (base64Images) => {
+        this.generalService.setUpdateImageProducto(base64Images)
+      }
+    );
+    
   }
 
 }

@@ -45,7 +45,7 @@ export class GeneralService {
   private updateImageProducto$ = new Subject<any>();
   
 
-  setUpdateImageProducto(state: any):void{
+  setUpdateImageProducto(state: any[]):void{
     this.updateImageProducto$.next(state)
   }
 
@@ -134,4 +134,28 @@ export class GeneralService {
       return null;
     }
   })
+
+
+  extraerImagenesBase64(imagenes:any) {
+  
+  
+    return Promise.all(
+      imagenes.map(
+        (image:any) =>
+          new Promise((resolve, reject) => {
+            const fileReader = new FileReader();
+  
+            fileReader.onload = (file:any) => {
+              resolve(file.target.result);
+            };
+  
+            fileReader.onerror = (error) => reject(error);
+  
+            fileReader.readAsDataURL(image);
+          })
+      )
+    )
+  }
+
+  
 }

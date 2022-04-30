@@ -20,14 +20,17 @@
     }
     
     .carousel-inner{
-        .carousel-item{
+        width: 100% !important;
+        height: 100% !important;
+        display: flex;
+        align-items: center;
 
-        }
     }
     img{
-        width:  100px !important;
-        max-height:  100px !important;
-        margin-top: calc(50% - 100px);
+        width:  100%  !important;
+        height:  100%  !important;
+        // margin-top: calc(50% - 100px);
+        // border: solid black 1px; 
     }
 }
 

@@ -108,12 +108,21 @@ export class FormProductoComponent implements OnInit {
 
   //Métodos Files
   onUpload(event: any) {
+    
     for(let file of event.files) {
+      
+      let exist = this.uploadedFiles.filter(file2 => file2.lastModified === file.lastModified)
+      
+      //Comprobamos que no se repita
+      if(exist.length == 0){
         this.uploadedFiles.push(file);
+      }
     }
 
     this.messageService.add({severity: 'info', summary: 'Imagen subida', detail: ''});
 
+    // console.log("archivos",this.uploadedFiles)
+    
     this.updateImages.emit(this.uploadedFiles)
 
   }
@@ -125,6 +134,7 @@ export class FormProductoComponent implements OnInit {
 
     this.messageService.add({severity: 'warn', summary: 'Imagen eliminada', detail: ''});
 
+    
     this.updateImages.emit(this.uploadedFiles)
 
   }
