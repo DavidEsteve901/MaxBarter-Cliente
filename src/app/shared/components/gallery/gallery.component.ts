@@ -13,7 +13,7 @@ export class GalleryComponent implements OnInit {
   //Iconos
   faArrowLeft = faArrowLeft;
   faArrowRight = faArrowRight;
-  @Input() imagenes:any[] = ["https://cdn-icons-png.flaticon.com/512/85/85488.png"];
+  @Input() imagenes!:any[];
 
   imagenesCortadas:any = null;
   
@@ -25,6 +25,23 @@ export class GalleryComponent implements OnInit {
 
   ngOnInit(): void {
     
+    if(this.imagenes.length == 0 ){
+      this.imagenes = ["https://cdn-icons-png.flaticon.com/512/85/85488.png"];
+    }else{
+      if(this.imagenes.length == 1){
+        this.imagenes = this.imagenes;
+        this.imagenesCortadas = [] ;
+      }else{
+        console.log("entra")
+        this.imagenes = this.imagenes;
+        this.imagenesCortadas = this.imagenes.slice(1,this.imagenes.length) ;
+      }
+
+      console.log("im",this.imagenes)
+      console.log("cortadas",this.imagenesCortadas)
+
+    }
+
     this.generalService.getUpdateImageProducto$().subscribe(
       (resp:any[])=>{
         
@@ -50,6 +67,31 @@ export class GalleryComponent implements OnInit {
         console.log("imagenesCortadas",this.imagenesCortadas)
       }
     )
+
+    // this.generalService.getUpdateImageProductoIndividual$().subscribe(
+    //   (resp:any[])=>{
+    //     console.log("entra")
+      
+    //     if(this.imagenes.length != 0){
+
+    //       if(this.imagenes.length == 1){
+    //         this.imagenesCortadas = [] ;
+    //       }else{
+    //         this.imagenesCortadas = this.imagenes.slice(1,this.imagenes.length) ;
+    //       }
+          
+
+    //       // this.imagenesCortadas.splice(0,1)
+    //     }else{
+    //       this.imagenes = ["https://cdn-icons-png.flaticon.com/512/85/85488.png"],
+    //       this.imagenesCortadas = null;
+    //     }
+
+    //     console.log("respuesta",resp)
+    //     console.log("imagenes",this.imagenes)
+    //     console.log("imagenesCortadas",this.imagenesCortadas)
+    //   }
+    // )
     
   }
 

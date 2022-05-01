@@ -17,6 +17,9 @@ export class ProductoPreViewComponent implements OnInit {
 
   imgPerfil!:any;
 
+  // imgsProducto:any = [];
+
+
   isCurrentUser!:boolean;
 
   constructor(
@@ -46,6 +49,31 @@ export class ProductoPreViewComponent implements OnInit {
         console.log(error)
       },
     )
+
+    //Buscamos las imagenes de los productos
+    // this.generalService.getImagenesProducto(this.producto).subscribe(
+    //    (resp:any)=>{
+    //     console.log(resp)
+
+    //     if(resp.length > 0){
+
+    //       resp.forEach((url:any) => {
+    //           this.generalService.getImagenProducto(url).subscribe(
+    //             (resp:any)=>{
+    //               //Convertimos las imagenes a base64
+    //               this.generalService.blobToBase64(resp).then(base64 => {
+    //                 this.imgsProducto.push(base64)
+    //               });
+    //             }
+    //           )
+    //       });
+    
+    //     }
+    //   },
+    //   (error:any)=>{
+    //     console.log(error)
+    //   }
+    // )
 
     
   }

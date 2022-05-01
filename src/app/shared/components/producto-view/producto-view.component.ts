@@ -22,6 +22,7 @@ export class ProductoViewComponent implements OnInit {
   @Input() images :any[] = [];
 
 
+
   constructor(
     private currentUser: CurrentUserService,
     private authService: AuthService,
@@ -46,8 +47,43 @@ export class ProductoViewComponent implements OnInit {
       }
     )
 
-      console.log(this.producto)
-    
+    if(this.images.length == 0 ){
+
+        //Buscamos las imagenes de los productos
+        this.generalService.getImagenesProducto(this.producto).subscribe(
+          (resp:any)=>{
+          console.log(resp)
+
+          if(resp.length > 0){
+
+            resp.forEach((url:any) => {
+                this.generalService.getImagenProducto(url).subscribe(
+                  (resp:any)=>{
+                    //Convertimos las imagenes a base64
+                    this.generalService.blobToBase64(resp).then(base64 => {
+                      this.images.push(base64)
+                      console.log("IMAGENES",this.images)
+                      //Actualizo las imagenes de la galeria
+                      // this.generalService.setUpdateImageProductoIndividual(this.images)
+                    });
+                  }
+                )
+            });
+      
+          }
+          
+          
+        },
+        (error:any)=>{
+          console.log(error)
+        }
+      )
+    }
+
+  
+
+    console.log(this.producto)
+  
   }
 
   showMaximizableDialog() {

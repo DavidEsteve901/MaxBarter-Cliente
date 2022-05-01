@@ -42,7 +42,7 @@ export class NavBarComponent implements OnInit {
         //Buscamos foto perfil
         this.generalService.getImagenPerfil(this.user).subscribe(
           (resp:any)=>{
-
+            
             this.generalService.blobToBase64(resp).then(base64 => {
               this.imgPerfil = base64;
             });

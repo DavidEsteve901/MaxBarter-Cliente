@@ -53,6 +53,19 @@ export class GeneralService {
     return this.updateImageProducto$.asObservable();
   }
 
+  //Actualiza producto de galeria con el pasado por @input
+  private updateImageProductoIndividual$ = new Subject<any>();
+  
+
+  setUpdateImageProductoIndividual(state: any):void{
+    this.updateImageProductoIndividual$.next(state)
+  }
+
+  getUpdateImageProductoIndividual$(): Observable<any>{
+    return this.updateImageProductoIndividual$.asObservable();
+  }
+
+
 
   getUserById(userName:string){
     return this.http.get(this.URL + `user/${userName}` );
@@ -79,6 +92,14 @@ export class GeneralService {
     return this.http.delete(this.URL + `productos/${id}`)
   }
 
+  getImagenesProducto(producto:any){
+    return this.http.post(this.URL + `productos/imagenes`,producto,)
+  }
+
+  getImagenProducto(url:any){
+    console.log(url)
+    return this.http.post(this.URL + `productos/imagen`,{url},{ responseType: 'blob' as 'json' })
+  }
 
   //Usuarios
   updateUsuario(usuario:any){
