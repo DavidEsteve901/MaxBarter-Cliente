@@ -52,9 +52,12 @@ export class ProductoViewComponent implements OnInit {
         //Buscamos las imagenes de los productos
         this.generalService.getImagenesProducto(this.producto).subscribe(
           (resp:any)=>{
-          console.log(resp)
+          // console.log("imagenes",resp)
 
           if(resp.length > 0){
+
+            //Inicializamos el array de imagenes que pasamos al componente de Galeria (Carusel)
+            this.images = [];
 
             resp.forEach((url:any) => {
                 this.generalService.getImagenProducto(url).subscribe(
@@ -62,9 +65,9 @@ export class ProductoViewComponent implements OnInit {
                     //Convertimos las imagenes a base64
                     this.generalService.blobToBase64(resp).then(base64 => {
                       this.images.push(base64)
-                      console.log("IMAGENES",this.images)
+                      // console.log(`IMAGENES producto ${this.producto.id}` ,this.images)
                       //Actualizo las imagenes de la galeria
-                      // this.generalService.setUpdateImageProductoIndividual(this.images)
+                      this.generalService.setUpdateImageProductoIndividual(this.images)
                     });
                   }
                 )
@@ -82,7 +85,7 @@ export class ProductoViewComponent implements OnInit {
 
   
 
-    console.log(this.producto)
+    // console.log(this.producto)
   
   }
 

@@ -49,12 +49,15 @@ export class AuthService {
   }
 
   setCurrentUser(){
-    this.http.post(this.URL + 'auth/currentUser', {token: localStorage.getItem('token')}).subscribe(
-      (resp:any) =>{
-        this.currentUserService.setCurrentUser(resp)
-        // console.log(resp)
-      }
-    )
+    if(localStorage.getItem('token')){
+      this.http.post(this.URL + 'auth/currentUser', {token: localStorage.getItem('token')}).subscribe(
+        (resp:any) =>{
+          this.currentUserService.setCurrentUser(resp)
+          // console.log(resp)
+        }
+      )
+    }
+    
   }
 
   getCurrentUser(){

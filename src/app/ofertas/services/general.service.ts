@@ -97,7 +97,6 @@ export class GeneralService {
   }
 
   getImagenProducto(url:any){
-    console.log(url)
     return this.http.post(this.URL + `productos/imagen`,{url},{ responseType: 'blob' as 'json' })
   }
 

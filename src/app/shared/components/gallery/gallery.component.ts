@@ -13,7 +13,7 @@ export class GalleryComponent implements OnInit {
   //Iconos
   faArrowLeft = faArrowLeft;
   faArrowRight = faArrowRight;
-  @Input() imagenes!:any[];
+  @Input() imagenes:any[] = ["https://cdn-icons-png.flaticon.com/512/85/85488.png"];
 
   imagenesCortadas:any = null;
   
@@ -27,20 +27,21 @@ export class GalleryComponent implements OnInit {
     
     if(this.imagenes.length == 0 ){
       this.imagenes = ["https://cdn-icons-png.flaticon.com/512/85/85488.png"];
-    }else{
-      if(this.imagenes.length == 1){
-        this.imagenes = this.imagenes;
-        this.imagenesCortadas = [] ;
-      }else{
-        console.log("entra")
-        this.imagenes = this.imagenes;
-        this.imagenesCortadas = this.imagenes.slice(1,this.imagenes.length) ;
-      }
-
-      console.log("im",this.imagenes)
-      console.log("cortadas",this.imagenesCortadas)
-
     }
+    // else{
+    //   if(this.imagenes.length == 1){
+    //     this.imagenes = this.imagenes;
+    //     this.imagenesCortadas = [] ;
+    //   }else{
+    //     console.log("entra")
+    //     this.imagenes = this.imagenes;
+    //     this.imagenesCortadas = this.imagenes.slice(1,this.imagenes.length) ;
+    //   }
+
+    //   console.log("im",this.imagenes)
+    //   console.log("cortadas",this.imagenesCortadas)
+
+    // }
 
     this.generalService.getUpdateImageProducto$().subscribe(
       (resp:any[])=>{
@@ -62,36 +63,36 @@ export class GalleryComponent implements OnInit {
           this.imagenesCortadas = null;
         }
 
-        console.log("respuesta",resp)
-        console.log("imagenes",this.imagenes)
-        console.log("imagenesCortadas",this.imagenesCortadas)
+        // console.log("respuesta",resp)
+        // console.log("imagenes",this.imagenes)
+        // console.log("imagenesCortadas",this.imagenesCortadas)
       }
     )
 
-    // this.generalService.getUpdateImageProductoIndividual$().subscribe(
-    //   (resp:any[])=>{
-    //     console.log("entra")
+    this.generalService.getUpdateImageProductoIndividual$().subscribe(
+      (resp:any[])=>{
+        
       
-    //     if(this.imagenes.length != 0){
+        if(this.imagenes.length != 0){
 
-    //       if(this.imagenes.length == 1){
-    //         this.imagenesCortadas = [] ;
-    //       }else{
-    //         this.imagenesCortadas = this.imagenes.slice(1,this.imagenes.length) ;
-    //       }
+          if(this.imagenes.length == 1){
+            this.imagenesCortadas = [] ;
+          }else{
+            this.imagenesCortadas = this.imagenes.slice(1,this.imagenes.length) ;
+          }
           
 
-    //       // this.imagenesCortadas.splice(0,1)
-    //     }else{
-    //       this.imagenes = ["https://cdn-icons-png.flaticon.com/512/85/85488.png"],
-    //       this.imagenesCortadas = null;
-    //     }
+          // this.imagenesCortadas.splice(0,1)
+        }else{
+          // this.imagenes = ["https://cdn-icons-png.flaticon.com/512/85/85488.png"],
+          // this.imagenesCortadas = null;
+        }
 
-    //     console.log("respuesta",resp)
-    //     console.log("imagenes",this.imagenes)
-    //     console.log("imagenesCortadas",this.imagenesCortadas)
-    //   }
-    // )
+        // console.log("respuesta",resp)
+        // console.log("imagenes",this.imagenes)
+        // console.log("imagenesCortadas",this.imagenesCortadas)
+      }
+    )
     
   }
 
