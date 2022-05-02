@@ -21,6 +21,9 @@ export class ProductoViewComponent implements OnInit {
 
   @Input() images :any[] = [];
 
+  imagesFile :any[] = [];
+
+  @Output() getImages = new EventEmitter<any[]>();
 
 
   constructor(
@@ -62,6 +65,11 @@ export class ProductoViewComponent implements OnInit {
             resp.forEach((url:any) => {
                 this.generalService.getImagenProducto(url).subscribe(
                   (resp:any)=>{
+                    //Añadimos atributo url para luego transformar el blob en file
+                    resp.url = url;
+                    this.imagesFile.push(resp);
+                    this.generalService.setUpdateImgFileProd(this.imagesFile)
+                    
                     //Convertimos las imagenes a base64
                     this.generalService.blobToBase64(resp).then(base64 => {
                       this.images.push(base64)
@@ -72,6 +80,7 @@ export class ProductoViewComponent implements OnInit {
                   }
                 )
             });
+
       
           }
           

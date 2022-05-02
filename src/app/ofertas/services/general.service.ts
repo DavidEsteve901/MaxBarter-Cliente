@@ -65,6 +65,18 @@ export class GeneralService {
     return this.updateImageProductoIndividual$.asObservable();
   }
 
+  //Paso las imagenes de tipo file del producto al input 
+  private updateImgFileProd$ = new Subject<any>();
+  
+
+  setUpdateImgFileProd(state: any):void{
+    this.updateImgFileProd$.next(state)
+  }
+
+  getUpdateImgFileProd$(): Observable<any>{
+    return this.updateImgFileProd$.asObservable();
+  }
+
 
 
   getUserById(userName:string){
@@ -98,6 +110,10 @@ export class GeneralService {
 
   getImagenProducto(url:any){
     return this.http.post(this.URL + `productos/imagen`,{url},{ responseType: 'blob' as 'json' })
+  }
+
+  uploadImagenesProducto(id:any,imagenes:any){
+    return this.http.post(this.URL + `productos/uploadImages/${id}`,imagenes)
   }
 
   //Usuarios
@@ -175,6 +191,10 @@ export class GeneralService {
           })
       )
     )
+  }
+
+  transformSanitizerUrl(value: any, args?: any): any {
+    return this.sanitizer.bypassSecurityTrustHtml(value);
   }
 
   

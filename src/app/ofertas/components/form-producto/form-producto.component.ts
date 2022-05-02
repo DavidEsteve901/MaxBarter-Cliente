@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { faPencil } from '@fortawesome/free-solid-svg-icons';
@@ -9,6 +9,10 @@ import { Producto, Tipo } from 'src/app/interfaces/interfaces';
 import { Subject } from 'rxjs';
 import { GeneralService } from '../../services/general.service';
 import { MessageService } from 'primeng/api';
+import { FileUpload } from 'primeng/fileupload';
+
+declare var $:any;
+
 
 @Component({
   selector: 'app-form-producto',
@@ -28,8 +32,12 @@ export class FormProductoComponent implements OnInit {
 
   uploadedFiles: any[] = [];
 
+  @ViewChild('.p-fileupload') fileUpload: any;
+
   @Input() producto:Producto | any ;
   @Input() edit: boolean = false;
+  @Input() imagenes!: any[] ;
+
 
   @Output() updateImages = new EventEmitter<any[]>();
 
@@ -83,6 +91,29 @@ export class FormProductoComponent implements OnInit {
 
       }
     )
+
+    this.generalService.getUpdateImgFileProd$().subscribe(
+      (resp:any)=>{
+        this.uploadedFiles = [];
+
+        if(resp.length > 0){
+          for(let file of resp) {
+            
+            this.uploadedFiles.push(file);
+          }
+        }
+      }
+    )
+    //Inicializamos las imagenes en el input de los Files
+    // if(this.imagenesProducto.length > 0){
+    //   for(let file of this.imagenesProducto) {
+    //     console.log("entra")
+    //     this.uploadedFiles.push(file);
+        
+    //   }
+    // }
+     
+
     
   }
 
@@ -94,7 +125,26 @@ export class FormProductoComponent implements OnInit {
     }
 
     this.generalService.updateProducto(this.producto).subscribe();
+    var imagenesFiles:any[] = []
     
+
+    this.uploadedFiles.forEach(img => {
+        imagenesFiles.push(new File([img], img.url ,{
+          type: img.type,
+        })
+      )
+    });
+
+
+    const formularioDatos = new FormData();
+
+    imagenesFiles.forEach(file => {
+      formularioDatos.append('files',file)
+    }); 
+    
+    
+    this.generalService.uploadImagenesProducto(this.producto.id,formularioDatos).subscribe();
+
     //Añadimos el toast (Notificación)
     this.messageService.add({severity:'info', summary:'Producto modificado', detail:'El producto fue modificado'});
     
@@ -141,11 +191,15 @@ export class FormProductoComponent implements OnInit {
 
   onClear(){
     this.uploadedFiles = [];
-
+    this.fileUpload.clear();
     this.updateImages.emit(this.uploadedFiles)
   }
 
-
+  removeImages(){
+    this.uploadedFiles = [];
+    
+    this.updateImages.emit(this.uploadedFiles)
+  }
   //Métodos forms
   campoEsValido(campo: string){
     return this.form.controls[campo]?.errors

@@ -47,12 +47,11 @@
 
     </div>
 
+    <input pButton type="button" (click)="removeImages()" value="Eliminar imagenes" class="p-button boton" />
     
-    
-    <p-fileUpload  (onSelect)="onUpload($event)"
+    <p-fileUpload name="myfile[]" (onSelect)="onUpload($event)"
             [multiple]="true" accept="image/*" [maxFileSize]="1000000" [showUploadButton]="false"
-            (onRemove)="removeFile($event)" (onClear)="onClear()">
-            
+            (onRemove)="removeFile($event)" (onClear)="onClear()" [auto]="false" >
     </p-fileUpload>
      
     <div class="formButton">

@@ -1,7 +1,7 @@
 import { Component, ComponentFactoryResolver, Input, OnInit } from '@angular/core';
 import { faArrowLeft,faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { GeneralService } from '../../../ofertas/services/general.service';
-
+declare var $:any;
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
@@ -28,27 +28,18 @@ export class GalleryComponent implements OnInit {
     if(this.imagenes.length == 0 ){
       this.imagenes = ["https://cdn-icons-png.flaticon.com/512/85/85488.png"];
     }
-    // else{
-    //   if(this.imagenes.length == 1){
-    //     this.imagenes = this.imagenes;
-    //     this.imagenesCortadas = [] ;
-    //   }else{
-    //     console.log("entra")
-    //     this.imagenes = this.imagenes;
-    //     this.imagenesCortadas = this.imagenes.slice(1,this.imagenes.length) ;
-    //   }
 
-    //   console.log("im",this.imagenes)
-    //   console.log("cortadas",this.imagenesCortadas)
-
-    // }
 
     this.generalService.getUpdateImageProducto$().subscribe(
       (resp:any[])=>{
         
+        
+        
+
         if(resp.length != 0){
 
           if(resp.length == 1){
+
             this.imagenes = resp;
             this.imagenesCortadas = [] ;
           }else{
@@ -63,6 +54,12 @@ export class GalleryComponent implements OnInit {
           this.imagenesCortadas = null;
         }
 
+        //Reiniciamos el carousel a la posicion 0 para que no de problemas con el slider
+        $('.carousel').carousel({
+          pause: true,
+          interval: false
+        }).carousel(0);
+
         // console.log("respuesta",resp)
         // console.log("imagenes",this.imagenes)
         // console.log("imagenesCortadas",this.imagenesCortadas)
@@ -72,7 +69,6 @@ export class GalleryComponent implements OnInit {
     this.generalService.getUpdateImageProductoIndividual$().subscribe(
       (resp:any[])=>{
         
-      
         if(this.imagenes.length != 0){
 
           if(this.imagenes.length == 1){

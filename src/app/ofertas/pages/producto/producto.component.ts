@@ -113,9 +113,6 @@ export class ProductoComponent implements OnInit {
     
     this.imagenesProducto = [];
 
-
-    // imagenes.forEach((img: any) => {
-
     this.generalService.extraerImagenesBase64(imagenes).then(
       (base64Images) => {
         this.generalService.setUpdateImageProducto(base64Images)
@@ -123,5 +120,6 @@ export class ProductoComponent implements OnInit {
     );
     
   }
+
 
 }
