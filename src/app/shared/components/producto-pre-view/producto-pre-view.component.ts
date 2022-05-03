@@ -19,6 +19,7 @@ export class ProductoPreViewComponent implements OnInit {
 
   // imgsProducto:any = [];
 
+  imgPortada:any = "/assets/imagenes/noImagen.png";
 
   isCurrentUser!:boolean;
 
@@ -51,29 +52,28 @@ export class ProductoPreViewComponent implements OnInit {
     )
 
     //Buscamos las imagenes de los productos
-    // this.generalService.getImagenesProducto(this.producto).subscribe(
-    //    (resp:any)=>{
-    //     console.log(resp)
+    this.generalService.getImagenesProducto(this.producto).subscribe(
+       (resp:any)=>{
+        console.log(resp)
 
-    //     if(resp.length > 0){
-
-    //       resp.forEach((url:any) => {
-    //           this.generalService.getImagenProducto(url).subscribe(
-    //             (resp:any)=>{
-    //               //Convertimos las imagenes a base64
-    //               this.generalService.blobToBase64(resp).then(base64 => {
-    //                 this.imgsProducto.push(base64)
-    //               });
-    //             }
-    //           )
-    //       });
+        if(resp.length > 0){
+          
+          this.generalService.getImagenProducto(resp[0]).subscribe(
+            (resp:any)=>{
+              //Convertimos las imagenes a base64
+              this.generalService.blobToBase64(resp).then(base64 => {
+                this.imgPortada = base64
+              });
+            }
+          )
+        
     
-    //     }
-    //   },
-    //   (error:any)=>{
-    //     console.log(error)
-    //   }
-    // )
+        }
+      },
+      (error:any)=>{
+        console.log(error)
+      }
+    )
 
     
   }

@@ -34,6 +34,7 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 import {FileUploadModule} from 'primeng/fileupload';
 import { GalleryComponent } from './components/gallery/gallery.component';
+import {ImageModule} from 'primeng/image';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { GalleryComponent } from './components/gallery/gallery.component';
     ScrollTopModule,
     ConfirmDialogModule,
     GalleriaModule,
+    ImageModule
 
   ],
   exports: [

@@ -13,7 +13,7 @@ export class GalleryComponent implements OnInit {
   //Iconos
   faArrowLeft = faArrowLeft;
   faArrowRight = faArrowRight;
-  @Input() imagenes:any[] = ["https://cdn-icons-png.flaticon.com/512/85/85488.png"];
+  @Input() imagenes:any[] = ["/assets/imagenes/noImagen.png"];
 
   imagenesCortadas:any = null;
   
@@ -26,7 +26,7 @@ export class GalleryComponent implements OnInit {
   ngOnInit(): void {
     
     if(this.imagenes.length == 0 ){
-      this.imagenes = ["https://cdn-icons-png.flaticon.com/512/85/85488.png"];
+      this.imagenes = ["/assets/imagenes/noImagen.png"];
     }
 
 
@@ -50,7 +50,7 @@ export class GalleryComponent implements OnInit {
 
           // this.imagenesCortadas.splice(0,1)
         }else{
-          this.imagenes = ["https://cdn-icons-png.flaticon.com/512/85/85488.png"],
+          this.imagenes = ["/assets/imagenes/noImagen.png"],
           this.imagenesCortadas = null;
         }
 
