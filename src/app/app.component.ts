@@ -17,7 +17,7 @@ export class AppComponent implements OnInit{
               private PrimeNGConfig: PrimeNGConfig){}
 
   ngOnInit(): void {
-    this.PrimeNGConfig.ripple = true;
+    // this.PrimeNGConfig.ripple = true;
   }
 
   //Determina el fondo de la página

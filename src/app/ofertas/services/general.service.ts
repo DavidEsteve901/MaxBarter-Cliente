@@ -136,6 +136,10 @@ export class GeneralService {
   getImagenPerfil(user:any){
     return this.http.post<File>(this.URL + `user/perfil`,user,{ responseType: 'blob' as 'json' })
   }
+
+  uploadImagenPerfil(userName:any,imagen:any){
+    return this.http.post(this.URL + `user/uploadImage/${userName}`,imagen)
+  }
   
   //Método para convertir blob a base64
   blobToBase64(blob:any) {

@@ -1,4 +1,6 @@
-:host {
+:host ::ng-deep{
+    width: 100%;
+    height: 100%;
     .p-password-panel{
         width: 100%;
     }
@@ -13,8 +15,22 @@
         width: 100%;
     }
 
-    
+    //Upload Files
+    //Botones
+    .p-fileupload-buttonbar{
+        .p-button{
+            transform: scale(0.7);
+            border: none !important;
+        }
+    }
+
+    .p-fileupload-content{
+        .p-fileupload-row{
+            transform: scale(0.9);
+        }
+    }
 }
+
 .form{
     width: 100%;
     padding: 30px;

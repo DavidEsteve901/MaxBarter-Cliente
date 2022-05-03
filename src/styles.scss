@@ -117,6 +117,7 @@
     animation: fondoGradient 5s ease infinite;
 }
 
+
 //select
 .p-dropdown{
     background-color: #e4731c !important;
@@ -141,6 +142,23 @@
 
 .p-focus{
     box-shadow: 0px 0px 8px #e4731c !important;
+}
+
+//Titulos
+h2{
+    color: #E4731C;
+    text-shadow: 0px 0px 1px rgba(27, 6, 6, 0.6);
+}
+
+//Personalizo scroll
+*::-webkit-scrollbar{
+    width: 5px;
+    height: 5px;
+    
+}
+*::-webkit-scrollbar-thumb{
+    background-color: #c0c0c0;
+    border-radius: 5px;
 }
 
 //POSICIONAR SPINNER

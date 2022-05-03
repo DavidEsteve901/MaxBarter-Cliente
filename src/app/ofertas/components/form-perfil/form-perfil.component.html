@@ -90,8 +90,14 @@
 
         <section>
 
+            <h2>Ubicación <fa-icon [icon]="faLocationDot"></fa-icon></h2>
             <app-map  *ngIf="usuario" [coordenadas]="usuario.coordenadas" [edit]="true" (updateCoords)="updateCoords($event)"></app-map>
 
+            <h2>Imagen de perfil</h2>
+            <p-fileUpload name="myfile[]" (onSelect)="onUpload($event)"
+                [multiple]="false" accept="image/*" [maxFileSize]="1000000" [showUploadButton]="false"
+                (onRemove)="removeFile($event)" (onClear)="onClear()" [auto]="false" >
+            </p-fileUpload>
         </section>
     </div>
     

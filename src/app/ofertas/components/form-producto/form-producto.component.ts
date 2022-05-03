@@ -191,7 +191,6 @@ export class FormProductoComponent implements OnInit {
 
   onClear(){
     this.uploadedFiles = [];
-    this.fileUpload.clear();
     this.updateImages.emit(this.uploadedFiles)
   }
 

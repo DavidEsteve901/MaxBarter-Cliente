@@ -54,7 +54,6 @@ export class ProductoPreViewComponent implements OnInit {
     //Buscamos las imagenes de los productos
     this.generalService.getImagenesProducto(this.producto).subscribe(
        (resp:any)=>{
-        console.log(resp)
 
         if(resp.length > 0){
           

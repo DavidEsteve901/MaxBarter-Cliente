@@ -10,6 +10,7 @@ import { Subject } from 'rxjs';
 import { GeneralService } from '../../services/general.service';
 import { MessageService } from 'primeng/api';
 import { ValidatorService } from 'src/app/shared/validator/validator.service';
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-form-perfil',
@@ -20,6 +21,7 @@ export class FormPerfilComponent implements OnInit {
 
   //Iconos
   faPencil = faPencil;
+  faLocationDot = faLocationDot;
 
   //Variables comunes
   error:any = null;
@@ -27,6 +29,7 @@ export class FormPerfilComponent implements OnInit {
   comunidadSelected!: any;
   placeHolderComunidad:string = "Comunidad Autónoma";
 
+  uploadedFile:any = [];
 
   @Input() usuario:Usuario | any ;
   @Input() edit: boolean = false;
@@ -107,13 +110,58 @@ export class FormPerfilComponent implements OnInit {
 
     this.generalService.updateUsuario(this.usuario).subscribe();
 
+    
     //Volvemos a pasarlas a json
     this.usuario.coordenadas = JSON.parse(this.usuario.coordenadas);
+
+    //Pasamos la imagen 
+    if(this.uploadedFile){
+    
+
+      
+      const formularioDatos = new FormData();
+
+      formularioDatos.append('files',this.uploadedFile)
+     
+      console.log(this.uploadedFile)
+      
+      this.generalService.uploadImagenPerfil(this.usuario.userName,formularioDatos).subscribe();
+    }
+    
 
     //Añadimos el toast (Notificación)
     this.messageService.add({severity:'info', summary:'Producto modificado', detail:'El perfil fue modificado'});
     
 
+  }
+
+   //Métodos Files
+   onUpload(event: any) {
+    
+    for(let file of event.files) {
+      
+      this.uploadedFile  = file;
+      
+    }
+    
+    this.messageService.add({severity: 'info', summary: 'Imagen subida', detail: ''});
+
+    // console.log("archivos",this.uploadedFiles)
+
+  }
+
+  removeFile(event: any){
+    
+    //Eliminamos file del array
+    this.uploadedFile = null;
+
+    this.messageService.add({severity: 'warn', summary: 'Imagen eliminada', detail: ''});
+
+
+  }
+
+  onClear(){
+    this.uploadedFile = null;
   }
 
   campoEsValido(campo: string){
