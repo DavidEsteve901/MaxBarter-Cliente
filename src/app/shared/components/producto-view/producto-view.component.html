@@ -43,7 +43,7 @@
     
 
     <div class="botones" *ngIf="showButtons">
-        <button pButton *ngIf="!isCurrentUser" label="Hacer oferta" class="p-button-success boton"></button>
+        <button pButton *ngIf="!isCurrentUser" label="Hacer oferta" (click)="doOferta()" class="p-button-success boton"></button>
         <button pButton *ngIf="isCurrentUser"  label="Modificar" (click)="modifyProduct()" class="p-button-info boton"></button>
         <button pButton *ngIf="isCurrentUser"  label="Eliminar" (click)="confirm()" class="p-button-danger boton"></button>
     </div>

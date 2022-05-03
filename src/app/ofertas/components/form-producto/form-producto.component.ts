@@ -41,6 +41,7 @@ export class FormProductoComponent implements OnInit {
 
   @Output() updateImages = new EventEmitter<any[]>();
 
+  currentUser!:any;
 
   public form!: FormGroup;
 
@@ -104,20 +105,20 @@ export class FormProductoComponent implements OnInit {
         }
       }
     )
-    //Inicializamos las imagenes en el input de los Files
-    // if(this.imagenesProducto.length > 0){
-    //   for(let file of this.imagenesProducto) {
-    //     console.log("entra")
-    //     this.uploadedFiles.push(file);
-        
-    //   }
-    // }
+
+    //Cogemos el usuario logueado
+    this.authService.getCurrentUser().subscribe(
+      (resp:any) =>{
+        this.currentUser = resp.data
+      }
+    )
+    
      
 
     
   }
 
-  guardar(){
+  update(){
 
     if(this.form.invalid){
       this.form.markAllAsTouched();
@@ -149,11 +150,53 @@ export class FormProductoComponent implements OnInit {
     this.messageService.add({severity:'info', summary:'Producto modificado', detail:'El producto fue modificado'});
     
     //Redirigimos a la página d eproductos
-    this.authService.getCurrentUser().subscribe(
-      (resp:any) =>{
-        this.router.navigate([`/ofertas/productos/${resp.data.userName}`])
+    this.router.navigate([`/ofertas/productos/${this.currentUser.userName}`])
+
+  }
+
+  create(){
+
+    if(this.form.invalid){
+      this.form.markAllAsTouched();
+      return
+    }
+
+    //Añadimso a producto el usuario
+    this.producto.user = this.currentUser.userName;
+    
+    this.generalService.createProduct(this.producto).subscribe(
+      (resp:any)=>{
+        
+        var imagenesFiles:any[] = []
+    
+
+        this.uploadedFiles.forEach(img => {
+            imagenesFiles.push(new File([img], img.url ,{
+              type: img.type,
+            })
+          )
+        });
+
+
+        const formularioDatos = new FormData();
+
+        imagenesFiles.forEach(file => {
+          formularioDatos.append('files',file)
+        }); 
+        
+        
+        this.generalService.uploadImagenesProducto(resp.data.id,formularioDatos).subscribe();
+
+        //Añadimos el toast (Notificación)
+        this.messageService.add({severity:'info', summary:'Producto modificado', detail:'El producto fue modificado'});
+        
+        //Redirigimos a la página d eproductos
+        this.router.navigate([`/ofertas/productos/${this.currentUser.userName}`])
+         
       }
-    )
+    );
+    
+
   }
 
   //Métodos Files
@@ -199,6 +242,7 @@ export class FormProductoComponent implements OnInit {
     
     this.updateImages.emit(this.uploadedFiles)
   }
+
   //Métodos forms
   campoEsValido(campo: string){
     return this.form.controls[campo]?.errors

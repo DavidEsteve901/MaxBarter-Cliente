@@ -17,6 +17,7 @@ export class ProductoPreViewComponent implements OnInit {
 
   imgPerfil!:any;
 
+  @Input() show:boolean = true ;
   // imgsProducto:any = [];
 
   imgPortada:any = "/assets/imagenes/noImagen.png";
@@ -78,6 +79,8 @@ export class ProductoPreViewComponent implements OnInit {
   }
 
   showMaximizableDialog() {
-    this.displayResponsive = true;
+    if(this.show){
+      this.displayResponsive = true;
+    }
   }
 }

@@ -14,6 +14,7 @@ import { ProductoComponent } from './pages/producto/producto.component';
 import { FormProductoComponent } from './components/form-producto/form-producto.component';
 import { MapComponent } from './components/map/map.component';
 import { FormPerfilComponent } from './components/form-perfil/form-perfil.component';
+import { OfertaComponent } from './pages/oferta/oferta.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { FormPerfilComponent } from './components/form-perfil/form-perfil.compon
     ProductoComponent,
     FormProductoComponent,
     MapComponent,
-    FormPerfilComponent
+    FormPerfilComponent,
+    OfertaComponent
   ],
   imports: [
     CommonModule,

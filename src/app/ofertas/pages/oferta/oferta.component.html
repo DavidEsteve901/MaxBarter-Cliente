@@ -1,0 +1,15 @@
+<div class="contenido">
+    <div class="prodOferta">
+        <app-producto-pre-view *ngIf="productoOferta" [producto]="productoOferta" ></app-producto-pre-view>
+    </div>
+    
+    <img src="/assets/imagenes/intercambio.png" alt="">
+    
+    <div class="misProductos" id="misProductos">
+        <app-producto-pre-view *ngFor="let producto of misProductos" [producto]="producto" (click)="seleccionar($event,producto)" [show]="false" [id]="producto.id"></app-producto-pre-view>
+    </div>
+</div>
+
+<div class="botones">
+    <button pButton  [disabled]="!productoSelected" icon="pi pi-send" label="Enviar"  class="p-button-warning boton"></button>
+</div>

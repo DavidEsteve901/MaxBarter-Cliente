@@ -95,6 +95,13 @@ export class GeneralService {
   getProductById(id:number){
     return this.http.get(this.URL + `productos/${id}`)
   }
+  getProductosByUser(userName:number){
+    return this.http.get(this.URL + `productos/user/${userName}`)
+  }
+
+  createProduct(producto:any){
+    return this.http.post(this.URL + `productos/`,producto)
+  }
 
   updateProducto(producto:any){
     return this.http.put(this.URL + `productos/${producto.id}`,producto)

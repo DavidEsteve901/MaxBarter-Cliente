@@ -1,4 +1,4 @@
-<form [formGroup]="form" (submit)="guardar()" class="form">
+<form [formGroup]="form"  class="form">
     <div>
         <label for="titulo">Título</label>
 
@@ -55,8 +55,8 @@
     </p-fileUpload>
      
     <div class="formButton">
-        <button pButton *ngIf="!edit" type="submit" label="Crear" class="p-button-success boton"></button>
-        <button pButton *ngIf="edit" type="submit" label="Editar" class="p-button-info boton"></button>
+        <button pButton *ngIf="!edit" (click)="create()" label="Crear" class="p-button-success boton"></button>
+        <button pButton *ngIf="edit" (click)="update()" label="Editar" class="p-button-info boton"></button>
 
         <span class="error" *ngIf="error">
             {{error.message}}

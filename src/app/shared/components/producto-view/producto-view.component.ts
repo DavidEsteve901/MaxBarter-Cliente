@@ -106,6 +106,10 @@ export class ProductoViewComponent implements OnInit {
     this.router.navigate([`ofertas/productos/producto/${this.producto.id}`]);
   }
 
+  doOferta(){
+    this.router.navigate([`ofertas/oferta/${this.producto.propietario.userName}/${this.producto.id}`]);
+  }
+
   confirm() {
     this.confirmService.confirm({
         message: 'Estás seguro de que quiere eliminar el producto?',
