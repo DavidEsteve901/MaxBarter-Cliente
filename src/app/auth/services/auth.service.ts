@@ -53,7 +53,6 @@ export class AuthService {
       this.http.post(this.URL + 'auth/currentUser', {token: localStorage.getItem('token')}).subscribe(
         (resp:any) =>{
           this.currentUserService.setCurrentUser(resp)
-          // console.log(resp)
         }
       )
     }

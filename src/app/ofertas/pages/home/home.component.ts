@@ -50,6 +50,9 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    this.productos = this.productos.splice(0,this.productos.length);
+
     //Nos suscribimos al servicio que notificará si se hacen cambios en los productos
     this.generalService.getUpdateProducts$().subscribe(
       (resp:any)=>{

@@ -15,6 +15,8 @@ import { FormProductoComponent } from './components/form-producto/form-producto.
 import { MapComponent } from './components/map/map.component';
 import { FormPerfilComponent } from './components/form-perfil/form-perfil.component';
 import { OfertaComponent } from './pages/oferta/oferta.component';
+import { OfertasRecibidasComponent } from './components/ofertas-recibidas/ofertas-recibidas.component';
+import { OfertasEnviadasComponent } from './components/ofertas-enviadas/ofertas-enviadas.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { OfertaComponent } from './pages/oferta/oferta.component';
     FormProductoComponent,
     MapComponent,
     FormPerfilComponent,
-    OfertaComponent
+    OfertaComponent,
+    OfertasRecibidasComponent,
+    OfertasEnviadasComponent
   ],
   imports: [
     CommonModule,

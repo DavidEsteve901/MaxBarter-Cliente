@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { GeneralService } from '../../services/general.service';
 
@@ -15,18 +16,24 @@ export class OfertaComponent implements OnInit {
 
   productoSelected!:any;
 
+  userRecibe!:any;
+  userPide!:any;
+
+
   constructor(
     private rutaActiva: ActivatedRoute,
     private router: Router,
     private generalService: GeneralService,
-    private authService: AuthService
+    private authService: AuthService,
+    private messageService: MessageService
+
   ) { }
 
   ngOnInit(): void {
     //Sacamos parametros de la url
     this.rutaActiva.params.subscribe(
       (resp:any)=>{
-
+        this.userRecibe = resp.idUser;
         //Obtenemos el producto pasado
         this.generalService.getProductById(resp.idProducto).subscribe(
           (resp:any) => {
@@ -39,9 +46,10 @@ export class OfertaComponent implements OnInit {
         //Obtenemos los productos del usuario 
         this.authService.getCurrentUser().subscribe(
           (resp:any)=>{
+            this.userPide = resp.data.userName;
             this.generalService.getProductosByUser(resp.data.userName).subscribe(
               (resp:any) => {
-                this.misProductos = resp.data
+                this.misProductos = resp.data; 
                 console.log(this.misProductos)
               }
             )
@@ -71,6 +79,25 @@ export class OfertaComponent implements OnInit {
     this.productoSelected = producto;
 
 
+  }
+
+  sendOferta(){
+    const oferta = {
+      producto1: this.productoSelected.id,
+      producto2: this.productoOferta.id,
+      user1: this.userPide,
+      user2: this.userRecibe
+    }
+
+    this.generalService.createOferta(oferta).subscribe(
+      (resp:any)=>{
+        this.messageService.add({severity: 'success', summary: resp.message, detail: ''});
+        this.router.navigate(["ofertas/home"])
+      },
+      (error:any)=>{
+        this.messageService.add({severity: 'error', summary: error.error.message, detail: ''});
+      }
+    )
   }
 
 }

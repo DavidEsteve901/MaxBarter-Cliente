@@ -147,6 +147,15 @@ export class GeneralService {
   uploadImagenPerfil(userName:any,imagen:any){
     return this.http.post(this.URL + `user/uploadImage/${userName}`,imagen)
   }
+
+  //Ofertas
+  createOferta(oferta:any){
+    return this.http.post(this.URL + `ofertas/`,oferta)
+  }
+
+  getOfertasByPage(opciones: any){
+    return this.http.post(this.URL + `ofertas/page`, opciones )
+  }
   
   //Método para convertir blob a base64
   blobToBase64(blob:any) {

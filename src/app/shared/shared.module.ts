@@ -35,6 +35,7 @@ import {ConfirmationService} from 'primeng/api';
 import {FileUploadModule} from 'primeng/fileupload';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import {ImageModule} from 'primeng/image';
+import { OfertaViewComponent } from './components/oferta-view/oferta-view.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import {ImageModule} from 'primeng/image';
     SpinnerComponent,
     UserTargetComponent,
     GalleryComponent,
+    OfertaViewComponent,
   ],
   imports: [
     CommonModule,
@@ -71,6 +73,7 @@ import {ImageModule} from 'primeng/image';
     FontAwesomeModule,
     SpinnerComponent,
     FormsModule,
+    OfertaViewComponent,
     
     //PrimeNG
     ButtonModule,

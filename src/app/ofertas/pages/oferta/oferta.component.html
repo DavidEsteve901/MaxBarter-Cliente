@@ -1,15 +1,23 @@
 <div class="contenido">
-    <div class="prodOferta">
-        <app-producto-pre-view *ngIf="productoOferta" [producto]="productoOferta" ></app-producto-pre-view>
+    <div>
+        <h2>Producto</h2>
+        <div class="prodOferta">
+            <app-producto-pre-view *ngIf="productoOferta" [producto]="productoOferta" ></app-producto-pre-view>
+        </div>
     </div>
     
-    <img src="/assets/imagenes/intercambio.png" alt="">
     
-    <div class="misProductos" id="misProductos">
-        <app-producto-pre-view *ngFor="let producto of misProductos" [producto]="producto" (click)="seleccionar($event,producto)" [show]="false" [id]="producto.id"></app-producto-pre-view>
+    <img src="/assets/imagenes/intercambio.png" alt="Imagen intercambio">
+    
+    <div>
+        <h2>Mis productos</h2>
+        <div class="misProductos" id="misProductos">
+            <app-producto-pre-view *ngFor="let producto of misProductos" [producto]="producto" (click)="seleccionar($event,producto)" [show]="false" [id]="producto.id"></app-producto-pre-view>
+        </div>
     </div>
+    
 </div>
 
 <div class="botones">
-    <button pButton  [disabled]="!productoSelected" icon="pi pi-send" label="Enviar"  class="p-button-warning boton"></button>
+    <button pButton  [disabled]="!productoSelected" icon="pi pi-send" label="Enviar" (click)="sendOferta()" class="p-button-warning boton"></button>
 </div>

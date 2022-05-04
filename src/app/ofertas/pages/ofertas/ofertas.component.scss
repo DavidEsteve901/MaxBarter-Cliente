@@ -1,0 +1,15 @@
+:host{
+    flex: 1 0;
+    
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    gap:30px;
+    margin: 40px;
+    margin-bottom: 20px;
+}
+
+a{
+    font-size: 1.7em;
+}
