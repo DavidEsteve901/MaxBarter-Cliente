@@ -37,6 +37,7 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import {ImageModule} from 'primeng/image';
 import { OfertaViewComponent } from './components/oferta-view/oferta-view.component';
 import { MensajeNotFoundComponent } from './components/mensaje-not-found/mensaje-not-found.component';
+import { MatchViewComponent } from './components/match-view/match-view.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { MensajeNotFoundComponent } from './components/mensaje-not-found/mensaje
     GalleryComponent,
     OfertaViewComponent,
     MensajeNotFoundComponent,
+    MatchViewComponent,
   ],
   imports: [
     CommonModule,
@@ -77,6 +79,7 @@ import { MensajeNotFoundComponent } from './components/mensaje-not-found/mensaje
     FormsModule,
     OfertaViewComponent,
     MensajeNotFoundComponent,
+    MatchViewComponent,
     
     //PrimeNG
     ButtonModule,

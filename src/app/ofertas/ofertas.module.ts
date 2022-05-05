@@ -17,6 +17,7 @@ import { FormPerfilComponent } from './components/form-perfil/form-perfil.compon
 import { OfertaComponent } from './pages/oferta/oferta.component';
 import { OfertasRecibidasComponent } from './components/ofertas-recibidas/ofertas-recibidas.component';
 import { OfertasEnviadasComponent } from './components/ofertas-enviadas/ofertas-enviadas.component';
+import { MatchsComponent } from './pages/matchs/matchs.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { OfertasEnviadasComponent } from './components/ofertas-enviadas/ofertas-
     FormPerfilComponent,
     OfertaComponent,
     OfertasRecibidasComponent,
-    OfertasEnviadasComponent
+    OfertasEnviadasComponent,
+    MatchsComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,29 @@
+:host{
+    flex: 1 0;
+    
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    gap:30px;
+    margin: 40px;
+    margin-bottom: 20px;
+}
+
+.matchs{
+    width: 100%;
+    margin: 30px 0px;
+    padding: 0px 200px;
+    // border: solid black 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+h2{
+    font-size: 3em !important;
+    font-weight: bold;
+    
+}
