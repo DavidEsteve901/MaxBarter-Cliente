@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+declare var $:any;
 
 @Component({
   selector: 'app-match-view',
@@ -12,7 +13,11 @@ export class MatchViewComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    window.setInterval(this.re_animate, 3000);
   }
 
-  
+  re_animate() {
+    $('#img').toggleClass('animate__animated animate__swing  ');
+  }
+ 
 }
