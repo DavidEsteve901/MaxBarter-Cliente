@@ -36,6 +36,7 @@ import {FileUploadModule} from 'primeng/fileupload';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import {ImageModule} from 'primeng/image';
 import { OfertaViewComponent } from './components/oferta-view/oferta-view.component';
+import { MensajeNotFoundComponent } from './components/mensaje-not-found/mensaje-not-found.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { OfertaViewComponent } from './components/oferta-view/oferta-view.compon
     UserTargetComponent,
     GalleryComponent,
     OfertaViewComponent,
+    MensajeNotFoundComponent,
   ],
   imports: [
     CommonModule,
@@ -74,6 +76,7 @@ import { OfertaViewComponent } from './components/oferta-view/oferta-view.compon
     SpinnerComponent,
     FormsModule,
     OfertaViewComponent,
+    MensajeNotFoundComponent,
     
     //PrimeNG
     ButtonModule,
@@ -91,7 +94,6 @@ import { OfertaViewComponent } from './components/oferta-view/oferta-view.compon
     ConfirmDialogModule,
     GalleriaModule,
     FileUploadModule,
-    
     
     //Infinite scroll
     InfiniteScrollModule,

@@ -10,6 +10,9 @@
     <app-producto-pre-view class="animate__animated animate__flipInX" *ngFor="let producto of productos" [producto]="producto" >
     
     </app-producto-pre-view>
+
+    <app-mensaje-not-found *ngIf="noProductos" message="No hay productos"></app-mensaje-not-found>
+
 </div>
 
 <div class="buttonUp" *ngIf="showButton" (click)="onScrollTop()"><fa-icon [icon]="faArrowUp"></fa-icon></div>

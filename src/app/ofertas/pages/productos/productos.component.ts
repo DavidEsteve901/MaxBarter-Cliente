@@ -16,10 +16,10 @@ export class ProductosComponent implements OnInit {
 
   //Iconos
   faArrowUp = faArrowUp;
-
   
   showButton = false;
   private pageNum = 0;
+  noProductos = false;
 
   isCurrentUser!:boolean;
 
@@ -151,13 +151,18 @@ export class ProductosComponent implements OnInit {
         q: {
           userName: options.userName,
           tipo: options.tipo,
-
+          match: false
         }
       
       }).subscribe(
         (resp:any)=>{
-        
           this.productos = this.productos.concat(resp.data.data);
+
+          if(this.productos.length == 0){
+            this.noProductos = true;
+          }else{
+            this.noProductos = false;
+          }
         },
         (error:any) =>{
           console.log(error)

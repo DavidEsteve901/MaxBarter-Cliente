@@ -77,6 +77,19 @@ export class GeneralService {
     return this.updateImgFileProd$.asObservable();
   }
 
+  //Notificar cambios en ofertas
+  private updateOfertas$ = new Subject<any>();
+  
+
+  setUpdateOfertas(state: any):void{
+    this.updateOfertas$.next(state)
+  }
+
+  getUpdateOfertas$(): Observable<any>{
+    return this.updateOfertas$.asObservable();
+  }
+
+  
 
 
   getUserById(userName:string){
@@ -155,6 +168,10 @@ export class GeneralService {
 
   getOfertasByPage(opciones: any){
     return this.http.post(this.URL + `ofertas/page`, opciones )
+  }
+
+  deleteOferta(id:any){
+    return this.http.delete(this.URL + `ofertas/${id}`)
   }
   
   //Método para convertir blob a base64

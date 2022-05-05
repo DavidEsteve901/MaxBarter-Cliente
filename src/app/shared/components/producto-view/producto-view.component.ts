@@ -116,7 +116,7 @@ export class ProductoViewComponent implements OnInit {
         header: 'Confirmación',
         icon: 'pi pi-exclamation-triangle',
         accept: () => {
-            this.messageService.add({severity:'success', summary:'Confirmado', detail:'Has eliminado el producto'});
+            
             
 
             this.generalService.deleteProducto(this.producto.id).subscribe(
@@ -125,6 +125,8 @@ export class ProductoViewComponent implements OnInit {
 
                 //Notificamos al observable que ha habido un cambio
                 this.generalService.setUpdateProducts(true);
+
+                this.messageService.add({severity:'success', summary:'Confirmado', detail:'Has eliminado el producto'});
               },
               (error:any)=>{
                 console.log(error);

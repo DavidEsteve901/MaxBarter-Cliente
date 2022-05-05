@@ -1,6 +1,6 @@
 :host{
     width: 1000px;
-    height: 500px;
+    height: 100%;
     background-color: rgba(95, 95, 95, 0.2);
     border-radius: 20px;
 
@@ -21,4 +21,14 @@
 
 img{
     width: 100px;
+}
+
+.botones{
+    display: flex;
+    gap:5px;
+    justify-content: flex-end;
+    padding: 10px;
+    button{
+        transform: scale(0.7);
+    }
 }

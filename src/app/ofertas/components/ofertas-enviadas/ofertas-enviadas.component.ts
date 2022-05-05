@@ -1,7 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { GeneralService } from '../../services/general.service';
-import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp, faSquareXmark} from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
@@ -13,8 +13,10 @@ export class OfertasEnviadasComponent implements OnInit {
 
   //Iconos
   faArrowUp = faArrowUp;
+  faSquareXmark = faSquareXmark;
 
   ofertas:any[] = [];
+  noOfertas:boolean = false;
 
   private pageNum = 0;
   showButton = false;
@@ -35,6 +37,13 @@ export class OfertasEnviadasComponent implements OnInit {
 
   ngOnInit(): void {
     this.ofertas = this.ofertas.splice(0,this.ofertas.length);
+
+    //Nos suscribimos al servicio que notificará si se hacen cambios 
+    this.generalService.getUpdateOfertas$().subscribe(
+      (resp:any)=>{
+        this.doFilter();
+      }
+    )
 
     //Obtenemos el usuario logueado
     this.authService.getCurrentUser().subscribe(
@@ -72,8 +81,13 @@ export class OfertasEnviadasComponent implements OnInit {
     
     }).subscribe(
       (resp:any)=>{
-        console.log(resp.data.data)
         this.ofertas = this.ofertas.concat(resp.data.data);
+        
+        if(this.ofertas.length == 0){
+          this.noOfertas = true;
+        }else{
+          this.noOfertas = false;
+        }
       },
       (error:any) =>{
         console.log(error)

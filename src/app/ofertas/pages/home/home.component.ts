@@ -2,7 +2,7 @@ import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { GeneralService } from '../../services/general.service';
 import { ComunidadAutonoma, Producto, Tipo } from '../../../interfaces/interfaces';
-import { faArrowUp,faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp,faMagnifyingGlass,faSquareXmark } from '@fortawesome/free-solid-svg-icons';
 import { DOCUMENT } from '@angular/common';
 import { FormControl } from '@angular/forms';
 import { debounceTime, tap } from 'rxjs';
@@ -18,11 +18,12 @@ export class HomeComponent implements OnInit {
 
   //Iconos
   faArrowUp = faArrowUp;
-  lupa = faMagnifyingGlass
+  lupa = faMagnifyingGlass;
 
   productos:Producto[] = [];
   comunidadesAutonomas!:ComunidadAutonoma[] ;
   tipos!:Tipo[] ;
+  noProductos:boolean = false;
 
   placeHolderTipo:string = "Categoría";
   placeHolderComunidad:string = "Comunidad Autónoma";
@@ -132,13 +133,20 @@ export class HomeComponent implements OnInit {
       q: {
         titulo: opciones.titulo,
         tipo: opciones.tipo,
-        comunidadAutonoma: opciones.comunidadAutonoma
+        comunidadAutonoma: opciones.comunidadAutonoma,
+        match: false
       }
     
     }).subscribe(
       (resp:any)=>{
       
         this.productos = this.productos.concat(resp.data.data);
+
+        if(this.productos.length == 0){
+          this.noProductos = true;
+        }else{
+          this.noProductos = false;
+        }
       },
       (error:any) =>{
         console.log(error)
