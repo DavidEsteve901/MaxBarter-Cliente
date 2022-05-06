@@ -285,6 +285,12 @@ h2{
     font-weight: bold;
 }
 
+
+//Cancelar atributo de animacion
+.animate__animated{
+    animation-fill-mode: none !important;
+}
+
 /**Animaciones generales**/
 
 

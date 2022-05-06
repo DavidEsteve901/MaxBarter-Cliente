@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import ConfettiGenerator from "confetti-js";
+
+
 declare var $:any;
 
 @Component({
@@ -10,10 +13,23 @@ export class MatchViewComponent implements OnInit {
 
   @Input() match!:any ;
 
+  
   constructor() { }
 
   ngOnInit(): void {
     window.setInterval(this.re_animate, 3000);
+
+    //Añadimos animación de confeti
+    var confettiElements = document.getElementsByClassName('confetti');
+
+    console.log(confettiElements)
+    for (let i = 0; i < confettiElements.length; i++) {
+      var confettiSettings = { target: confettiElements[i] };
+      var confetti = new ConfettiGenerator(confettiSettings);
+      confetti.render();
+    }
+
+    
   }
 
   re_animate() {

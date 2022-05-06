@@ -90,6 +90,7 @@ export class GeneralService {
   }
 
   
+  
 
 
   getUserById(userName:string){
@@ -159,6 +160,10 @@ export class GeneralService {
 
   uploadImagenPerfil(userName:any,imagen:any){
     return this.http.post(this.URL + `user/uploadImage/${userName}`,imagen)
+  }
+
+  getUserStats(userName:any){
+    return this.http.get(this.URL + `user/stats/${userName}`)
   }
 
   //Ofertas

@@ -95,6 +95,10 @@ export class PerfilComponent implements OnInit {
   redirectProductos(){
     return this.router.navigate([`ofertas/productos/${this.usuario.userName}`])
   }
+
+  redirectStats(){
+    return this.router.navigate([`ofertas/stats/${this.usuario.userName}`])
+  }
   
   showMaximizableDialog() {
     this.displayResponsive = true;

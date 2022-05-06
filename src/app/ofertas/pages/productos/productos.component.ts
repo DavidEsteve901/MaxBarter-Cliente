@@ -78,7 +78,7 @@ export class ProductosComponent implements OnInit {
       }
     )
 
-    //Obsevable que tenecta la ruta
+    //Obsevable que detecta la ruta
     this.rutaActiva.params.subscribe(
       (params: any)=>{
 

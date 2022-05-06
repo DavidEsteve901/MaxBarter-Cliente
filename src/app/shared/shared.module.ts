@@ -29,6 +29,7 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
 import {ToastModule} from 'primeng/toast';
 import {GMapModule} from 'primeng/gmap';
 import {GalleriaModule} from 'primeng/galleria';
+import {ChartModule}  from 'primeng/chart';
 
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
@@ -38,6 +39,7 @@ import {ImageModule} from 'primeng/image';
 import { OfertaViewComponent } from './components/oferta-view/oferta-view.component';
 import { MensajeNotFoundComponent } from './components/mensaje-not-found/mensaje-not-found.component';
 import { MatchViewComponent } from './components/match-view/match-view.component';
+import { StatsViewComponent } from './components/stats-view/stats-view.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,7 @@ import { MatchViewComponent } from './components/match-view/match-view.component
     OfertaViewComponent,
     MensajeNotFoundComponent,
     MatchViewComponent,
+    StatsViewComponent,
   ],
   imports: [
     CommonModule,
@@ -64,7 +67,8 @@ import { MatchViewComponent } from './components/match-view/match-view.component
     ScrollTopModule,
     ConfirmDialogModule,
     GalleriaModule,
-    ImageModule
+    ImageModule,
+    ChartModule
 
   ],
   exports: [
@@ -80,6 +84,7 @@ import { MatchViewComponent } from './components/match-view/match-view.component
     OfertaViewComponent,
     MensajeNotFoundComponent,
     MatchViewComponent,
+    StatsViewComponent,
     
     //PrimeNG
     ButtonModule,

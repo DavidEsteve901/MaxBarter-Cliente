@@ -10,6 +10,7 @@ import { OfertaComponent } from './pages/oferta/oferta.component';
 import { OfertasRecibidasComponent } from './components/ofertas-recibidas/ofertas-recibidas.component';
 import { OfertasEnviadasComponent } from './components/ofertas-enviadas/ofertas-enviadas.component';
 import { MatchsComponent } from './pages/matchs/matchs.component';
+import { StatsComponent } from './pages/stats/stats.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,7 @@ const routes: Routes = [
       { path: 'productos/producto/:id', component: ProductoComponent},
       { path: 'oferta/:idUser/:idProducto', component: OfertaComponent},
       { path: 'matchs', component: MatchsComponent},
+      { path: 'stats/:userName', component: StatsComponent},
       { path: '**', redirectTo: 'home' },
     ]
   }

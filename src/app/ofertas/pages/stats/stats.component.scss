@@ -1,0 +1,17 @@
+:host{
+    flex: 1 0;
+    margin:40px;
+
+    display: flex;
+    align-items: flex-start;
+    align-items: center;
+    flex-direction: column;
+    justify-content: start;
+    gap:50px;
+    margin-bottom: 20px;
+}
+
+.contenido{
+    max-width: 700px;
+    width: 100%;
+}

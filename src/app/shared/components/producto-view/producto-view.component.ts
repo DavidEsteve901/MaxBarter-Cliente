@@ -39,6 +39,8 @@ export class ProductoViewComponent implements OnInit {
   displayResponsive: boolean = false;
 
   ngOnInit(): void {
+
+
     //Miramos si  el usuario es el logueado
     this.authService.getCurrentUser().subscribe(
       (resp:any)=>{
@@ -49,6 +51,10 @@ export class ProductoViewComponent implements OnInit {
         }
       }
     )
+
+    if(this.producto.match == true){
+      this.showButtons = false;
+    }
 
     if(this.images.length == 0 ){
 
