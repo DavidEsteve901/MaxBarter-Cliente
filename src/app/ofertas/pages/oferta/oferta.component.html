@@ -14,6 +14,8 @@
         <div class="misProductos" id="misProductos">
             <app-producto-pre-view *ngFor="let producto of misProductos" [producto]="producto" (click)="seleccionar($event,producto)" [show]="false" [id]="producto.id"></app-producto-pre-view>
         </div>
+
+        <app-mensaje-not-found *ngIf="noProductos" message="No tienes productos disponibles"></app-mensaje-not-found>
     </div>
     
 </div>

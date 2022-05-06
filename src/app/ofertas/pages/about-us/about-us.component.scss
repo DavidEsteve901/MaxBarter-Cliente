@@ -1,0 +1,39 @@
+:host{
+    flex: 1 0;
+    display: flex;
+    flex-direction: column;
+
+}
+
+#slider{
+    width: 100%;
+    flex: 1 0;
+    position: relative;
+   
+    
+}
+#content-images-slider{
+    width: 100%;
+    height: 100%;
+    position: absolute  ;
+    top:0;
+    left: 0;
+}
+
+div .image-slider{
+    position: absolute  ;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+}
+
+#content{
+    width: 100%;
+    height: 100%;
+   background-color: red;
+}

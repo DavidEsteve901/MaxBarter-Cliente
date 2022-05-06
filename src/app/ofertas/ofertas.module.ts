@@ -19,6 +19,7 @@ import { OfertasRecibidasComponent } from './components/ofertas-recibidas/oferta
 import { OfertasEnviadasComponent } from './components/ofertas-enviadas/ofertas-enviadas.component';
 import { MatchsComponent } from './pages/matchs/matchs.component';
 import { StatsComponent } from './pages/stats/stats.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { StatsComponent } from './pages/stats/stats.component';
     OfertasRecibidasComponent,
     OfertasEnviadasComponent,
     MatchsComponent,
-    StatsComponent
+    StatsComponent,
+    AboutUsComponent
   ],
   imports: [
     CommonModule,

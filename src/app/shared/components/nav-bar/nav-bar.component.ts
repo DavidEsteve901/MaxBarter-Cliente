@@ -23,6 +23,8 @@ export class NavBarComponent implements OnInit {
   rutaPerfil!:string ;
   imgPerfil!:any;
 
+  intervalo!:any;
+
   constructor(
     private authService:AuthService,
     private currentUserService:CurrentUserService,
@@ -66,7 +68,8 @@ export class NavBarComponent implements OnInit {
       
 
       //Seteamos el intervalo de animacion
-      window.setInterval(this.re_animate, 4000);
+      clearInterval(this.intervalo);
+      this.intervalo =  setInterval(this.re_animate, 4000);
 
       // console.log("SUB",user)
     })
@@ -97,8 +100,16 @@ export class NavBarComponent implements OnInit {
     if(this.color){
       return "color-auth"
     }else{
-      return "color"
+      //Comprobamos estamos en aboutUs
+      if(this.router.isActive("/ofertas/aboutUs",false)){
+        return "color-auth" 
+      }else{
+        return "color"
+      }
     }
+
+    
+    
   }
 
   currentUser(){

@@ -13,11 +13,15 @@ export class MatchViewComponent implements OnInit {
 
   @Input() match!:any ;
 
-  
+  intervalo!:any;
+
   constructor() { }
 
   ngOnInit(): void {
-    window.setInterval(this.re_animate, 3000);
+    
+  
+    this.intervalo = setInterval(this.re_animate, 3000);
+    
 
     //Añadimos animación de confeti
     var confettiElements = document.getElementsByClassName('confetti');
@@ -29,6 +33,12 @@ export class MatchViewComponent implements OnInit {
     }
 
     
+  }
+
+  /*Ciclo de vida de los componentes de Angular */
+  //Cada vez que se destrulla el componenteque me elimine el intervalo de la animación
+  ngOnDestroy(){
+    clearInterval(this.intervalo)
   }
 
   re_animate() {

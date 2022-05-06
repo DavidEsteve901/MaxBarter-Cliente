@@ -14,6 +14,8 @@ export class OfertaComponent implements OnInit {
   productoOferta!:any;
   misProductos!:any;
 
+  noProductos = false;
+
   productoSelected!:any;
 
   userRecibe!:any;
@@ -50,7 +52,10 @@ export class OfertaComponent implements OnInit {
             this.generalService.getProductosByUser(resp.data.userName).subscribe(
               (resp:any) => {
                 this.misProductos = resp.data; 
-                console.log(this.misProductos)
+                
+                if(this.misProductos.length == 0){
+                  this.noProductos = true;
+                }
               }
             )
           }

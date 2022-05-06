@@ -27,7 +27,12 @@ export class AppComponent implements OnInit{
     if(this.bgAnimado){
       return "bg-animation"
     }else{
-      return "bg-static"
+      //Comprobamos estamos en aboutUs
+      if(this.router.isActive("/ofertas/aboutUs",false)){
+        return "bg-animation"
+      }else{
+        return "bg-static"
+      }
     }
   }
   
