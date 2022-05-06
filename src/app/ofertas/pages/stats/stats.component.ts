@@ -10,6 +10,7 @@ import { GeneralService } from '../../services/general.service';
 export class StatsComponent implements OnInit {
 
   statsUser!:any;
+  user!:any;
 
   constructor(
     private rutaActiva: ActivatedRoute,
@@ -21,6 +22,7 @@ export class StatsComponent implements OnInit {
     //Obsevable que detecta la ruta
     this.rutaActiva.params.subscribe(
       (params: any)=>{
+        this.user = params.userName;
         this.generalService.getUserStats(params.userName).subscribe(
           (resp:any)=>{
             

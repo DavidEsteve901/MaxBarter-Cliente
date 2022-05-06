@@ -22,7 +22,6 @@ export class MatchViewComponent implements OnInit {
     //Añadimos animación de confeti
     var confettiElements = document.getElementsByClassName('confetti');
 
-    console.log(confettiElements)
     for (let i = 0; i < confettiElements.length; i++) {
       var confettiSettings = { target: confettiElements[i] };
       var confetti = new ConfettiGenerator(confettiSettings);
@@ -33,7 +32,7 @@ export class MatchViewComponent implements OnInit {
   }
 
   re_animate() {
-    $('#img').toggleClass('animate__animated animate__swing  ');
+    $('.manos').toggleClass('animate__animated animate__swing  ');
   }
  
 }

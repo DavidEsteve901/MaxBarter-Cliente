@@ -30,6 +30,7 @@ import {ToastModule} from 'primeng/toast';
 import {GMapModule} from 'primeng/gmap';
 import {GalleriaModule} from 'primeng/galleria';
 import {ChartModule}  from 'primeng/chart';
+import {BadgeModule} from 'primeng/badge';
 
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
@@ -68,7 +69,8 @@ import { StatsViewComponent } from './components/stats-view/stats-view.component
     ConfirmDialogModule,
     GalleriaModule,
     ImageModule,
-    ChartModule
+    ChartModule,
+    BadgeModule
 
   ],
   exports: [
@@ -102,6 +104,7 @@ import { StatsViewComponent } from './components/stats-view/stats-view.component
     ConfirmDialogModule,
     GalleriaModule,
     FileUploadModule,
+    BadgeModule,
     
     //Infinite scroll
     InfiniteScrollModule,

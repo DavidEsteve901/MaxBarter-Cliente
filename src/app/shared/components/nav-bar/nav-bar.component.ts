@@ -5,6 +5,7 @@ import { CurrentUserService } from '../../services/current-user.service';
 import { Router } from '@angular/router';
 import { RegistroComponent } from '../../../auth/pages/registro/registro.component';
 import { GeneralService } from 'src/app/ofertas/services/general.service';
+declare var $:any;
 
 @Component({
   selector: 'app-nav-bar',
@@ -16,6 +17,8 @@ export class NavBarComponent implements OnInit {
   faBars = faBars;
   color: boolean = false;
   user:any = null;
+
+  matchs:any = 0;
 
   rutaPerfil!:string ;
   imgPerfil!:any;
@@ -53,7 +56,17 @@ export class NavBarComponent implements OnInit {
           },
         )
       }
+
+      //Buscamos lo matchs que tiene
+      this.generalService.getUserMatchs(this.user.userName).subscribe(
+        (resp:any)=>{
+          this.matchs = resp.data;
+        }
+      )
       
+
+      //Seteamos el intervalo de animacion
+      window.setInterval(this.re_animate, 4000);
 
       // console.log("SUB",user)
     })
@@ -62,6 +75,8 @@ export class NavBarComponent implements OnInit {
     
     
   }
+
+
 
   isLogin(){
     return this.authService.loggedIn()
@@ -99,4 +114,7 @@ export class NavBarComponent implements OnInit {
     }
   }
 
+  re_animate() {
+    $('#badgeMatchs').toggleClass('animate__animated animate__bounce');
+  }
 }

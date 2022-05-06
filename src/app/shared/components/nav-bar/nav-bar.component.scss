@@ -76,9 +76,21 @@
     background: rgba(0, 0, 0,0) !important;
 }
 
+.matchsNav{
+    position:relative;
+
+    p-badge{
+        position: absolute;
+        top:-4px;
+        right: -10px;
+
+        transform: scale(0.9);
+        
+    }
+}
 .color{
     background: rgba(0, 0, 0) !important;
-    box-shadow: black 0 0 20px !important;
+    box-shadow: black 0 0 10px !important;
     // background: rgb(0,5,9) !important;
     // background: linear-gradient(180deg, rgba(0,5,9,1) 20%, rgba(0,0,0,0) 100%) !important;
 

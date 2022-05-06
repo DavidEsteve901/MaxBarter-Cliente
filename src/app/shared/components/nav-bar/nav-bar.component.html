@@ -17,7 +17,12 @@
           <a class="nav-link" routerLink="/ofertas/home" routerLinkActive="active" >Inicio</a>
           <a class="nav-link" [routerLink]="redirectProductos()" routerLinkActive="active" >Productos</a>
           <a class="nav-link" routerLink="/ofertas/ofertas" routerLinkActive="active" >Ofertas</a>
-          <a class="nav-link" routerLink="/ofertas/matchs" routerLinkActive="active" >Matchs</a>
+
+          <div class="matchsNav">
+            <a class="nav-link" routerLink="/ofertas/matchs" routerLinkActive="active" >Matchs</a>
+            <p-badge *ngIf="matchs != 0" [value]="matchs" id="badgeMatchs" class="animate__animated animate__bounce"></p-badge>
+          </div>
+          
           <a class="nav-link" (click)="logout()">Logout</a>
 
           <div class="perfil"  [routerLink]="rutaPerfil">

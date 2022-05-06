@@ -166,6 +166,10 @@ export class GeneralService {
     return this.http.get(this.URL + `user/stats/${userName}`)
   }
 
+  getUserMatchs(userName:any){
+    return this.http.get(this.URL + `user/matchs/${userName}`)
+  }
+
   //Ofertas
   createOferta(oferta:any){
     return this.http.post(this.URL + `ofertas/`,oferta)
