@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faCloudUpload} from '@fortawesome/free-solid-svg-icons';
 import { faInstagram,faTwitter,faFacebook} from '@fortawesome/free-brands-svg-icons';
+import AOS from 'aos';
 
 import { GeneralService } from '../../services/general.service';
 import ConfettiGenerator from "confetti-js";
@@ -27,6 +28,8 @@ export class AboutUsComponent implements OnInit {
   ngOnInit(): void {
     var rellax =  new Rellax('.rellax')
 
+    //Inicializo AOS para animaciones del scroll
+    AOS.init();
     //Añadimos animación de confeti
   
     var confettiSettings = { target: 'confetti'};

@@ -38,6 +38,9 @@
               "node_modules/animate.css/animate.min.css",
 
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
+
+              "node_modules/aos/dist/aos.css",
+
               "src/styles.scss"
             ],
             "scripts": [
@@ -45,7 +48,9 @@
               "node_modules/@popperjs/core/dist/umd/popper.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/confetti-js/dist/index.min.js",
-              "node_modules/rellax/rellax.min.js"
+              "node_modules/rellax/rellax.min.js",
+              "node_modules/aos/dist/aos.js"
+
 
             ]
           },

@@ -6,16 +6,16 @@
     </div>
 </section>
 
-<section id="content">
+<section id="content" >
     <div class="info1">
-        <h2>¿Quienes somos?</h2>
-        <div class="texto">
+        <h2 data-aos="fade-up">¿Quienes somos?</h2>
+        <div class="texto" data-aos="fade-up">
             Somos una comunidad dispuesta a revivir aquellos productos que ya no les das utilidad y a cambio 
             obtener algo con lo que podrás disfrutar y reutilizar en tu día a día.
         </div>
     </div>
     <div class="info2">
-        <div>
+        <div data-aos="zoom-in-up">
             <h2>Publicar tus productos</h2>
             <div class="texto">
                 Puedes añadir tus productos de manera muy sencilla a nuestra web
@@ -26,13 +26,13 @@
             <fa-icon [icon]="faCloudUpload" class="nube"></fa-icon>
         </div>
 
-        <app-producto-pre-view *ngIf="producto"[show]="false" [producto]="producto"></app-producto-pre-view>
+        <app-producto-pre-view *ngIf="producto"[show]="false" [producto]="producto" data-aos="fade-left"></app-producto-pre-view>
 
     </div>
 
     <div class="info3" >
         <canvas id="confetti"></canvas>
-        <h2>¡Haz match con otros usuarios!</h2>
+        <h2 data-aos="fade-up">¡Haz match con otros usuarios!</h2>
     </div>
 
     <div class="footer">
