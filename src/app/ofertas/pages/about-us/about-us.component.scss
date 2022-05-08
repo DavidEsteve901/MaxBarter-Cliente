@@ -93,10 +93,13 @@ div .image-slider{
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        position: relative;
         gap:20px;
-
+        overflow: hidden;
         canvas{
             position: absolute;
+            width: 100%;
+            min-height: 100%;
         }
         .texto{
             color:white;
@@ -206,4 +209,40 @@ h2{
     100%{
         top:40px;
     }
+}
+
+//Responsive 
+// `xxl` se aplica a dispositivos de gran tamaño (escritorios grandes, menos de 1400px)
+@media (max-width: 1399.98px) {  }
+
+
+// `xl` se aplica a dispositivos grandes (computadoras de escritorio, menos de 1200 px)
+@media (max-width: 1199.98px) { 
+}
+
+// "lg" se aplica a dispositivos medianos (tabletas, menos de 992 px)
+@media (max-width: 991.98px) {  
+
+    .info2{
+
+        .info2-1{
+            h2{
+                text-align: center !important;
+                
+            }
+            align-items: center;
+        }
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+// `md` se aplica a dispositivos pequeños (teléfonos horizontales, menos de 768px)
+@media (max-width: 767.98px)  { 
+
+}
+
+// `sm` se aplica a dispositivos x-small (teléfonos verticales, menos de 576px)
+@media (max-width: 575.98px) {
+
 }
