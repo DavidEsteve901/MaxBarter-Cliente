@@ -109,7 +109,7 @@ export class GeneralService {
   getProductById(id:number){
     return this.http.get(this.URL + `productos/${id}`)
   }
-  getProductosByUser(userName:number){
+  getProductosByUser(userName:any){
     return this.http.get(this.URL + `productos/user/${userName}`)
   }
 

@@ -1,16 +1,19 @@
 :host{
     flex: 1 0;
+    // border: solid 1px yellow;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-
 }
 
 #slider{
-    width: 100%;
+    min-width: 100%;
+    min-height: 100vh;
     flex: 1 0;
+    // border: solid 1px purple;
     position: relative;
-   
-    
+    overflow: hidden;
 }
 #content-images-slider{
     width: 100%;
@@ -28,12 +31,179 @@ div .image-slider{
     height: 100%;
 
     background-repeat: no-repeat;
-    background-position: bottom center;
+    background-position:  center bottom;
     background-size: cover;
 }
 
 #content{
     width: 100%;
     height: 100%;
-   background-color: red;
+    background-color: transparent;
+    z-index: 100;
+
+    .info1{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap:20px;
+
+        .texto{
+            color:white;
+            font-weight: bold;
+            font-size: 1.5em;
+            width: 50%;
+        }
+    }
+
+    .info2{
+        width: 100%;
+        min-height: 50vh;
+        background-color: black;
+        padding: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap:30px;
+
+        h2{
+            text-align: start;
+        }
+        .divNube{
+            width: 300px;
+            height: 300px;
+            position: relative;
+            .nube{
+                position:absolute;
+                font-size: 200px;
+                animation: nubeAnimation 5s ease-in-out infinite;
+            }
+        }
+        
+        
+    }
+
+    .info3{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap:20px;
+
+        canvas{
+            position: absolute;
+        }
+        .texto{
+            color:white;
+            font-weight: bold;
+            font-size: 1.5em;
+            width: 50%;
+        }
+    }
+
+    .footer{
+        width: 100%;
+        height: 200px;
+        background-color: black;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        a{
+            text-decoration: none;
+            color: white;
+        }
+
+        .circulo{
+            width: 15px;
+            height: 15px;
+            border-radius: 20px;
+            margin: 5px;
+            background-color: rgba(226, 128, 58, 0.555);
+        }
+        .redes{
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 30px;
+            .social{
+                color: white;
+                
+            }
+
+            .iconos{
+                display: flex;
+                gap:20px;
+                
+                a{
+                    width: 70px;
+                    height: 70px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 10000px;
+                    background-color: rgba(226, 128, 58, 0.459);
+                
+                }
+                fa-icon{
+                    font-size: 30px;
+                    
+                }
+            }
+
+
+            
+        }
+
+        .datos{
+            // background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            &>div{
+                display: flex;
+                align-items: baseline;
+            }
+            img{
+                width: 100px;
+            }
+        }
+    }
+}
+
+.texto{
+    color:white;
+    
+    font-weight: bold;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+h2{
+    color:#e2803a;
+    font-weight: bold;
+    font-size: 4em;
+    text-align: center;
+}
+
+@keyframes nubeAnimation {
+    0%{
+        top:40px
+    }
+    50%{
+        top:-60px;
+    }
+
+    100%{
+        top:40px;
+    }
 }
