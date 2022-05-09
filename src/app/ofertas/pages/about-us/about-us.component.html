@@ -26,13 +26,15 @@
             <fa-icon [icon]="faCloudUpload" class="nube"></fa-icon>
         </div>
 
-        <app-producto-pre-view *ngIf="producto"[show]="false" [producto]="producto" data-aos="fade-left"></app-producto-pre-view>
+        <app-producto-pre-view *ngIf="producto" [show]="false" [producto]="producto" data-aos="fade-left"></app-producto-pre-view>
 
     </div>
 
     <div class="info3" >
         <canvas id="confetti"></canvas>
         <h2 data-aos="fade-up">¡Haz match con otros usuarios!</h2>
+
+        <app-match-view *ngIf="oferta" data-aos="flip-up" [match]="oferta"></app-match-view>
     </div>
 
     <div class="footer">

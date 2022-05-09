@@ -21,6 +21,8 @@ export class AboutUsComponent implements OnInit {
   faFacebook = faFacebook;
 
   producto!:any;
+  oferta!:any;
+
   constructor(
     private generalService:GeneralService
   ) { }
@@ -30,8 +32,8 @@ export class AboutUsComponent implements OnInit {
 
     //Inicializo AOS para animaciones del scroll
     AOS.init();
-    //Añadimos animación de confeti
-  
+
+    //Añadimos animación de confetti
     var confettiSettings = { target: 'confetti'};
     var confetti = new ConfettiGenerator(confettiSettings);
     confetti.render();
@@ -39,8 +41,19 @@ export class AboutUsComponent implements OnInit {
     //Buscamos el producto de prueba para mostrar
     this.generalService.getProductosByUser("prueba").subscribe(
       (resp:any)=>{
-        console.log(resp)
         this.producto = resp.data[0]
+      }
+    )
+
+    //Buscamos la oferta de prueba
+    var q = {
+      user1: "prueba",
+      user2: "prueba2"
+    }
+    this.generalService.getOfertasByPage(q).subscribe(
+      (resp:any)=>{
+        console.log(resp)
+        this.oferta = resp.data.data[0]
       }
     )
   }
