@@ -91,9 +91,6 @@ export class FormPerfilComponent implements OnInit {
       
       }
     )
-
-
-    console.log(this.usuario)
       
     
   }
@@ -116,9 +113,7 @@ export class FormPerfilComponent implements OnInit {
 
     //Pasamos la imagen 
     if(this.uploadedFile){
-    
-
-      
+  
       const formularioDatos = new FormData();
 
       formularioDatos.append('files',this.uploadedFile)
