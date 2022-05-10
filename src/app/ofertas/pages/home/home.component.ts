@@ -170,7 +170,7 @@ export class HomeComponent implements OnInit {
     if(this.filter.tipo && typeof this.filter.tipo === 'object'){
       this.filter.tipo = this.filter.tipo.value
     }
-
+    
     this.onScrollDown(this.filter)
     
     
