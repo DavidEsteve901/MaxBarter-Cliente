@@ -125,7 +125,7 @@ export class FormPerfilComponent implements OnInit {
     
 
     //Añadimos el toast (Notificación)
-    this.messageService.add({severity:'info', summary:'Producto modificado', detail:'El perfil fue modificado'});
+    this.messageService.add({severity:'info', summary:'Perfil modificado', detail:'El perfil fue modificado'});
     
 
   }

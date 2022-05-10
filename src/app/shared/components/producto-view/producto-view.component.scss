@@ -107,6 +107,7 @@
     display: flex;
     width:  300px !important;
     height: 100%;
+    
     max-height: 460px !important;
     overflow: hidden;
     padding: 10px;
@@ -115,10 +116,8 @@
 
     .galeria{
         // position: absolute !important;
-    
-        box-shadow: 0 0 10px #DEE2E6;
-    
-        
+        box-shadow: 0 0 10px #DEE2E6 !important;
+
         width:  300px !important;
         height:  auto ;
         max-height: 400px !important;

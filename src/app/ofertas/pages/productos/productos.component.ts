@@ -117,7 +117,7 @@ export class ProductosComponent implements OnInit {
 
               },
               (error:any)=>{
-                console.log(error)
+                // console.log(error)
               },
             )
 

@@ -33,35 +33,34 @@ export class GalleryComponent implements OnInit {
     this.generalService.getUpdateImageProducto$().subscribe(
       (resp:any[])=>{
         
+  
         //Reiniciamos el carousel a la posicion 0 para que no de problemas con el slider
         $('.carousel').carousel({
           pause: true,
           interval: false
         }).carousel(0);
-        
-        
 
-        if(resp.length != 0){
+        setTimeout( ()=>{
+          if(resp.length != 0){
 
-          
-
-          if(resp.length == 1){
-
-            this.imagenes = resp;
-            this.imagenesCortadas = [] ;
+            if(resp.length == 1){
+  
+              this.imagenes = resp;
+              this.imagenesCortadas = [] ;
+            }else{
+              this.imagenes = resp;
+              this.imagenesCortadas = resp.slice(1,resp.length) ;
+            }
+            
+  
+            // this.imagenesCortadas.splice(0,1)
           }else{
-            this.imagenes = resp;
-            this.imagenesCortadas = resp.slice(1,resp.length) ;
+            this.imagenes = ["/assets/imagenes/noImagen.png"],
+            this.imagenesCortadas = null;
           }
+  
+        },200)
           
-
-          // this.imagenesCortadas.splice(0,1)
-        }else{
-          this.imagenes = ["/assets/imagenes/noImagen.png"],
-          this.imagenesCortadas = null;
-        }
-
-        
 
         // console.log("respuesta",resp)
         // console.log("imagenes",this.imagenes)
