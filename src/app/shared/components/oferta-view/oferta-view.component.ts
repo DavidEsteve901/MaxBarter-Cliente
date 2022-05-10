@@ -67,4 +67,31 @@ export class OfertaViewComponent implements OnInit {
     });
   }
 
+  aceptar(){
+    this.generalService.aceptarOferta(this.oferta.id).subscribe(
+      (resp:any)=>{
+        this.messageService.add({severity:'success', summary:'Aceptada', detail:'La oferta fue aceptada!!'});
+        this.generalService.setUpdateOfertas(true);
+      },
+
+      (error:any)=>{
+        console.log(error)
+      }
+    )
+  }
+
+  rechazar(){
+    this.generalService.rechazarOferta(this.oferta.id).subscribe(
+      (resp:any)=>{
+        this.messageService.add({severity:'warn', summary:'Rechazada', detail:'La oferta fue rechazada :('});
+        this.generalService.setUpdateOfertas(true);
+
+      },
+
+      (error:any)=>{
+        console.log(error)
+      }
+    )
+  }
+
 }

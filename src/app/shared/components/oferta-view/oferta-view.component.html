@@ -10,7 +10,7 @@
 <div class="botones">
     
     <button pButton *ngIf="!checkRoute()" (click)="confirm()" label="Eliminar" class="p-button-danger boton"></button>
-    <button pButton *ngIf="checkRoute()"  label="Aceptar"   class="p-button-success boton"></button>
-    <button pButton *ngIf="checkRoute()"  label="Rechazar"  class="p-button-danger boton"></button>
+    <button pButton *ngIf="checkRoute()"  (click)="aceptar()" label="Aceptar"   class="p-button-success boton"></button>
+    <button pButton *ngIf="checkRoute()"  (click)="rechazar()" label="Rechazar"  class="p-button-danger boton"></button>
     
 </div>

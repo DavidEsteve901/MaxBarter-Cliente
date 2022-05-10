@@ -27,7 +27,8 @@
     }
 }
 .misProductos{
-    width: 600px;
+    width: auto;
+    max-width: 600px;
     padding: 5px;
     gap: 20px;
     display: flex;

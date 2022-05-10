@@ -1,4 +1,4 @@
-<form [formGroup]="form"  class="form">
+<form [formGroup]="form" (submit)="checkMethod()" class="form">
     <div>
         <label for="titulo">Título</label>
 
@@ -47,7 +47,7 @@
 
     </div>
 
-    <input pButton type="button" (click)="removeImages()" value="Eliminar imagenes" class="p-button boton remove" />
+    <input pButton type="button" (click)="removeImages()" id="deleteImg" value="Eliminar imagenes" class="p-button boton remove" />
     
     <p-fileUpload name="myfile[]" (onSelect)="onUpload($event)"
             [multiple]="true" accept="image/*" [maxFileSize]="1000000" [showUploadButton]="false"
@@ -55,8 +55,8 @@
     </p-fileUpload>
      
     <div class="formButton">
-        <button pButton *ngIf="!edit" (click)="create()" label="Crear" class="p-button-success boton"></button>
-        <button pButton *ngIf="edit" (click)="update()" label="Editar" class="p-button-info boton"></button>
+        <button pButton *ngIf="!edit"   label="Crear" class="p-button-success boton"></button>
+        <button pButton *ngIf="edit"  label="Editar" class="p-button-info boton"></button>
 
         <span class="error" *ngIf="error">
             {{error.message}}

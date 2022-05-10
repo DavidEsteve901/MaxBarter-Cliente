@@ -113,7 +113,9 @@ export class FormProductoComponent implements OnInit {
       }
     )
     
-     
+     $("#deleteImg").on('submit', function(evt){
+      evt.preventDefault();  
+    });
 
     
   }
@@ -227,7 +229,7 @@ export class FormProductoComponent implements OnInit {
 
     this.messageService.add({severity: 'warn', summary: 'Imagen eliminada', detail: ''});
 
-    
+
     this.updateImages.emit(this.uploadedFiles)
 
   }
@@ -236,6 +238,8 @@ export class FormProductoComponent implements OnInit {
     this.uploadedFiles = [];
     this.updateImages.emit(this.uploadedFiles)
   }
+
+
 
   removeImages(){
     this.uploadedFiles = [];
@@ -267,6 +271,13 @@ export class FormProductoComponent implements OnInit {
     
   }
 
+  checkMethod(){
+    if(this.edit){
+      this.update()
+    }else{
+      this.create()
+    }
+  }
   //Getters
   get titulo():any{ return this.form.get('titulo')}
   get descripcion():any{ return this.form.get('descripcion')}

@@ -12,7 +12,7 @@ import { GeneralService } from '../../services/general.service';
 export class OfertaComponent implements OnInit {
 
   productoOferta!:any;
-  misProductos!:any;
+  misProductos:any = [];
 
   noProductos = false;
 
@@ -50,8 +50,13 @@ export class OfertaComponent implements OnInit {
           (resp:any)=>{
             this.userPide = resp.data.userName;
             this.generalService.getProductosByUser(resp.data.userName).subscribe(
+              //Que me muestre los que NO se han hecho match
               (resp:any) => {
-                this.misProductos = resp.data; 
+                resp.data.forEach((e:any) => {
+                  if(e.match == false){
+                    this.misProductos.push(e)
+                  }
+                });
                 
                 if(this.misProductos.length == 0){
                   this.noProductos = true;

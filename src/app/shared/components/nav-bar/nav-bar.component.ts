@@ -41,9 +41,10 @@ export class NavBarComponent implements OnInit {
       this.user = user;
       this.rutaPerfil = `ofertas/perfil/${this.user.userName}`;
       
-      
+      console.log("USER actualizado",this.user)
       
       if(user){
+        console.log("IMG actualiza")
         //Buscamos foto perfil
         this.generalService.getImagenPerfil(this.user).subscribe(
           (resp:any)=>{
@@ -54,6 +55,7 @@ export class NavBarComponent implements OnInit {
             
           },
           (error:any)=>{
+            this.imgPerfil = null;
             console.log(error)
           },
         )

@@ -183,6 +183,14 @@ export class GeneralService {
     return this.http.delete(this.URL + `ofertas/${id}`)
   }
   
+  aceptarOferta(id:any){
+    return this.http.post(this.URL + `ofertas/aceptarOferta/${id}`,{})
+  }
+
+  rechazarOferta(id:any){
+    return this.http.post(this.URL + `ofertas/rechazarOferta/${id}`,{})
+  }
+
   //Método para convertir blob a base64
   blobToBase64(blob:any) {
     const reader = new FileReader();
