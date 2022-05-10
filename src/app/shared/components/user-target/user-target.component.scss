@@ -32,12 +32,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
     div{
         font-size: 2em;
     }
     img{
         width: 70px;
-        height: 70px;
+        min-height: 70px;
         border-radius: 300px;
         border: #E4731C solid 1px;
     }

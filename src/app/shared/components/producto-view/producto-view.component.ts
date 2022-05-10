@@ -150,7 +150,23 @@ export class ProductoViewComponent implements OnInit {
             }
         }
     });
-}
 
+    
+  }
+
+  checkSizeTitulo(){
+    if(this.producto.titulo){
+      if(this.producto.titulo.length > 20){
+        return 'tituloSize3'
+      }
+
+      if(this.producto.titulo.length > 10){
+        return 'tituloSize2'
+      }
+      return '';
+    }else{
+      return '';
+    }
+  }
 
 }

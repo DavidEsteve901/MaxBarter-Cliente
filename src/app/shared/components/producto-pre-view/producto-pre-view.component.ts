@@ -83,4 +83,21 @@ export class ProductoPreViewComponent implements OnInit {
       this.displayResponsive = true;
     }
   }
+
+  checkSizeTitulo(){
+    if(this.producto.titulo){
+      if(this.producto.titulo.length > 20){
+        return 'tituloSize'
+      }
+
+      if(this.producto.titulo.length > 10){
+        return 'tituloSize2'
+      }
+      
+      return '';
+      
+    }else{
+      return '';
+    }
+  }
 }

@@ -58,7 +58,7 @@ export class FormProductoComponent implements OnInit {
   ngOnInit(): void {
     //Creamos el formulario
     this.form = this.formBuilder.group({
-      titulo: ['',[Validators.required, Validators.maxLength(23)]],
+      titulo: ['',[Validators.required, Validators.maxLength(30)]],
       tipo: ['',[Validators.required]],
       descripcion: ['',[Validators.required,Validators.maxLength(1000)]]
     })

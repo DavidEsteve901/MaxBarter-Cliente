@@ -12,7 +12,7 @@
             Tipo: <span>{{producto?.tipoProducto?.nombre}}</span>
         </div>
 
-        <div class="titulo">
+        <div class="titulo" [ngClass]="checkSizeTitulo()">
             {{producto?.titulo}}
         </div>
 

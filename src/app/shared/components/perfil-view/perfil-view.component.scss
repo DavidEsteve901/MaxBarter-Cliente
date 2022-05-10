@@ -105,12 +105,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
     div{
         font-size: 2em;
     }
     img{
         width: 75px;
-        height: 75px;
+        min-height: 75px;
         border-radius: 300px;
         border: #E4731C solid 1px;
     }
