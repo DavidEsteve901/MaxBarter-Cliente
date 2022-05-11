@@ -83,12 +83,11 @@ export class UsersComponent implements OnInit {
     )
     .subscribe(v => {
       this.doFilter()
-      // console.log(v);
     });
   
     
 
-    this.onScrollDown(this.filter);
+    // this.onScrollDown(this.filter);
     
   }
 
@@ -126,12 +125,9 @@ export class UsersComponent implements OnInit {
 
         //Quitamos los usuarios de prueba
 
-        this.usuarios.forEach((e:any) => {
-          if(e.userName == "prueba2" || e.userName == "prueba" ){
-            let index = this.usuarios.indexOf(e);
-            this.usuarios.splice(index,1)
-          }
-        });
+        this.usuarios = this.usuarios.filter( (user)=>{
+          return (user.userName !== "prueba") && (user.userName !== "prueba2")
+        })
 
         if(this.usuarios.length == 0){
           this.noUsuarios = true;

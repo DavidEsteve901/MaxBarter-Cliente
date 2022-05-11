@@ -114,7 +114,7 @@ export class HomeComponent implements OnInit {
     });
 
 
-    this.onScrollDown(this.filter);
+    // this.onScrollDown(this.filter);
     
   }
 

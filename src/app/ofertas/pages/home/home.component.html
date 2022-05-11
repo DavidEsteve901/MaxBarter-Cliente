@@ -2,7 +2,7 @@
 <div class="filtro">
     <div>
         <label for="userName"></label>
-        <span class="p-input-icon-left">
+        <span class="p-input-icon-left" [formGroup]="form">
             <i><fa-icon [icon]="lupa"></fa-icon></i>
             <input type="text" [(ngModel)]="filter.titulo" formControlName="search"  pInputText id="userName"  placeholder="Filtrar por título...."  />
         </span>
