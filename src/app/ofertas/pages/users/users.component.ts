@@ -4,7 +4,7 @@ import { GeneralService } from '../../services/general.service';
 import { ComunidadAutonoma, Producto, Tipo } from '../../../interfaces/interfaces';
 import { faArrowUp,faMagnifyingGlass,faSquareXmark } from '@fortawesome/free-solid-svg-icons';
 import { DOCUMENT } from '@angular/common';
-import { FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { debounceTime, tap } from 'rxjs';
 
 @Component({
@@ -31,8 +31,8 @@ export class UsersComponent implements OnInit {
   //Pixeles para que salga el botón de subir scroll
   private scrollHeight = 300;
 
-
-  public search: FormControl = new FormControl('');
+  form!: FormGroup;
+  // public search: FormControl = new FormControl();
 
   filter:any ={
     userName: '',
@@ -42,11 +42,16 @@ export class UsersComponent implements OnInit {
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    private generalService:GeneralService
+    private generalService:GeneralService,
+    private formBuilder: FormBuilder,
+
   ) { }
 
   ngOnInit(): void {
 
+    this.form = this.formBuilder.group({
+      search: [""]
+    })
     this.usuarios = this.usuarios.splice(0,this.usuarios.length);
 
 
@@ -70,21 +75,27 @@ export class UsersComponent implements OnInit {
     
 
 
-    //Para que tras dejar de escribir en el filtro tarde un tiempo en hacer la petición 
-    this.search.valueChanges
-        .pipe(
-          debounceTime(350) // tiempo que tiene que esperar
-        )
-        .subscribe(v => {
-          this.doFilter()
-          // console.log(v);
-       });
-
+    //Para que tras dejar de escribir en el filtro tarde un tiempo en hacer la petición
+    
+    this.form.controls['search'].valueChanges
+    .pipe(
+      debounceTime(350) // tiempo que tiene que esperar
+    )
+    .subscribe(v => {
+      this.doFilter()
+      // console.log(v);
+    });
+  
+    
 
     this.onScrollDown(this.filter);
     
   }
 
+  ngOnDestroy(): void{
+    this.usuarios = this.usuarios.splice(0,this.usuarios.length);
+  }
+  
   @HostListener('window:scroll')
   onWindowScroll():void{
     const yOffSet = window.pageYOffset;
@@ -98,9 +109,9 @@ export class UsersComponent implements OnInit {
   }
 
   onScrollDown(opciones:any){
-    // console.log("Down");
+    
     this.pageNum++;
-
+    console.log("Down",this.pageNum);
     this.generalService.getUsersByPage({
       page: this.pageNum,
       q: {
@@ -116,7 +127,7 @@ export class UsersComponent implements OnInit {
         //Quitamos los usuarios de prueba
 
         this.usuarios.forEach((e:any) => {
-          if(e.userName == "prueba" || e.userName == "prueba2" ){
+          if(e.userName == "prueba2" || e.userName == "prueba" ){
             let index = this.usuarios.indexOf(e);
             this.usuarios.splice(index,1)
           }

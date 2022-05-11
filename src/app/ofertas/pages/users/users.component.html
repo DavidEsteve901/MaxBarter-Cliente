@@ -3,7 +3,7 @@
         <label for="userName"></label>
         <span class="p-input-icon-left">
             <i><fa-icon [icon]="lupa"></fa-icon></i>
-            <input type="text" [(ngModel)]="filter.userName" [formControl]="search"  pInputText id="userName"  placeholder="Filtrar por usuario...."  />
+            <input type="text" [(ngModel)]="filter.userName" formControlName="search"  pInputText id="userName"  placeholder="Filtrar por usuario...."  />
 
         </span>
     </div>

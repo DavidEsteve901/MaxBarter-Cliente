@@ -4,7 +4,7 @@ import { GeneralService } from '../../services/general.service';
 import { ComunidadAutonoma, Producto, Tipo } from '../../../interfaces/interfaces';
 import { faArrowUp,faMagnifyingGlass,faSquareXmark } from '@fortawesome/free-solid-svg-icons';
 import { DOCUMENT } from '@angular/common';
-import { FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { debounceTime, tap } from 'rxjs';
 
 @Component({
@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
   private scrollHeight = 300;
 
 
-  public search: FormControl = new FormControl('');
+  form!: FormGroup;
 
   filter:any ={
     titulo: '',
@@ -47,12 +47,18 @@ export class HomeComponent implements OnInit {
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    private generalService:GeneralService
+    private generalService:GeneralService,
+    private formBuilder: FormBuilder,
+
   ) { }
 
   ngOnInit(): void {
 
     this.productos = this.productos.splice(0,this.productos.length);
+
+    this.form = this.formBuilder.group({
+      search: [""]
+    })
 
     //Nos suscribimos al servicio que notificará si se hacen cambios en los productos
     this.generalService.getUpdateProducts$().subscribe(
@@ -97,15 +103,15 @@ export class HomeComponent implements OnInit {
     )
 
 
-    //Para que tras dejar de escribir en el filtro tarde un tiempo en hacer la petición 
-    this.search.valueChanges
-        .pipe(
-          debounceTime(350) // tiempo que tiene que esperar
-        )
-        .subscribe(v => {
-          this.doFilter()
-          // console.log(v);
-       });
+    //Para que tras dejar de escribir en el filtro tarde un tiempo en hacer la petición
+    this.form.controls['search'].valueChanges
+    .pipe(
+      debounceTime(350) // tiempo que tiene que esperar
+    )
+    .subscribe(v => {
+      this.doFilter()
+      // console.log(v);
+    });
 
 
     this.onScrollDown(this.filter);

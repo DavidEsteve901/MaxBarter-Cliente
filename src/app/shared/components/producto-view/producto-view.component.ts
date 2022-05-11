@@ -61,7 +61,6 @@ export class ProductoViewComponent implements OnInit {
           }
         })
 
-        console.log(this.isAdmin)
       }
     )
 
