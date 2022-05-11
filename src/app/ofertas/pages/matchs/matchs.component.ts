@@ -74,6 +74,7 @@ export class MatchsComponent implements OnInit {
         userRecibe: opciones.user,
         activa: false,
         rechazada: false,
+        match: true,
       }
     
     }).subscribe(
