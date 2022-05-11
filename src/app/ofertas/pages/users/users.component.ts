@@ -18,6 +18,9 @@ export class UsersComponent implements OnInit {
   faArrowUp = faArrowUp;
   lupa = faMagnifyingGlass;
 
+  comunidadesAutonomas!:ComunidadAutonoma[] ;
+  placeHolderComunidad:string = "Comunidad Autónoma";
+
   usuarios:any[] = [];
   noUsuarios:boolean = false;
 
@@ -33,6 +36,7 @@ export class UsersComponent implements OnInit {
 
   filter:any ={
     userName: '',
+    comunidadAutonoma: null
   }
   
 
@@ -45,10 +49,21 @@ export class UsersComponent implements OnInit {
 
     this.usuarios = this.usuarios.splice(0,this.usuarios.length);
 
-    //Nos suscribimos al servicio que notificará si se hacen cambios en los productos
-    this.generalService.getUpdateProducts$().subscribe(
+
+    //Inicianlizamos los datos de las comunidades 
+    this.generalService.getComunidadesAutonomas().subscribe(
       (resp:any)=>{
-        this.doFilter();
+        //mapeo la respuesta para cambiar el nombre de los atributos
+        var comunidadesChange = resp.data.map((c:any)=>{
+          var cChang:any = {};
+          cChang['name'] = c.nombre;
+          cChang['value'] = c.id;
+
+          return cChang;
+        })
+
+        this.comunidadesAutonomas = comunidadesChange;
+      
       }
     )
     
@@ -90,6 +105,7 @@ export class UsersComponent implements OnInit {
       page: this.pageNum,
       q: {
         userName: opciones.userName,
+        comunidadAutonoma: opciones.comunidadAutonoma
       }
     
     }).subscribe(
@@ -105,7 +121,7 @@ export class UsersComponent implements OnInit {
             this.usuarios.splice(index,1)
           }
         });
-        
+
         if(this.usuarios.length == 0){
           this.noUsuarios = true;
         }else{
@@ -141,6 +157,17 @@ export class UsersComponent implements OnInit {
   }
 
 
+  changeHover(){
+
+    if(this.filter.comunidadAutonoma && typeof this.filter.comunidadAutonoma === 'object'){
+      this.placeHolderComunidad = this.filter.comunidadAutonoma.name
+    }else{
+      if(!this.filter.comunidadAutonoma){
+        this.placeHolderComunidad = "Comunidad Autónoma";
+      }
+    }
+    
+  }
 
 
 }

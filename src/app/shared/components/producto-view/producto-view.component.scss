@@ -245,14 +245,30 @@
         bottom: 6.63%;
 
         display: flex;
-        gap: 10px;
+        justify-content: space-between;
+        align-items: center;
 
-        // background-color: purple;
+        .noAdminButtons{
+            display: flex;
+            gap: 10px;
+        }
 
         .boton{
             width: auto !important;
             font-weight: 400;
             font-size: 1em;
+        }
+
+
+        .adminButtons{
+            display: flex;
+            gap:5px;
+            .boton{
+                font-size: 0.7em;
+                width: auto;
+                height: auto;
+                padding: 5px;
+            }
         }
     }
 }

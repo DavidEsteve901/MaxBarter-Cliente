@@ -7,7 +7,7 @@
 
         </span>
     </div>
-
+    <p-dropdown [options]="comunidadesAutonomas" (onChange)="changeHover();doFilter()" [(ngModel)]="filter.comunidadAutonoma" [placeholder]="placeHolderComunidad" optionLabel="name" [showClear]="true"></p-dropdown>
     <a routerLink="/ofertas/home"><button pButton type="button" icon="pi pi-bookmark" class="p-button-info botonUsers" label="Productos" ></button></a>
 </div>
 

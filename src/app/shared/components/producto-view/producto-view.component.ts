@@ -18,6 +18,7 @@ export class ProductoViewComponent implements OnInit {
   @Input() showButtons:boolean = true;
 
   @Input() isCurrentUser!:boolean;
+  isAdmin:boolean = false;
 
   @Input() images :any[] = [];
 
@@ -49,6 +50,18 @@ export class ProductoViewComponent implements OnInit {
           this.isCurrentUser = true
 
         }
+
+        //Pasamos los roles a JSON
+        resp.data.roles = JSON.parse(resp.data.roles)
+
+        //Vemos si el usuario es admin
+        resp.data.roles.find((role:any)=>{
+          if(role === "ROLE_ADMIN"){
+            this.isAdmin = true
+          }
+        })
+
+        console.log(this.isAdmin)
       }
     )
 
