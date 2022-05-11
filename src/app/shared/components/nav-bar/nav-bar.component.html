@@ -32,7 +32,10 @@
               <div class="pi pi-user p-avatar-icon" *ngIf="!imgPerfil"></div>
             </div>
 
-            <div class="userName">{{user?.userName}}</div>
+            <div class="userName">
+              {{user?.userName}}
+              <div *ngIf="isAdmin" class="admin">Admin</div>
+            </div>
           </div>
         </ng-container>
         

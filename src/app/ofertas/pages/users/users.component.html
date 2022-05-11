@@ -1,0 +1,22 @@
+<div class="filtro">
+    <div>
+        <label for="userName"></label>
+        <span class="p-input-icon-left">
+            <i><fa-icon [icon]="lupa"></fa-icon></i>
+            <input type="text" [(ngModel)]="filter.userName" [formControl]="search"  pInputText id="userName"  placeholder="Filtrar por usuario...."  />
+
+        </span>
+    </div>
+
+    <a routerLink="/ofertas/home"><button pButton type="button" icon="pi pi-bookmark" class="p-button-info botonUsers" label="Productos" ></button></a>
+</div>
+
+<div class="productos" infiniteScroll (scrolled)="onScrollDown(this.filter)">
+    <app-user-target class="animate__animated animate__flipInX" *ngFor="let user of usuarios" [usuario]="user" >
+    
+    </app-user-target>
+
+    <app-mensaje-not-found *ngIf="noUsuarios" message="No hay usuarios"></app-mensaje-not-found>
+</div>
+
+<div class="buttonUp" *ngIf="showButton" (click)="onScrollTop()"><fa-icon [icon]="faArrowUp"></fa-icon></div>

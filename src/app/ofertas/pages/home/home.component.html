@@ -10,6 +10,8 @@
 
     <p-dropdown [options]="comunidadesAutonomas" (onChange)="changeHover();doFilter()" [(ngModel)]="filter.comunidadAutonoma" [placeholder]="placeHolderComunidad" optionLabel="name" [showClear]="true"></p-dropdown>
     <p-dropdown [options]="tipos" (onChange)="changeHover();doFilter()" [(ngModel)]="filter.tipo" [placeholder]="placeHolderTipo" optionLabel="name" [showClear]="true"></p-dropdown>
+
+    <a routerLink="/ofertas/home/users"><button pButton type="button" icon="pi pi-user" class="p-button-info botonUsers" label="Usuarios" ></button></a>
 </div>
 
 <div class="productos" infiniteScroll (scrolled)="onScrollDown(this.filter)">

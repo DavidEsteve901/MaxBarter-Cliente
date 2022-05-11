@@ -39,7 +39,16 @@
                     font-size: 1.2em;
                     font-weight: bold;
                     color: #E4731C;
+                    display: flex;
+                    flex-direction: column;
+                    gap:0px;
+
+                    .admin{
+                        font-size: 0.6em;
+                    
+                    }
                 }
+                
             }
         }
     }

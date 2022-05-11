@@ -170,6 +170,10 @@ export class GeneralService {
     return this.http.get(this.URL + `user/matchs/${userName}`)
   }
 
+  getUsersByPage(opciones: any){
+    return this.http.post(this.URL + `user/page`, opciones )
+  }
+
   //Ofertas
   createOferta(oferta:any){
     return this.http.post(this.URL + `ofertas/`,oferta)

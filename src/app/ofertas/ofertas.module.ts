@@ -20,6 +20,7 @@ import { OfertasEnviadasComponent } from './components/ofertas-enviadas/ofertas-
 import { MatchsComponent } from './pages/matchs/matchs.component';
 import { StatsComponent } from './pages/stats/stats.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { UsersComponent } from './pages/users/users.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
     OfertasEnviadasComponent,
     MatchsComponent,
     StatsComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    UsersComponent,
   ],
   imports: [
     CommonModule,

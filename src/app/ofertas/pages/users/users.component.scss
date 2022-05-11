@@ -1,4 +1,21 @@
+:host ::ng-deep{
+    //Dialog
+    .p-dialog-content{
+        padding: 0 !important;
+    }
 
+    .p-dialog-header{
+        padding: 5px !important;
+    }
+
+    app-user-target{
+        &>.perfil{
+            box-shadow: 0px 0px 5px #e4731c77;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.61) !important;    
+        }
+        
+    }
+}
 
 :host {
     flex: 1 0;
@@ -10,6 +27,7 @@
     gap:100px;
     margin-bottom: 20px;
 }
+
 
 .filtro{
     align-self: center;
@@ -47,12 +65,6 @@
     border-radius: 20px;
     
 }
-:host ::ng-deep{
-    .p-button{
-        font-weight: 100 !important;
-    }
-}
-
 
 //Cancelar atributo de animacion
 .animate__animated{

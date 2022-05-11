@@ -12,6 +12,7 @@ import { OfertasEnviadasComponent } from './components/ofertas-enviadas/ofertas-
 import { MatchsComponent } from './pages/matchs/matchs.component';
 import { StatsComponent } from './pages/stats/stats.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { UsersComponent } from './pages/users/users.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,7 @@ const routes: Routes = [
       { path: 'oferta/:idUser/:idProducto', component: OfertaComponent},
       { path: 'matchs', component: MatchsComponent},
       { path: 'stats/:userName', component: StatsComponent},
+      { path: 'home/users', component: UsersComponent },
       { path: 'aboutUs', component: AboutUsComponent},
       { path: '**', redirectTo: 'home' },
     ]

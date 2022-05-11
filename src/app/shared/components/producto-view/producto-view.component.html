@@ -5,7 +5,11 @@
                 <img [src]="imgPerfil" alt="Imagen perfil" class="avatarImg" *ngIf="imgPerfil">
                 <div class="pi pi-user p-avatar-icon" *ngIf="!imgPerfil"></div>
             </div>
-            <span>{{producto?.propietario?.nombre}} {{producto?.propietario?.apellidos}}</span>
+            <div class="infoPerfil">
+                <span>{{producto?.propietario?.nombre}} {{producto?.propietario?.apellidos}}</span>
+                <span class="userName">{{producto?.propietario?.userName}}</span>
+            </div>
+            
         </div>
 
         <div class="tipo">

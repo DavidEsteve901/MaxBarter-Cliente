@@ -19,6 +19,7 @@ export class NavBarComponent implements OnInit {
   user:any = null;
 
   matchs:any = 0;
+  isAdmin:boolean = false;
 
   rutaPerfil!:string ;
   imgPerfil!:any;
@@ -36,15 +37,26 @@ export class NavBarComponent implements OnInit {
     //Actualizamos Usuario Logueado
     this.authService.setCurrentUser();
 
-    //Nos suscribismo al servicio para obtener el usuario logueado (gracias al obsevable se notificario si cambia)
+    //Nos suscribimos al servicio para obtener el usuario logueado (gracias al obsevable se notificario si cambia)
     this.currentUserService.getCurrentUser$().subscribe( (user) =>{
       this.user = user;
       this.rutaPerfil = `ofertas/perfil/${this.user.userName}`;
       
-      
+      this.isAdmin = false;
       
       if(user){
         
+        //Pasamos los roles a JSON
+        this.user.roles = JSON.parse(this.user.roles)
+
+        //Vemos si el usuario es admin
+        this.user.roles.find((role:any)=>{
+          if(role === "ROLE_ADMIN"){
+            this.isAdmin = true
+          }
+        })
+
+
         //Buscamos foto perfil
         this.generalService.getImagenPerfil(this.user).subscribe(
           (resp:any)=>{

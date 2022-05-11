@@ -1,4 +1,10 @@
-
+:host ::ng-deep{
+    .ofertasMatch{
+        canvas{
+            display: none;
+        }
+    }
+}
 :host{
     flex: 1 0;
     // border: solid 1px yellow;
