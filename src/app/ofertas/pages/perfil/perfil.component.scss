@@ -21,6 +21,8 @@
     .p-dialog-header{
         padding: 5px !important;
     }
+
+    
 }
 
 h1{
@@ -145,5 +147,35 @@ app-map{
         }
         
     }
+
+    //MEDIA QUERY PARA EL MODAL DEL PRODUCTO
+
+    // "lg" se aplica a dispositivos medianos (tabletas, menos de 992 px)
+    @media (max-width: 991.98px) {  
+        
+        .p-dialog{
+            transform: scale(0.8);
+        }
+        .p-dialog-titlebar{
+            transform: scale(0.8);
+        }
+    
+    
+    }
+
+    // `md` se aplica a dispositivos pequeños (teléfonos horizontales, menos de 768px)
+    @media (max-width: 767.98px)  {
+        
+        .p-dialog{
+            transform: scale(0.7);
+        }
+        .p-dialog-titlebar{
+            transform: scale(0.7);
+        }
+    
+    
+    }
+
+    
 }
 
