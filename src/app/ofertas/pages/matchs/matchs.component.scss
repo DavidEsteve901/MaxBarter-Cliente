@@ -3,7 +3,7 @@
     
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: center;
     flex-direction: column;
     gap:30px;
     margin: 40px;
@@ -12,12 +12,13 @@
 
 .matchs{
     width: 100%;
-    margin: 30px 0px;
-    padding: 0px 200px;
+    margin-bottom: 30px;
+    padding: 0px 100px;
     // border: solid black 1px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     flex-wrap: wrap;
     gap: 20px;
 }
@@ -25,5 +26,35 @@
 h2{
     font-size: 3em !important;
     font-weight: bold;
+    margin: 30px;
+}
+
+// `xxl` se aplica a dispositivos de gran tamaño (escritorios grandes, menos de 1400px)
+@media (max-width: 1399.98px) {  }
+
+
+// `xl` se aplica a dispositivos grandes (computadoras de escritorio, menos de 1200 px)
+@media (max-width: 1199.98px) { 
     
+}
+
+// "lg" se aplica a dispositivos medianos (tabletas, menos de 992 px)
+@media (max-width: 991.98px) {  
+
+
+}
+
+// `md` se aplica a dispositivos pequeños (teléfonos horizontales, menos de 768px)
+@media (max-width: 767.98px)  { 
+    :host{
+        margin:10px;
+        .matchs{
+            padding: 0 20px;
+        }
+    }
+}
+
+// `sm` se aplica a dispositivos x-small (teléfonos verticales, menos de 576px)
+@media (max-width: 575.98px) {
+
 }

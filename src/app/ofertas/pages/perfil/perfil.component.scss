@@ -27,16 +27,23 @@ h1{
     font-style: normal;
     font-weight: 700;
     font-size: 64px;
+    text-align: center;
 
     color: #E4731C;
 }
 
 .contenido{
     margin: 40px 0px; 
-
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     .opciones{
         margin:30px;
         display: flex;
+        flex-wrap: wrap;
+        align-items: center;
         gap:20px;
         justify-content: center;
 
@@ -50,6 +57,7 @@ h1{
 app-map{
     margin: 20px;
     border-radius: 20px !important;
+    width: 100%;
 }
 
 //Modifico el margin del componenet perfil
@@ -83,5 +91,59 @@ app-map{
 
 // `sm` se aplica a dispositivos x-small (teléfonos verticales, menos de 576px)
 @media (max-width: 575.98px) {
+    // :host{
+    //     padding: 5px;
+    //     gap:0;
+    //     .contenido{
+    //         transform: scale(0.7);
+    //         margin: 0;
+    //         padding: 5px;
+    //     }
 
+    //     .opciones{
+    //         width: 200px;
+    //     }
+
+    //     app-perfil-view{
+    //         transform: scale(0.5);
+    //     }
+    
+    //     app-map{
+    //         transform: scale(0.5);
+    
+    //     }
+    // }
+
+    
 }
+
+:host ::ng-deep{
+    
+    // `md` se aplica a dispositivos pequeños (teléfonos horizontales, menos de 768px)
+    @media (max-width: 767.98px)  { 
+        app-perfil-view{
+            
+            transform: scale(0.6); 
+
+        }
+    }
+
+
+    // `sm` se aplica a dispositivos x-small (teléfonos verticales, menos de 576px)
+    @media (max-width: 575.98px) {
+        
+
+        app-perfil-view{
+            
+                transform: scale(0.4); 
+
+        }
+    
+        app-map{
+            // transform: scale(0.5);
+    
+        }
+        
+    }
+}
+

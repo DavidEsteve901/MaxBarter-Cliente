@@ -96,7 +96,7 @@ div .image-slider{
 
     .info3{
         width: 100%;
-        height: 100vh;
+        min-height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -125,9 +125,10 @@ div .image-slider{
 
     .footer{
         width: 100%;
-        height: 200px;
+        min-height: 200px;
         background-color: black;
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: space-around;
 
@@ -258,5 +259,22 @@ h2{
 
 // `sm` se aplica a dispositivos x-small (teléfonos verticales, menos de 576px)
 @media (max-width: 575.98px) {
+    :host{
+        h2{
+            font-size: 2em;
+        }
 
+        .texto{
+            font-size: 0.7em ;
+        }
+    }
+    .footer{
+        gap: 5px;
+        .redes{
+            transform: scale(0.6);
+        }
+        .datos{
+            transform: scale(0.6);
+        }
+    }
 }

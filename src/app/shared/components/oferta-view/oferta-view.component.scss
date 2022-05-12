@@ -7,12 +7,14 @@
     padding: 20px;
 
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     gap:10px;
 }
 
 .ofertas{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
@@ -25,6 +27,7 @@ img{
 
 .botones{
     display: flex;
+    flex-wrap: wrap;
     gap:5px;
     justify-content: flex-end;
     padding: 10px;
@@ -32,3 +35,51 @@ img{
         transform: scale(0.7);
     }
 }
+
+// `xxl` se aplica a dispositivos de gran tamaño (escritorios grandes, menos de 1400px)
+@media (max-width: 1399.98px) {  }
+
+
+// `xl` se aplica a dispositivos grandes (computadoras de escritorio, menos de 1200 px)
+@media (max-width: 1199.98px) { 
+  
+}
+// "lg" se aplica a dispositivos medianos (tabletas, menos de 992 px)
+@media (max-width: 991.98px) {  
+
+    :host{
+       width: 600px;
+        .ofertas{
+            flex-wrap: nowrap;
+        }
+    }
+}
+
+// `md` se aplica a dispositivos pequeños (teléfonos horizontales, menos de 768px)
+@media (max-width: 767.98px)  { 
+    :host{
+        width: 400px;
+        .ofertas{
+            flex-wrap: wrap;
+        }
+    }
+}
+
+// `sm` se aplica a dispositivos x-small (teléfonos verticales, menos de 576px)
+@media (max-width: 575.98px) {
+
+    :host{
+        width: 300px;
+    }
+
+    .botones{
+        gap:5px;
+        justify-content: center;
+    }
+
+    .ofertas{
+        flex-wrap: wrap;
+    }
+    
+}
+
