@@ -71,15 +71,15 @@ export class MatchsComponent implements OnInit {
       page: this.pageNum,
       limit: 5,
       q: {
-        userRecibe: opciones.user,
         activa: false,
         rechazada: false,
+        userMatch: opciones.user,
         match: true,
       }
     
     }).subscribe(
       (resp:any)=>{
-        this.ofertas = this.ofertas.concat(resp.data.data);
+        this.ofertas = this.ofertas.concat(resp.data);
 
         if(this.ofertas.length == 0){
           this.noMatch = true;

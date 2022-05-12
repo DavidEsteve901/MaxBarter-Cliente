@@ -46,11 +46,14 @@ export class AboutUsComponent implements OnInit {
     )
 
     //Buscamos la oferta de prueba
-    var q = {
-      user1: "prueba",
-      user2: "prueba2"
-    }
-    this.generalService.getOfertasByPage(q).subscribe(
+   
+
+    this.generalService.getOfertasByPage({
+      q:{
+        user1: "prueba",
+        user2: "prueba2",
+      }
+    }).subscribe(
       (resp:any)=>{
         console.log(resp)
         this.oferta = resp.data.data[0]
