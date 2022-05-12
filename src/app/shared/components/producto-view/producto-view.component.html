@@ -25,42 +25,26 @@
             
             <p-scrollTop target="parent" styleClass="custom-scrolltop" [threshold]="150" icon="pi pi-arrow-up"></p-scrollTop>
         </p-scrollPanel>
+
+        <div class="botones" *ngIf="showButtons">
+            <div class="noAdminButtons">
+                <button pButton *ngIf="!isCurrentUser" label="Hacer oferta" (click)="doOferta()" class="p-button-success boton"></button>
+                <button pButton *ngIf="isCurrentUser"  label="Modificar" (click)="modifyProduct()" class="p-button-info boton"></button>
+                <button pButton *ngIf="isCurrentUser"  label="Eliminar" (click)="confirm()" class="p-button-danger boton"></button>
+            </div>
+    
+            <div class="adminButtons">
+                <button pButton *ngIf="!isCurrentUser && isAdmin"  label="Modificar" (click)="modifyProduct()" class="p-button-info boton"></button>
+                <button pButton *ngIf="!isCurrentUser && isAdmin"  label="Eliminar" (click)="confirm()" class="p-button-danger boton"></button>
+            </div>
+            
+        </div>
+
     </div>
 
-    
-        <!-- <img src="https://www.empack.mx/wp-content/uploads/2018/04/RM-01-1-scaled-500x312.jpg" alt="Imagen Producto" class="img-prod"> -->
-
-        <!-- <p-galleria [value]="images"  [numVisible]="5"
-            [circular]="true" [showItemNavigators]="true" [showThumbnails]="false" [showIndicators]="true" [showItemNavigatorsOnHover]="true"
-            [showIndicatorsOnItem]="true"> 
-            <ng-template pTemplate="item" let-item>
-                <img [src]="item.previewImageSrc" style="width: 100%; display: block;" />
-            </ng-template>
-            <ng-template pTemplate="thumbnail" let-item>
-                <div class="grid grid-nogutter justify-content-center">
-                    <img [src]="item.thumbnailImageSrc" style="display: block;" />
-                </div>
-            </ng-template>
-        </p-galleria> -->
-        <div class="contGaleria">
-            <app-gallery  class="galeria" [imagenes]="images" ></app-gallery>
-        </div>
-        
-    
-
-    <div class="botones" *ngIf="showButtons">
-        <div class="noAdminButtons">
-            <button pButton *ngIf="!isCurrentUser" label="Hacer oferta" (click)="doOferta()" class="p-button-success boton"></button>
-            <button pButton *ngIf="isCurrentUser"  label="Modificar" (click)="modifyProduct()" class="p-button-info boton"></button>
-            <button pButton *ngIf="isCurrentUser"  label="Eliminar" (click)="confirm()" class="p-button-danger boton"></button>
-        </div>
-
-        <div class="adminButtons">
-            <button pButton *ngIf="!isCurrentUser && isAdmin"  label="Modificar" (click)="modifyProduct()" class="p-button-info boton"></button>
-            <button pButton *ngIf="!isCurrentUser && isAdmin"  label="Eliminar" (click)="confirm()" class="p-button-danger boton"></button>
-        </div>
-        
-    </div>
+    <div class="contGaleria">
+        <app-gallery  class="galeria" [imagenes]="images" ></app-gallery>
+    </div> 
     
 </div>
 

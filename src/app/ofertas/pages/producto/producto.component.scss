@@ -38,7 +38,9 @@ app-producto-view{
 
 // `md` se aplica a dispositivos pequeños (teléfonos horizontales, menos de 768px)
 @media (max-width: 767.98px)  { 
-
+    app-form-producto{
+        min-width: 100%;
+    }
 }
 
 // `sm` se aplica a dispositivos x-small (teléfonos verticales, menos de 576px)
@@ -51,6 +53,15 @@ app-producto-view{
 
 :host ::ng-deep{
     
+    // "lg" se aplica a dispositivos medianos (tabletas, menos de 992 px)
+    @media (max-width: 991.98px) {  
+        app-producto-view{
+            transform: scale(0.7);
+            
+        }
+    }
+
+
     // `md` se aplica a dispositivos pequeños (teléfonos horizontales, menos de 768px)
     @media (max-width: 767.98px)  { 
         app-perfil-view{
@@ -70,11 +81,6 @@ app-producto-view{
                 height: 900px;
             }
 
-            .contGaleria{
-                display: flex;
-                top: 50%;
-                
-            }
         }
         
     }

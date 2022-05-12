@@ -72,11 +72,6 @@
 // "lg" se aplica a dispositivos medianos (tabletas, menos de 992 px)
 @media (max-width: 991.98px) {  
 
-
-}
-
-// `md` se aplica a dispositivos pequeños (teléfonos horizontales, menos de 768px)
-@media (max-width: 767.98px)  { 
     :host{
         margin:10px;
         .productos{
@@ -84,6 +79,11 @@
             gap:-10px;
         }
     }
+}
+
+// `md` se aplica a dispositivos pequeños (teléfonos horizontales, menos de 768px)
+@media (max-width: 767.98px)  { 
+    
 }
 
 // `sm` se aplica a dispositivos x-small (teléfonos verticales, menos de 576px)

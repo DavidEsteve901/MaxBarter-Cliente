@@ -28,7 +28,7 @@
     .p-dialog-content{
         padding: 0 !important;
 
-        padding-right: 30px !important;
+        // padding-right: 30px !important;
 
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
@@ -219,14 +219,22 @@
 // "lg" se aplica a dispositivos medianos (tabletas, menos de 992 px)
 @media (max-width: 991.98px) {  
 
-    .cuerpo{
-        transform: scale(0.7);
-    }
+    
 }
 
 // `md` se aplica a dispositivos pequeños (teléfonos horizontales, menos de 768px)
 @media (max-width: 767.98px)  { 
 
+    .cuerpo{
+        width: 250px;
+        height: 400px;
+        &>{
+            transform: scale(0.7);
+            padding: 0;
+            margin: 0;
+        }
+        
+    }
 }
 
 // `sm` se aplica a dispositivos x-small (teléfonos verticales, menos de 576px)
