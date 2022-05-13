@@ -5,7 +5,7 @@
     <div class="opciones" >
         <button pButton  label="Productos" (click)="redirectProductos()" class="p-button-success boton"></button>
         <button pButton  label="Estadísticas" (click)="redirectStats()" class="p-button-info boton"></button>
-        <button pButton *ngIf="optionsUser" (click)="showMaximizableDialog()" label="Modificar" class="p-button-warning boton"></button>
+        <button pButton *ngIf="optionsUser || isAdmin" (click)="showMaximizableDialog()" label="Modificar" class="p-button-warning boton"></button>
         <button pButton *ngIf="optionsUser" (click)="logout()" label="Logout" class="p-button-danger boton"></button>
     </div>
 

@@ -55,7 +55,6 @@ export class AboutUsComponent implements OnInit {
       }
     }).subscribe(
       (resp:any)=>{
-        console.log(resp)
         this.oferta = resp.data.data[0]
       }
     )

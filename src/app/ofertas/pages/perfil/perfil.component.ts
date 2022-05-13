@@ -21,6 +21,7 @@ export class PerfilComponent implements OnInit {
   titulo:string = "PERFIL";
   optionsUser:boolean = false;
   coordenadas!:any;
+  isAdmin:any = false;
 
   displayResponsive: boolean = false;
   
@@ -59,6 +60,18 @@ export class PerfilComponent implements OnInit {
                   this.titulo = 'MI PERFIL';
                   this.optionsUser = true;
                 }
+
+                this.isAdmin = false;
+                // //Pasamos los roles a JSON
+                // resp.roles = JSON.parse(resp.roles)
+
+                //Vemos si el usuario es admin
+                resp.roles.find((role:any)=>{
+                  if(role === "ROLE_ADMIN"){
+                    this.isAdmin = true
+                  }
+                })
+
               }
             )
 
