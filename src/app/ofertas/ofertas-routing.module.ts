@@ -18,7 +18,7 @@ const routes: Routes = [
   {
     path: '',
     children: [
-      { path: 'home', component: HomeComponent },
+      { path: 'home',canActivate: [AuthGuard], component: HomeComponent },
       { path: 'ofertas', component: OfertasComponent, 
         canActivate: [AuthGuard],
         children:[
@@ -27,13 +27,13 @@ const routes: Routes = [
           { path: '**', redirectTo: 'recibidas' },
         ]
       },
-      { path: 'perfil/:userName', component: PerfilComponent},
-      { path: 'productos/:userName', component: ProductosComponent},
-      { path: 'productos/producto/:id', component: ProductoComponent},
-      { path: 'oferta/:idUser/:idProducto', component: OfertaComponent},
-      { path: 'matchs', component: MatchsComponent},
-      { path: 'stats/:userName', component: StatsComponent},
-      { path: 'home/users', component: UsersComponent },
+      { path: 'perfil/:userName', canActivate: [AuthGuard], component: PerfilComponent},
+      { path: 'productos/:userName',canActivate: [AuthGuard], component: ProductosComponent},
+      { path: 'productos/producto/:id',canActivate: [AuthGuard], component: ProductoComponent},
+      { path: 'oferta/:idUser/:idProducto',canActivate: [AuthGuard], component: OfertaComponent},
+      { path: 'matchs',canActivate: [AuthGuard], component: MatchsComponent},
+      { path: 'stats/:userName',canActivate: [AuthGuard], component: StatsComponent},
+      { path: 'home/users',canActivate: [AuthGuard], component: UsersComponent },
       { path: 'aboutUs', component: AboutUsComponent},
       { path: '**', redirectTo: 'home' },
     ]
