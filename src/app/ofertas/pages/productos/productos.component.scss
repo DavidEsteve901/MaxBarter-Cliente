@@ -47,7 +47,12 @@
     flex-wrap: wrap;
     gap: 20px;
 }
-
+.options{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
 //Cancelar atributo de animacion
 .animate__animated{
     animation-fill-mode: none !important;

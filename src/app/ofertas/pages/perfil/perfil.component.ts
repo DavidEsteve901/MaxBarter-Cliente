@@ -46,8 +46,11 @@ export class PerfilComponent implements OnInit {
 
             this.usuario = resp.data;
             
+          
             //Convertimos la coordenadas en JSON
-            this.usuario.coordenadas = JSON.parse(this.usuario.coordenadas);
+            if(typeof this.usuario.coordenadas !== "object"){
+              this.usuario.coordenadas = JSON.parse(this.usuario.coordenadas);
+            }
             
 
             //Actualizamos Usuario Logueado
@@ -62,9 +65,12 @@ export class PerfilComponent implements OnInit {
                 }
 
                 this.isAdmin = false;
-                // //Pasamos los roles a JSON
-                // resp.roles = JSON.parse(resp.roles)
-
+                 //Pasamos los roles a JSON
+                if(typeof resp.roles !== "object"){
+                  resp.roles = JSON.parse(resp.roles)
+                }
+        
+                
                 //Vemos si el usuario es admin
                 resp.roles.find((role:any)=>{
                   if(role === "ROLE_ADMIN"){

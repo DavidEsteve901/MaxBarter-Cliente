@@ -47,7 +47,10 @@ export class NavBarComponent implements OnInit {
       if(user){
         
         //Pasamos los roles a JSON
-        this.user.roles = JSON.parse(this.user.roles)
+        if(typeof this.user.roles !== "object"){
+          this.user.roles = JSON.parse(this.user.roles)
+        }
+        
 
         //Vemos si el usuario es admin
         this.user.roles.find((role:any)=>{

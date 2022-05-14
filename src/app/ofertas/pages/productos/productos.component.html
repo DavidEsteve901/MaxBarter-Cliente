@@ -1,10 +1,11 @@
 
 <app-user-target class="perfil" [imgPerfil]="imgPerfil" [usuario]="usuario" ></app-user-target>
 
+<div class="options">
+    <p-dropdown [options]="tipos" (onChange)="changeHover();doFilter()" [(ngModel)]="filter.tipo" [placeholder]="placeHolderTipo" optionLabel="name" [showClear]="true"></p-dropdown>
+    <button pButton  *ngIf="isCurrentUser" icon="pi pi-plus" label="Añadir" (click)="redirectProducto()" class="p-button-success boton"></button>
+</div>
 
-<button pButton  *ngIf="isCurrentUser" icon="pi pi-plus" label="Añadir" (click)="redirectProducto()" class="p-button-success boton"></button>
-
-<p-dropdown [options]="tipos" (onChange)="changeHover();doFilter()" [(ngModel)]="filter.tipo" [placeholder]="placeHolderTipo" optionLabel="name" [showClear]="true"></p-dropdown>
 
 <div class="productos" infiniteScroll (scrolled)="onScrollDown(filter)">
     <app-producto-pre-view class="animate__animated animate__flipInX" *ngFor="let producto of productos" [producto]="producto" >

@@ -52,7 +52,11 @@ export class ProductoViewComponent implements OnInit {
         }
 
         //Pasamos los roles a JSON
-        resp.data.roles = JSON.parse(resp.data.roles)
+        //Pasamos los roles a JSON
+        if(typeof  resp.data.roles !== "object"){
+          resp.data.roles = JSON.parse(resp.data.roles)
+        }
+        
 
         //Vemos si el usuario es admin
         resp.data.roles.find((role:any)=>{
