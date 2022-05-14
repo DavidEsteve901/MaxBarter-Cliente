@@ -50,7 +50,7 @@
     <input pButton type="button" (click)="removeImages()" id="deleteImg" value="Eliminar imagenes" class="p-button boton remove" />
     
     <p-fileUpload name="myfile[]" (onSelect)="onUpload($event)"
-            [multiple]="true" accept="image/*" [maxFileSize]="1000000" [showUploadButton]="false"
+            [multiple]="true" accept="image/*" [maxFileSize]="10000000" [showUploadButton]="false"
             (onRemove)="removeFile($event)" (onClear)="onClear()" [auto]="false" >
     </p-fileUpload>
      

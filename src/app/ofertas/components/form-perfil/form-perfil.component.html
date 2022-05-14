@@ -95,7 +95,7 @@
 
             <h2>Imagen de perfil</h2>
             <p-fileUpload name="myfile[]" (onSelect)="onUpload($event)"
-                [multiple]="false" accept="image/*" [maxFileSize]="1000000" [showUploadButton]="false"
+                [multiple]="false" accept="image/*" [maxFileSize]="10000000" [showUploadButton]="false"
                 (onRemove)="removeFile($event)" (onClear)="onClear()" [auto]="false" >
             </p-fileUpload>
         </section>
