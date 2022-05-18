@@ -45,7 +45,7 @@ export class FormLoginComponent implements OnInit {
 
     this.authService.login(this.formLogin.value).subscribe(
       (resp: any) =>{
-        console.log(resp)
+        // console.log(resp)
         
         this.error = null;
         //Guardamos el TOKEN que recibimos en el localStorage
@@ -63,7 +63,7 @@ export class FormLoginComponent implements OnInit {
         
       }
     )
-    console.log(this.formLogin.value)
+    // console.log(this.formLogin.value)
 
     this.formLogin.reset(); 
   }
