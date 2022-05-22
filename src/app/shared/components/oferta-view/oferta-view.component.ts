@@ -50,7 +50,7 @@ export class OfertaViewComponent implements OnInit {
                 this.messageService.add({severity:'success', summary:'Confirmado', detail:'Has eliminado la oferta'});
               },
               (error:any)=>{
-                console.log(error);
+                // console.log(error);
               }
             )
         },
@@ -75,7 +75,7 @@ export class OfertaViewComponent implements OnInit {
       },
 
       (error:any)=>{
-        console.log(error)
+        // console.log(error)
       }
     )
   }
@@ -89,7 +89,7 @@ export class OfertaViewComponent implements OnInit {
       },
 
       (error:any)=>{
-        console.log(error)
+        // console.log(error)
       }
     )
   }

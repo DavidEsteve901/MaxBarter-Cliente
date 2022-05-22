@@ -30,7 +30,7 @@ export class UserTargetComponent implements OnInit {
           
         },
         (error:any)=>{
-          console.log(error)
+          // console.log(error)
         },
       )
     }

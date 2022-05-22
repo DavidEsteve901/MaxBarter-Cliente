@@ -8,7 +8,7 @@ export class ValidatorService {
 
   public emailPattern: string = "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$";
   
-  public numeroTelefono: string = "/^\d{9}$/";
+  public numeroTelefono: string = "^[0-9]{9}$";
   
   constructor() { }
 

@@ -143,7 +143,6 @@ export class ProductoViewComponent implements OnInit {
 
             this.generalService.deleteProducto(this.producto.id).subscribe(
               (resp:any)=>{
-                console.log("Producto eliminado correctamente");
 
                 //Notificamos al observable que ha habido un cambio
                 this.generalService.setUpdateProducts(true);
@@ -151,7 +150,7 @@ export class ProductoViewComponent implements OnInit {
                 this.messageService.add({severity:'success', summary:'Confirmado', detail:'Has eliminado el producto'});
               },
               (error:any)=>{
-                console.log(error);
+                // console.log(error);
               }
             )
         },

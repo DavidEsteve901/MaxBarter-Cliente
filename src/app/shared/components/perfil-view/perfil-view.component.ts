@@ -34,7 +34,7 @@ export class PerfilViewComponent implements OnInit {
           
         },
         (error:any)=>{
-          console.log(error)
+          // console.log(error)
         },
       )
     }

@@ -12,6 +12,7 @@ declare var $:any;
 export class MatchViewComponent implements OnInit {
 
   @Input() match!:any ;
+  @Input() show:boolean = true ;
 
   intervalo!:any;
 

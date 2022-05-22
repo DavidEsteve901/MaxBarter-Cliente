@@ -58,7 +58,7 @@ export class FormPerfilComponent implements OnInit {
           Validators.pattern(this.validatorService.emailPattern)
         ]
       ],
-      telefono: ['',[Validators.required]],
+      telefono: ['',[Validators.required,Validators.pattern(this.validatorService.numeroTelefono)]],
       comunidadAutonoma: ['',[Validators.required]],
       
     })

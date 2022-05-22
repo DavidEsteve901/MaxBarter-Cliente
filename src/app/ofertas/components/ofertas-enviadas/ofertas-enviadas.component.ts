@@ -90,7 +90,7 @@ export class OfertasEnviadasComponent implements OnInit {
         }
       },
       (error:any) =>{
-        console.log(error)
+        // console.log(error)
       }
     )
   }

@@ -51,7 +51,7 @@ export class ProductoComponent implements OnInit {
                   
                 },
                 (error:any)=>{
-                  console.log(error)
+                  // console.log(error)
                 },
               )
             }
@@ -91,7 +91,7 @@ export class ProductoComponent implements OnInit {
                   
                 },
                 (error:any)=>{
-                  console.log(error)
+                  // console.log(error)
                 },
               )
             }
