@@ -93,18 +93,23 @@ export class FormProductoComponent implements OnInit {
       }
     )
 
+    this.generalService.setUpdateImgFileProd([]);
+
     this.generalService.getUpdateImgFileProd$().subscribe(
       (resp:any)=>{
-        this.uploadedFiles = [];
+
+        this.uploadedFiles.splice(0,this.uploadedFiles.length);
 
         if(resp.length > 0){
           for(let file of resp) {
-            
             this.uploadedFiles.push(file);
           }
         }
       }
     )
+
+
+
 
     //Cogemos el usuario logueado
     this.authService.getCurrentUser().subscribe(
@@ -216,7 +221,7 @@ export class FormProductoComponent implements OnInit {
 
     this.messageService.add({severity: 'info', summary: 'Imagen subida', detail: ''});
 
-    // console.log("archivos",this.uploadedFiles)
+
     
     this.updateImages.emit(this.uploadedFiles)
 
@@ -254,8 +259,6 @@ export class FormProductoComponent implements OnInit {
   }
 
   changeHover(){
-    console.log(this.producto)
-    console.log(this.tipoSelected)
 
 
     if(this.tipoSelected){

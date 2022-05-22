@@ -16,6 +16,7 @@ export class ProductoViewComponent implements OnInit {
   @Input() producto!:Producto | any ;
   @Input() imgPerfil!:any;
   @Input() showButtons:boolean = true;
+  @Input() sendFiles:boolean = false ;
 
   @Input() isCurrentUser!:boolean;
   isAdmin:boolean = false;
@@ -74,49 +75,53 @@ export class ProductoViewComponent implements OnInit {
 
     if(this.images.length == 0 ){
 
-        //Buscamos las imagenes de los productos
-        this.generalService.getImagenesProducto(this.producto).subscribe(
-          (resp:any)=>{
-          // console.log("imagenes",resp)
+        if(this.producto.id !== "null" ){
+          //Buscamos las imagenes de los productos
+          this.generalService.getImagenesProducto(this.producto).subscribe(
+            (resp:any)=>{
 
-          if(resp.length > 0){
+                if(resp.length){
 
-            //Inicializamos el array de imagenes que pasamos al componente de Galeria (Carusel)
-            this.images = [];
+                  //Inicializamos el array de imagenes que pasamos al componente de Galeria (Carusel)
+                  this.images = [];
 
-            resp.forEach((url:any) => {
-                this.generalService.getImagenProducto(url).subscribe(
-                  (resp:any)=>{
-                    //Añadimos atributo url para luego transformar el blob en file
-                    resp.url = url;
-                    this.imagesFile.push(resp);
-                    this.generalService.setUpdateImgFileProd(this.imagesFile)
-                    
-                    //Convertimos las imagenes a base64
-                    this.generalService.blobToBase64(resp).then(base64 => {
-                      this.images.push(base64)
-                      // console.log(`IMAGENES producto ${this.producto.id}` ,this.images)
-                      //Actualizo las imagenes de la galeria
-                      this.generalService.setUpdateImageProductoIndividual(this.images)
+                    resp.forEach((url:any) => {
+                        this.generalService.getImagenProducto(url).subscribe(
+                          (resp:any)=>{
+                            //Añadimos atributo url para luego transformar el blob en file
+                            resp.url = url;
+                            this.imagesFile.push(resp);
+                            
+                            //Si le indicamos actualizar los files los mandará para el CRUD
+                            if(this.sendFiles){
+                              this.generalService.setUpdateImgFileProd(this.imagesFile)
+                            }
+                            
+                            //Convertimos las imagenes a base64
+                            this.generalService.blobToBase64(resp).then(base64 => {
+                              this.images.push(base64)
+                              //Actualizo las imagenes de la galeria
+                              this.generalService.setUpdateImageProductoIndividual(this.images)
+                            });
+                          }
+                        )
                     });
-                  }
-                )
-            });
 
-      
-          }
-          
-          
-        },
-        (error:any)=>{
-          // console.log(error)
+              
+                }
+            
+            
+              },
+            (error:any)=>{
+              // console.log(error)
+            }
+          )
         }
-      )
+        
     }
 
   
 
-    // console.log(this.producto)
   
   }
 

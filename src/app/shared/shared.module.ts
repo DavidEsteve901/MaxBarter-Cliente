@@ -105,6 +105,7 @@ import { StatsViewComponent } from './components/stats-view/stats-view.component
     GalleriaModule,
     FileUploadModule,
     BadgeModule,
+    ImageModule,
     
     //Infinite scroll
     InfiniteScrollModule,

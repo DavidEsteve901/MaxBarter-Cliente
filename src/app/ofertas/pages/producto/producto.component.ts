@@ -32,8 +32,7 @@ export class ProductoComponent implements OnInit {
   ngOnInit(): void {
     this.rutaActiva.params.subscribe(
       (resp:any)=>{
-        
-        if(resp.id != "null"){ // Si el id no es null que me busque el producto
+        if(resp.id !== "null" && resp.id !== "undefined"){ // Si el id no es null que me busque el producto
           this.edit = true;
           this.generalService.getProductById(resp.id).subscribe(
             (resp:any)=>{
@@ -60,6 +59,7 @@ export class ProductoComponent implements OnInit {
           
           //Creamos el objeto producto con los datos que necesitaremos
           this.producto = {
+            id:null,
             titulo:"",
             tipo: null,
             match: false,
@@ -69,6 +69,8 @@ export class ProductoComponent implements OnInit {
             },
             descripcion:"",
           }
+
+          this.imagenesProducto.splice(0,this.imagenesProducto.length);
 
           //Buscamos la foto de perfil del usuario logueado 
 
@@ -111,7 +113,8 @@ export class ProductoComponent implements OnInit {
   //Pasamos las imagenes al componente Producto
   updateImages(imagenes: any) {
     
-    this.imagenesProducto = [];
+    this.imagenesProducto.splice(0,this.imagenesProducto.length)
+
 
     this.generalService.extraerImagenesBase64(imagenes).then(
       (base64Images) => {
