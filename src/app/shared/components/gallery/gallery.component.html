@@ -2,27 +2,27 @@
 
     <div class="carousel-inner" >
 
-      <div class="carousel-item active" >
+      <div class="carousel-item active" (click)="showMaximizableDialog(imagenes[0])" >
           <img [src]="imagenes[0]" class="d-block w-100 img-fluid" alt="Producto" *ngIf="imagenes.length != 0">
       </div>
 
-      <!-- <div *ngIf="!imagenes" class="carousel-item active" >
-        <img [src]=" https://cdn-icons-png.flaticon.com/512/85/85488.png" class="d-block w-100 img-fluid" alt="Producto">
-      </div> -->
       
-      <div class="carousel-item" *ngFor="let img of imagenesCortadas" >
-        <img [src]="img" class="d-block w-100 img-fluid" alt="Producto">
+      <div class="carousel-item" *ngFor="let img of imagenesCortadas" (click)="showMaximizableDialog(img)"  >
+        <img [src]="img" class="d-block w-100 img-fluid" alt="Producto" >
       </div>
+
+      
+      <p-dialog  [(visible)]="displayResponsive" [modal]="true" [style]="{width: 'auto',padding:0}" [maximizable]="false"
+      [draggable]="false" [resizable]="true" [dismissableMask]="true" [showHeader]="true" appendTo="body"
+      >
+        <img [src]="imagenModal" class="d-block w-100 img-fluid" alt="Producto" *ngIf="imagenes.length != 0">
+        
+      </p-dialog> 
+      
+      
 
     </div>
 
-    <!-- <div class="carousel-inner"  *ngIf="!imagenes">
-
-      <div class="carousel-item active">
-          <img [src]=" https://cdn-icons-png.flaticon.com/512/85/85488.png" class="d-block w-100 img-fluid" alt="Producto">
-      </div>
-
-    </div> -->
 
    
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -36,3 +36,5 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+
+ 

@@ -15,9 +15,11 @@ export class GalleryComponent implements OnInit {
   faArrowRight = faArrowRight;
   @Input() imagenes:any[] = ["/assets/imagenes/noImagen.png"];
 
+  imagenModal = null;
+
   imagenesCortadas:any = null;
   
-
+  displayResponsive: boolean = false;
 
   constructor(
     private generalService:GeneralService
@@ -95,4 +97,9 @@ export class GalleryComponent implements OnInit {
   }
 
 
+  showMaximizableDialog(img :any) {
+    this.imagenModal = img;
+    this.displayResponsive = true;
+    
+  }
 }
