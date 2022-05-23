@@ -1,0 +1,38 @@
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" >
+
+    <div class="carousel-inner" >
+
+      <div class="carousel-item active" >
+          <img [src]="imagenes[0]" class="d-block w-100 img-fluid" alt="Producto" *ngIf="imagenes.length != 0">
+      </div>
+
+      <!-- <div *ngIf="!imagenes" class="carousel-item active" >
+        <img [src]=" https://cdn-icons-png.flaticon.com/512/85/85488.png" class="d-block w-100 img-fluid" alt="Producto">
+      </div> -->
+      
+      <div class="carousel-item" *ngFor="let img of imagenesCortadas" >
+        <img [src]="img" class="d-block w-100 img-fluid" alt="Producto">
+      </div>
+
+    </div>
+
+    <!-- <div class="carousel-inner"  *ngIf="!imagenes">
+
+      <div class="carousel-item active">
+          <img [src]=" https://cdn-icons-png.flaticon.com/512/85/85488.png" class="d-block w-100 img-fluid" alt="Producto">
+      </div>
+
+    </div> -->
+
+   
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <fa-icon [icon]="faArrowLeft"></fa-icon>
+
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <fa-icon [icon]="faArrowRight"></fa-icon>
+
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>

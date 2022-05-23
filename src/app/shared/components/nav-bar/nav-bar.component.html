@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-light " [ngClass]="checkColor()">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/ofertas/aboutUs"><img src="assets/imagenes/Logo Blanco.png" alt="Imagen Logo"></a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <fa-icon [icon]="faBars"></fa-icon>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <ng-container *ngIf="!isLogin() || !checkRoute()">
+          <a class="nav-link" routerLink="/auth/login" routerLinkActive="active" #auth="routerLinkActive">Login</a>
+          <a class="nav-link" routerLink="/auth/registro" routerLinkActive="active" #auth="routerLinkActive">Registro</a>
+        </ng-container>
+
+        <ng-container *ngIf="isLogin() && checkRoute()">
+          <a class="nav-link" routerLink="/ofertas/home" routerLinkActive="active" >Inicio</a>
+          <a class="nav-link" [routerLink]="redirectProductos()" routerLinkActive="active" >Productos</a>
+          <a class="nav-link" routerLink="/ofertas/ofertas" routerLinkActive="active" >Ofertas</a>
+
+          <div class="matchsNav">
+            <a class="nav-link" routerLink="/ofertas/matchs" routerLinkActive="active" >Matchs</a>
+            <p-badge *ngIf="matchs != 0" [value]="matchs" id="badgeMatchs" class="animate__animated animate__bounce"></p-badge>
+          </div>
+          
+          <a class="nav-link" (click)="logout()">Logout</a>
+
+          <div class="perfil"  [routerLink]="rutaPerfil">
+            
+            <div class="avatar">
+              <img [src]="imgPerfil" alt="Imagen perfil" class="avatarImg" *ngIf="imgPerfil">
+              <div class="pi pi-user p-avatar-icon" *ngIf="!imgPerfil"></div>
+            </div>
+
+            <div class="userName">
+              {{user?.userName}}
+              <div *ngIf="isAdmin" class="admin">Admin</div>
+            </div>
+          </div>
+        </ng-container>
+        
+      </div>
+    </div>
+  
+  </div>
+</nav>

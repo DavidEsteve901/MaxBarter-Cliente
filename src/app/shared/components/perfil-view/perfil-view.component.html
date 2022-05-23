@@ -1,0 +1,37 @@
+
+<div class="contenido">
+    <div class="header">
+        <div class="linea1"></div>
+        <div class="perfil">
+            <div class="avatar">
+                <img [src]="imgPerfil" alt="Imagen perfil" class="avatarImg" *ngIf="imgPerfil">
+                <div class="pi pi-user p-avatar-icon" *ngIf="!imgPerfil"></div>
+            </div>
+            <div class="nombre">{{usuario?.nombre }} {{usuario?.apellidos}}</div>
+        </div>
+        <div class="linea2"></div>
+
+    </div>
+
+    <div class="datos">
+        <div>
+            <div><span>Nombre:</span> <div>{{usuario?.nombre}}</div></div>
+            <div><span>Apellidos:</span> <div>{{usuario?.apellidos}}</div></div>
+        </div>
+
+        <div>
+            <div><span>Correo:</span> <div>{{usuario?.correo}}</div></div>
+            <div><span>Telf.</span> <div>{{usuario?.telefono}}</div></div>
+        </div>
+
+        <div>
+            <div><span>Comunidad autónoma:</span> <div>{{usuario?.comunidadAutonoma?.nombre}}</div></div>
+        </div>
+
+        <div *ngIf="checkRoutePerfil()">
+            <button pButton  (click)="redirectPerfil()" label="+ Info" class="p-button-info boton" ></button>
+        </div>
+    </div>
+</div>
+
+

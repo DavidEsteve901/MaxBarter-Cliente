@@ -1,0 +1,88 @@
+:host{
+    flex: 1 0;
+    
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+}
+
+app-form-producto{
+    min-width: 500px;
+}
+
+app-producto-view{
+    background-color: white;
+    padding-top: 20px;
+    padding-right: 10px;
+    border-radius: 10px;
+   
+}
+
+//Responsive 
+// `xxl` se aplica a dispositivos de gran tamaño (escritorios grandes, menos de 1400px)
+@media (max-width: 1399.98px) {  }
+
+
+// `xl` se aplica a dispositivos grandes (computadoras de escritorio, menos de 1200 px)
+@media (max-width: 1199.98px) { 
+}
+
+// "lg" se aplica a dispositivos medianos (tabletas, menos de 992 px)
+@media (max-width: 991.98px) {  
+
+}
+
+// `md` se aplica a dispositivos pequeños (teléfonos horizontales, menos de 768px)
+@media (max-width: 767.98px)  { 
+    app-form-producto{
+        min-width: 100%;
+    }
+}
+
+// `sm` se aplica a dispositivos x-small (teléfonos verticales, menos de 576px)
+@media (max-width: 575.98px) {
+
+    app-form-producto{
+        min-width: 100%;
+    }
+}
+
+:host ::ng-deep{
+    
+    // "lg" se aplica a dispositivos medianos (tabletas, menos de 992 px)
+    @media (max-width: 991.98px) {  
+        app-producto-view{
+            transform: scale(0.7);
+            
+        }
+    }
+
+
+    // `md` se aplica a dispositivos pequeños (teléfonos horizontales, menos de 768px)
+    @media (max-width: 767.98px)  { 
+        app-perfil-view{
+            
+            transform: scale(0.6); 
+
+        }
+    }
+
+
+    // `sm` se aplica a dispositivos x-small (teléfonos verticales, menos de 576px)
+    @media (max-width: 575.98px) {
+        
+        app-producto-view{
+            transform: scale(0.7);
+            .cuerpo{
+                height: 900px;
+            }
+
+        }
+        
+    }
+}
+

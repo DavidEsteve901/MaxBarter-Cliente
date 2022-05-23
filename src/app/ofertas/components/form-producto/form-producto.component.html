@@ -1,0 +1,68 @@
+<form [formGroup]="form" (submit)="checkMethod()" class="form">
+    <div>
+        <label for="titulo">Título</label>
+
+        <input type="text" pInputText id="titulo" [(ngModel)]="producto.titulo"  placeholder="Título" formControlName="titulo" />
+
+        <span class="error" *ngIf="campoEsValido('titulo')">
+            <div *ngIf="titulo.errors.required">
+                Debe escribir un título
+            </div>
+
+            <div *ngIf="titulo.errors.maxlength">
+                Alcanzaste el máximo de carácteres
+            </div>
+            
+        </span>
+
+    </div>
+    
+    <div>
+        <label for="tipo">Tipo</label>
+        <br>
+        <p-dropdown [options]="tipos" (onChange)="changeHover()" [(ngModel)]="tipoSelected" [placeholder]="placeHolderTipo" optionLabel="name" [showClear]="true" formControlName="tipo"></p-dropdown>
+        <br>
+        <span class="error" *ngIf="campoEsValido('tipo')">
+            Debe seleccionar un tipo
+        </span>
+
+    </div>
+
+    <div>
+        <label for="descripcion">Descripción</label>
+        <span class="p-input-icon-left">
+            <i><fa-icon [icon]="faPencil"></fa-icon></i>
+            
+            <textarea pInputTextarea [(ngModel)]="producto.descripcion" id="descripcion" [(ngModel)]="producto.descripcion" placeholder="Descripción" formControlName="descripcion"></textarea>
+        </span>
+        <span class="error" *ngIf="campoEsValido('descripcion')">
+            <div *ngIf="descripcion.errors.required">
+                Debe escribir un título
+            </div>
+
+            <div *ngIf="descripcion.errors.maxlength">
+                Alcanzaste el máximo de carácteres
+            </div>
+        </span>
+
+    </div>
+
+    <input pButton type="button" (click)="removeImages()" id="deleteImg" value="Eliminar imagenes" class="p-button boton remove" />
+    
+    <p-fileUpload name="myfile[]" (onSelect)="onUpload($event)"
+            [multiple]="true" accept="image/*" [maxFileSize]="10000000" [showUploadButton]="false"
+            (onRemove)="removeFile($event)" (onClear)="onClear()" [auto]="false" >
+    </p-fileUpload>
+     
+    <div class="formButton">
+        <button pButton *ngIf="!edit"   label="Crear" class="p-button-success boton"></button>
+        <button pButton *ngIf="edit"  label="Editar" class="p-button-info boton"></button>
+
+        <span class="error" *ngIf="error">
+            {{error.message}}
+        </span>
+    </div>
+
+</form>
+
+

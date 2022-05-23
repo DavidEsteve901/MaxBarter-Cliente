@@ -1,0 +1,115 @@
+.navbar{
+    
+    .container-fluid{
+        display: flex ;
+        align-items: center ;
+        justify-content: space-around ;
+        
+        .navbar-brand{
+            img{
+                width: 150px;
+            }
+        }
+
+        
+
+        .navbar-toggler{
+            color: white !important;
+        }
+
+        .navbar-collapse{
+            flex-grow: 0;
+        }
+
+        .navbar-nav{
+            gap: 15px;
+            display: flex;
+            align-items: center;
+            .perfil{
+                display: flex;
+                align-items: center;
+                gap:10px;
+                margin-left: 30px;
+
+                &:hover{
+                    cursor: pointer;
+                }
+                
+                .userName{
+                    font-size: 1.2em;
+                    font-weight: bold;
+                    color: #E4731C;
+                    display: flex;
+                    flex-direction: column;
+                    gap:0px;
+
+                    .admin{
+                        font-size: 0.6em;
+                    
+                    }
+                }
+                
+            }
+        }
+
+        .nav-link{
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+
+    
+    // border: solid white 1px;
+       
+
+}
+
+//Estilos avatar
+.avatar{
+    width: 70px;
+    height: 70px;
+    border-radius: 300px;
+    background-color: #DEE2E6 ;
+    border: #E4731C solid 1px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    div{
+        font-size: 2em;
+    }
+    img{
+        width: 70px;
+        min-height: 70px;
+        border-radius: 300px;
+        border: #E4731C solid 1px;
+    }
+}
+
+.color-auth{
+    background: rgba(0, 0, 0,0) !important;
+}
+
+.matchsNav{
+    position:relative;
+
+    p-badge{
+        position: absolute;
+        top:-4px;
+        right: -10px;
+        
+    }
+}
+.color{
+    background: rgba(0, 0, 0) !important;
+    box-shadow: black 0 0 5px !important;
+    // background: rgb(0,5,9) !important;
+    // background: linear-gradient(180deg, rgba(0,5,9,1) 20%, rgba(0,0,0,0) 100%) !important;
+
+}
+
+
+
+  

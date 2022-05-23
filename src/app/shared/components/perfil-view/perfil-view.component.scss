@@ -1,0 +1,148 @@
+.contenido{
+    position: relative;
+    width: 829px;
+    height: 350px;
+    background-color: white;
+    border-radius: 10px;
+
+    .header{
+        position: absolute;
+        width: 100%;
+        height: 102px;
+        left: 0px;
+        top: 0px;
+
+        .linea1{
+            position: absolute;
+            left: 0%;
+            right: 70.45%;
+            top: 49.02%;
+            bottom: 50.98%;
+
+            border: 1px solid #E4731C;
+            transform: rotate(0.23deg);
+        }
+
+        .perfil{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap:20px;
+
+            position: absolute;
+            left: 29.92%;
+            right: 29.55%;
+            top: 7.84%;
+            bottom: 9.8%;
+
+
+            .nombre{
+                font-weight: 700;
+                font-size: 16px;
+                color:black;
+            }
+        }
+
+        .linea2{
+            position: absolute;
+            left: 70.45%;
+            right: 0%;
+            top: 53.92%;
+            bottom: 46.08%;
+
+            border: 1px solid #E4731C;
+            transform: rotate(0.23deg);
+        }   
+    }
+
+    .datos{
+        /* Auto layout */
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap:20px;
+        margin-top: 50px;
+        padding: 10px;
+
+        position: absolute;
+        width: 506px;
+        height: 175px;
+        left: 155px;
+        top: 100px;
+
+        &>div{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            gap:20px;
+            width: 100%;
+            font-size: 20px;
+
+            span{
+                color:black;
+                font-weight: 700;
+                font-size: 20px;
+            }
+
+            &>div{
+                display: flex;
+                gap:10px;
+            }
+        }
+    }
+}
+
+//Estilos avatar
+.avatar{
+    width: 75px;
+    height: 75px;
+    border-radius: 300px;
+    background-color: #DEE2E6 ;
+    border: #E4731C solid 1px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    div{
+        font-size: 2em;
+    }
+    img{
+        width: 75px;
+        min-height: 75px;
+        border-radius: 300px;
+        border: #E4731C solid 1px;
+    }
+}
+
+.boton{
+    transform: scale(0.7);
+}
+
+//Responsive 
+
+
+// `xxl` se aplica a dispositivos de gran tamaño (escritorios grandes, menos de 1400px)
+@media (max-width: 1399.98px) {  }
+
+
+// `xl` se aplica a dispositivos grandes (computadoras de escritorio, menos de 1200 px)
+@media (max-width: 1199.98px) { 
+}
+
+// "lg" se aplica a dispositivos medianos (tabletas, menos de 992 px)
+@media (max-width: 991.98px) {  
+    
+}
+
+// `md` se aplica a dispositivos pequeños (teléfonos horizontales, menos de 768px)
+@media (max-width: 767.98px)  { 
+    
+}
+
+// `sm` se aplica a dispositivos x-small (teléfonos verticales, menos de 576px)
+@media (max-width: 575.98px) {
+    
+}

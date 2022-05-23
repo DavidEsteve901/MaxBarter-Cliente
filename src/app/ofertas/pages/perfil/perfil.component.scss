@@ -1,0 +1,182 @@
+:host ::ng-deep{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    flex-direction: column;
+
+    //Dialog
+    .p-dialog{
+        height: 100% !important;
+    }
+    .p-dialog-content{
+        padding: 10px !important;
+
+
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+
+    }
+
+    .p-dialog-header{
+        padding: 5px !important;
+    }
+
+    
+}
+
+h1{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    text-align: center;
+    text-shadow: 0px 1px 3px rgba(27, 6, 6, 0.8) !important;
+    color: #E4731C;
+}
+
+.contenido{
+    margin: 40px 0px; 
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .opciones{
+        margin:30px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap:20px;
+        justify-content: center;
+
+        button{
+            transform: scale(0.8);
+            width: auto !important;
+        }
+    }
+}
+
+app-map{
+    margin: 20px;
+    border-radius: 20px !important;
+    width: 100%;
+    max-width: 70%;
+}
+
+//Modifico el margin del componenet perfil
+::ng-deep{
+    
+    .datos{
+        margin-top: 10px !important;
+    }
+    
+}
+
+
+//Responsive 
+// `xxl` se aplica a dispositivos de gran tamaño (escritorios grandes, menos de 1400px)
+@media (max-width: 1399.98px) {  }
+
+
+// `xl` se aplica a dispositivos grandes (computadoras de escritorio, menos de 1200 px)
+@media (max-width: 1199.98px) { 
+}
+
+// "lg" se aplica a dispositivos medianos (tabletas, menos de 992 px)
+@media (max-width: 991.98px) {  
+
+}
+
+// `md` se aplica a dispositivos pequeños (teléfonos horizontales, menos de 768px)
+@media (max-width: 767.98px)  { 
+
+}
+
+// `sm` se aplica a dispositivos x-small (teléfonos verticales, menos de 576px)
+@media (max-width: 575.98px) {
+    // :host{
+    //     padding: 5px;
+    //     gap:0;
+    //     .contenido{
+    //         transform: scale(0.7);
+    //         margin: 0;
+    //         padding: 5px;
+    //     }
+
+    //     .opciones{
+    //         width: 200px;
+    //     }
+
+    //     app-perfil-view{
+    //         transform: scale(0.5);
+    //     }
+    
+    //     app-map{
+    //         transform: scale(0.5);
+    
+    //     }
+    // }
+
+    
+}
+
+:host ::ng-deep{
+    
+    // `md` se aplica a dispositivos pequeños (teléfonos horizontales, menos de 768px)
+    @media (max-width: 767.98px)  { 
+        app-perfil-view{
+            
+            transform: scale(0.6); 
+
+        }
+    }
+
+
+    // `sm` se aplica a dispositivos x-small (teléfonos verticales, menos de 576px)
+    @media (max-width: 575.98px) {
+        
+
+        app-perfil-view{
+            
+                transform: scale(0.4); 
+
+        }
+    
+        app-map{
+            // transform: scale(0.5);
+    
+        }
+        
+    }
+
+    //MEDIA QUERY PARA EL MODAL DEL PRODUCTO
+
+    // "lg" se aplica a dispositivos medianos (tabletas, menos de 992 px)
+    @media (max-width: 991.98px) {  
+        
+        .p-dialog{
+            transform: scale(0.8);
+        }
+        .p-dialog-titlebar{
+            transform: scale(0.8);
+        }
+    
+    
+    }
+
+    // `md` se aplica a dispositivos pequeños (teléfonos horizontales, menos de 768px)
+    @media (max-width: 767.98px)  {
+        
+        .p-dialog{
+            transform: scale(0.7);
+        }
+        .p-dialog-titlebar{
+            transform: scale(0.7);
+        }
+    
+    
+    }
+
+    
+}
+

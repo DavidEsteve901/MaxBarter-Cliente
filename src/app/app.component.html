@@ -1,0 +1,17 @@
+<div class='fondo'  [ngClass]="checkBg()">
+  <app-spinner></app-spinner>
+
+  <app-nav-bar></app-nav-bar>
+
+  <router-outlet></router-outlet>
+
+  <!-- Mensajes que se muestran por el servicio -->
+  <p-toast position="top-right"></p-toast>
+
+  <p-confirmDialog ></p-confirmDialog>
+
+  <!-- <app-footer ></app-footer> -->
+
+</div>
+
+

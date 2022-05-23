@@ -1,0 +1,34 @@
+<form [formGroup]="formLogin" (submit)="guardar()" class="authForm">
+    <div>
+        <label for="userName">Usuario</label>
+        <span class="p-input-icon-left">
+            <i><fa-icon [icon]="faUser"></fa-icon></i>
+            <input type="text" pInputText id="userName"  placeholder="Usuario" formControlName="userName" />
+        </span>
+        <span class="error" *ngIf="campoEsValido('userName')">
+            Debe escribir un usuario
+        </span>
+
+    </div>
+    
+    <div>
+        <label for="password">Password</label>
+        <span class="p-input-icon-left">
+            <i><fa-icon [icon]="faLock"></fa-icon></i>
+            <input type="password" pInputText id="password" placeholder="Contraseña" formControlName="password" />
+        </span>
+        <span class="error" *ngIf="campoEsValido('password')">
+            Debe escribir su contraseña
+        </span>
+    </div>  
+
+     
+    <div class="formButton">
+        <button pButton  type="submit" label="LOGIN" class="p-button-warning boton"></button>
+        <span class="error" *ngIf="error">
+            {{error.message}}
+        </span>
+    </div>
+
+</form>
+

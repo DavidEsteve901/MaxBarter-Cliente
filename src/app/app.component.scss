@@ -1,0 +1,29 @@
+
+:host ::ng-deep{
+    // `sm` se aplica a dispositivos x-small (teléfonos verticales, menos de 576px)
+@media (max-width: 575.98px) {
+    
+    .p-toast{
+        transform: scale(0.7);
+        right: 0 !important;
+    }
+    
+}
+}
+
+:host{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    //Fuente general
+    font-family: 'Istok Web', sans-serif;
+}
+
+.fondo{
+    flex: 1 0;
+
+    display: flex;
+    flex-direction: column;
+}
+

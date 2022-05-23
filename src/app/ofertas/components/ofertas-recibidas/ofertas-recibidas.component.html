@@ -1,0 +1,10 @@
+<div class="ofertas" infiniteScroll (scrolled)="onScrollDown(this.filter)">
+    <app-oferta-view class="animate__animated animate__flipInX" *ngFor="let oferta of ofertas" [oferta]="oferta" >
+    
+    </app-oferta-view>
+
+    <app-mensaje-not-found *ngIf="noOfertas" message="No has recibido ninguna oferta"></app-mensaje-not-found>
+
+</div>
+
+<div class="buttonUp" *ngIf="showButton" (click)="onScrollTop()"><fa-icon [icon]="faArrowUp"></fa-icon></div>

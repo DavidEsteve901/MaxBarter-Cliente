@@ -1,0 +1,345 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+
+//Importamos fuentes
+@import url('https://fonts.googleapis.com/css2?family=Istok+Web&display=swap');
+
+
+// **CLASES GENERALES**
+.active{
+    font-weight:bolder !important;
+}
+
+
+//Personalizo componentes del primeNg
+
+//botones
+.p-button{
+    border-radius: 4px;
+    width: 143px;
+    height: 63px;
+
+    font-family: 'Istok Web';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 150%;
+
+    color: #FFFFFF;
+
+    background: linear-gradient(121.1deg, #000000 -200.75%, #E4731C 90.53%) !important;
+
+    &:hover{
+        background: linear-gradient(121.1deg, #000000 -200.75%, #a55314 90.53%)!important;
+    }
+
+
+}
+.p-button-warning{
+    background: linear-gradient(121.1deg, #000000 -200.75%, #E4731C 90.53%) !important;
+    &:hover{
+        background: linear-gradient(121.1deg, #000000 -200.75%, #a55314 90.53%)!important;
+    }
+}
+.p-button-success{
+    background: linear-gradient(115.46deg, #000000 -280.09%, #86DA01 88.28%) !important;
+    &:hover{
+        background: linear-gradient(115.46deg, #000000 -280.09%, #6fc400 88.28%) !important;
+    }
+}
+
+.p-button-danger{
+    background: linear-gradient(115.46deg, #000000 -280.09%, #FF0202 88.28%) !important;
+    &:hover{
+        background: linear-gradient(115.46deg, #000000 -280.09%, #be0000 88.28%) !important;
+    }
+}
+
+.p-button-info{
+    background: linear-gradient(115.46deg, #000000 -280.09%, #0286FF 88.28%) !important;
+    &:hover{
+        background: linear-gradient(115.46deg, #000000 -280.09%, #0067c7 88.28%) !important;
+    }
+}
+
+//Botones de dialogo confirmación
+.p-confirm-dialog{
+    .p-button{
+        border-radius: 4px;
+        width: auto;
+        height: 63px;
+
+        font-family: 'Istok Web';
+        font-style: normal;
+        font-weight: 200;
+        font-size: 17px;
+        
+
+        color: #FFFFFF;
+
+        background: linear-gradient(121.1deg, #000000 -200.75%, #b9d2e9 90.53%) !important;
+
+        &:hover{
+            background: linear-gradient(121.1deg, #000000 -200.75%, #afd0ee 90.53%)!important;
+        }
+    }
+}
+//inputs
+@mixin input {
+    &:focus {
+        border-color: #e4731c !important;
+        box-shadow: 0px 0px 8px #e4731c !important;
+    }
+
+    &:hover{
+        border-color: #e4731c !important;
+    }
+}
+.p-inputtext{
+    @include input;
+}
+
+.bg-animation{
+    background: linear-gradient(327deg, #e4731c, #000000);
+    background-size: 400% 400%;
+
+    -webkit-animation: fondoGradient 15s ease infinite;
+    -moz-animation: fondoGradient 15s ease infinite;
+    -o-animation: fondoGradient 15s ease infinite;
+    animation: fondoGradient 15s ease infinite;
+}
+
+.bg-static{
+    // background: linear-gradient(1.06deg, #E4E4E4 24.23%, #ff6f00 182.16%);
+
+    background-image: url("/assets/imagenes/fondo-gradient2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+
+
+//select
+.p-dropdown{
+    background-color: #e4731c !important;
+    
+    border: none !important;
+
+    &>*{
+        color: white !important;
+    }
+
+    &:focus {
+        border-color: #e4731c !important;
+        box-shadow: none;
+        box-shadow: 0px 0px 8px #e4731c !important;
+
+    }
+
+    &:hover{
+        border-color: #e4731c !important;
+    }
+}
+
+.p-focus{
+    box-shadow: 0px 0px 8px #e4731c !important;
+}
+
+//Titulos
+h2{
+    color: #E4731C;
+    text-shadow: 0px 1px 5px rgba(27, 6, 6, 0.6) !important;
+}
+
+.nav-link{
+    color: white !important;
+    font-size: 1.3em;
+    position: relative;
+
+    // &:after,
+    // &:before {
+    // content: "";
+    // position: absolute;
+    // display: block;
+    // border: 0px solid transparent;
+    // width: 0%;
+    // height: 0%;
+    // transition: all 0.5s ease;
+    // }
+
+    // &:after {
+    // width: 0%;
+    // height: 0%;
+    // top: 0;
+    // left: 0;
+    // border-top: 2px solid transparent;
+    // border-left: 2px solid transparent;
+    // }
+
+    // &:before {
+    // width: 0%;
+    // height: 0%;
+    // right: 0;
+    // bottom: 0;
+    // border-bottom: 2px solid transparent;
+    // border-right: 2px solid transparent;
+    // }
+
+    // &:hover::before,
+    // &:hover::after {
+    // width: calc(100% + 5px) ;
+    // height:  calc(100% + 5px);
+    // border-color: #fff;
+    // }
+
+    //Efecto linea de abajo 
+
+    &:after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 1px;
+        display: block;
+        transition: all 0.3s ease;
+        bottom: 25%;
+    }
+    &:hover::after {
+        width: 85%;    
+        height: 1px;
+        background-color: #fff;
+    }
+
+
+}
+
+.nav-link-2{
+    color: #E4731C !important;
+    text-shadow: 0px 1px 3px rgba(27, 6, 6, 0.8) !important;
+    transition: all 0.3s ease;
+    
+    &:hover{
+        transform: scale(1.1);
+    }
+    &:hover::after {
+        width: 0;    
+    }
+}
+
+.p-badge{
+    background-color: #E4731C !important;
+}
+
+.tituloSize{
+    font-family: 'Istok Web';
+    font-size: 0.8em !important;
+}
+.tituloSize2{
+    font-family: 'Istok Web';
+    font-size: 1em !important;
+}
+.tituloSize3{
+    font-family: 'Istok Web';
+    font-size: 1.2em !important;
+}
+.tituloSize4{
+    font-family: 'Istok Web';
+    font-size: 1.4em !important;
+}
+
+//Personalizo scroll
+*::-webkit-scrollbar{
+    width: 5px;
+    height: 5px;
+    
+}
+*::-webkit-scrollbar-thumb{
+    background-color: #c0c0c0;
+    border-radius: 5px;
+}
+
+//Seleccionar producto
+.prodSelected{
+    .cuerpo{
+        border:#e4731c solid 5px ;
+    }
+}
+//POSICIONAR SPINNER
+
+.overlay{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0,0.5);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+//Posición botón Up
+.buttonUp{
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 10;
+    background-color: #e4731c;
+    box-shadow: 0 0 2px #757575;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    font-size: 1.5rem;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.3s ease-in-out;
+    &:hover{
+        background-color: #aa5514;
+        
+    }
+}
+
+.error{
+    color:red;
+    padding: 5px;
+    font-weight: bold;
+}
+
+
+//Cancelar atributo de animacion
+.animate__animated{
+    animation-fill-mode: none !important;
+}
+
+/**Animaciones generales**/
+
+
+// Fondo
+@-webkit-keyframes fondoGradient {
+    0%{background-position:0% 81%}
+    50%{background-position:100% 20%}
+    100%{background-position:0% 81%}
+}
+@-moz-keyframes fondoGradient {
+    0%{background-position:0% 81%}
+    50%{background-position:100% 20%}
+    100%{background-position:0% 81%}
+}
+@-o-keyframes fondoGradient {
+    0%{background-position:0% 81%}
+    50%{background-position:100% 20%}
+    100%{background-position:0% 81%}
+}
+@keyframes fondoGradient {
+    0%{background-position:0% 81%}
+    50%{background-position:100% 20%}
+    100%{background-position:0% 81%}
+}
+
+

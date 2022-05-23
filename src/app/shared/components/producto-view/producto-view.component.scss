@@ -1,0 +1,295 @@
+:host{
+    font-family: 'Istok Web';
+}
+
+:host ::ng-deep{
+
+    //Descripcion
+    .p-scrollpanel{
+        
+        width: 100%;
+        height: 100px;
+        
+
+        font-weight: 300;
+        font-size: 15px;
+    }
+
+    //Flecha descripcion
+    .custom-scrolltop{
+        width: 2rem;
+        height: 2rem;
+        border-radius: 4px;
+        background-color: #E4731C;
+    
+        &:hover {
+            background-color: #E4731C;
+        }
+    
+        .p-scrolltop-icon {
+            font-size: 1rem;
+            color: white;
+        }
+    }
+
+    
+
+    //Dialog
+    .p-dialog-content{
+        padding: 0 !important;
+    }
+
+    .p-dialog-header{
+        padding: 5px !important;
+    }
+}
+
+.contGaleria{
+    // position:absolute;
+    // right: 10px;
+    // top: 0px;
+    display: flex;
+    width:  300px !important;
+    height: 100%;
+
+    max-height: 460px !important;
+    overflow: hidden;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+
+    .galeria{
+        // position: absolute !important;
+        box-shadow: 0 0 10px #DEE2E6 !important;
+
+        width:  300px !important;
+        height:  auto ;
+        max-height: 400px !important;
+
+        overflow: hidden;
+    }
+}
+
+
+.cuerpo{
+    color: black;
+    display: flex;
+    width: 800px;
+    height: 500px;
+    gap:40px;
+    padding: 5%;
+
+    .info{
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        gap:5px;
+        width: 500px;
+        // background-color: red;
+
+        .perfil{
+           
+            width: 100%;
+            height: 79px;
+
+            display: flex;
+            align-items: center;
+            gap:15px;
+
+            padding:10px;
+            margin: 10px 0;
+
+            background: rgba(228, 228, 228, 0.28);
+            border-radius: 10px;
+
+            &:hover{
+                cursor: pointer;
+            }
+            
+            .infoPerfil{
+                display: flex;
+                flex-direction: column;
+
+                span{
+                    font-weight: 700;
+                    font-size: 16px;
+                    line-height: 19px;
+                }
+
+                .userName{
+                    font-size: 0.8em;
+                    color: #E4731C;
+                }
+            }
+            
+        }
+
+        .tipo{
+            
+            width: 343px;
+            height: 51px;
+            
+            
+            font-size: 20px;
+            font-family: 'Istok Web', sans-serif !important;
+            span{
+                color: #E4731C;
+            }
+        }
+
+        .titulo{
+            
+            width: 100%;
+            height: 50px;
+            
+
+            overflow: hidden;
+            
+            font-weight: 700;
+            font-size: 32px;
+           
+        }
+
+        .descripcion{
+            
+            
+        }
+    }
+
+
+    .botones{
+        
+        
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap:20px;
+        margin: 10px 0;
+        .noAdminButtons{
+            display: flex;
+            gap: 10px;
+        }
+
+        .boton{
+            width: auto !important;
+            font-weight: 400;
+            font-size: 1em;
+        }
+
+
+        .adminButtons{
+            display: flex;
+            gap:5px;
+            .boton{
+                font-size: 0.7em;
+                width: auto;
+                height: auto;
+                padding: 5px;
+            }
+        }
+    }
+}
+
+// p{height: 400px;}
+
+//Estilos avatar
+.avatar{
+    width: 70px;
+    height: 70px;
+    border-radius: 300px;
+    background-color: #DEE2E6 ;
+    border: #E4731C solid 1px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    div{
+        font-size: 2em;
+    }
+    img{
+        width: 70px;
+        min-height: 70px;
+        border-radius: 300px;
+        border: #E4731C solid 1px;
+    }
+}
+
+//Responsive 
+
+
+// `xxl` se aplica a dispositivos de gran tamaño (escritorios grandes, menos de 1400px)
+@media (max-width: 1399.98px) {  }
+
+
+// `xl` se aplica a dispositivos grandes (computadoras de escritorio, menos de 1200 px)
+@media (max-width: 1199.98px) { 
+}
+
+// "lg" se aplica a dispositivos medianos (tabletas, menos de 992 px)
+@media (max-width: 991.98px) {  
+    
+}
+
+// `md` se aplica a dispositivos pequeños (teléfonos horizontales, menos de 768px)
+@media (max-width: 767.98px)  { 
+    
+}
+
+// `sm` se aplica a dispositivos x-small (teléfonos verticales, menos de 576px)
+@media (max-width: 575.98px) {
+    .cuerpo{
+        width: 100%;
+        min-height: 500px;
+        height: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .contGaleria{
+        align-self: center;
+    }
+
+    .info{
+        width: 100% !important;
+        flex-wrap: wrap;
+    }
+
+    
+}
+
+:host ::ng-deep{
+        // `sm` se aplica a dispositivos x-small (teléfonos verticales, menos de 576px)
+    @media (max-width: 575.98px) {
+        
+        .p-scrollpanel{
+            width: 100% !important;
+        }
+        
+    }
+
+     //MEDIA QUERY PARA EL MODAL DEL PRODUCTO
+
+    // "lg" se aplica a dispositivos medianos (tabletas, menos de 992 px)
+    @media (max-width: 991.98px) {  
+        
+        .p-dialog{
+            transform: scale(0.8);
+        }
+        .p-dialog-titlebar{
+            transform: scale(0.8);
+        }
+    }
+
+    // `md` se aplica a dispositivos pequeños (teléfonos horizontales, menos de 768px)
+    @media (max-width: 767.98px)  { 
+        .p-dialog{
+            transform: scale(0.7);
+        }
+        .p-dialog-titlebar{
+            transform: scale(0.7);
+        }
+    }
+}
+

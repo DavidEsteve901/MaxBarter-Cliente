@@ -1,0 +1,17 @@
+:host{
+    background-color: rgba(0, 0, 0, 0.699);
+    backdrop-filter: blur(3px);
+    border: solid black 1px;
+    padding: 10px;
+    font-size: 1.1em;
+    font-weight: bolder;
+    display: flex;
+    gap:10px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+    fa-icon{
+        color: #E4731C;
+    }
+}

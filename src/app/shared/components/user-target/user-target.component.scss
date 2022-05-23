@@ -1,0 +1,60 @@
+
+:host{
+    .perfil{
+        display: flex;
+        gap:20px;
+        align-items: center;
+        background: rgba(228, 228, 228, 0.4);
+        border-radius: 10px;
+        padding: 20px;
+
+        box-shadow: 0px 0px 5px #e4731c77;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.61) !important;    
+        
+    }   
+    
+
+    &:hover{
+        cursor: pointer;
+    }
+    
+    .infoPerfil{
+        display: flex;
+        flex-direction: column;
+
+        span{
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 19px;
+        }
+
+        .userName{
+            font-size: 0.8em;
+            color: #E4731C;
+        }
+    }
+}
+
+
+.avatar{
+    width: 70px;
+    height: 70px;
+    border-radius: 300px;
+    background-color: #DEE2E6 ;
+    border: #E4731C solid 1px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    div{
+        font-size: 2em;
+    }
+    img{
+        width: 70px;
+        min-height: 70px;
+        border-radius: 300px;
+        border: #E4731C solid 1px;
+    }
+}
+

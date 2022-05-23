@@ -1,0 +1,41 @@
+
+<div class="cuerpo" (click)="showMaximizableDialog()">
+
+    <div class="img">
+        <!-- <img src="https://www.empack.mx/wp-content/uploads/2018/04/RM-01-1-scaled-500x312.jpg" alt="Imagen Producto" class="img-prod"> -->
+        <img [src]="imgPortada" alt="Imagen Producto" class="img-prod">
+
+    </div>
+    
+    <div class="perfil">
+        <div class="avatar">
+            <img [src]="imgPerfil" alt="Imagen perfil" class="avatarImg" *ngIf="imgPerfil">
+            <div class="pi pi-user p-avatar-icon" *ngIf="!imgPerfil"></div>
+        </div>
+        <span>{{producto?.propietario?.nombre}} {{producto?.propietario?.apellidos}}</span>
+    </div>
+    
+    <div class="datos">
+        <div class="titulo" [ngClass]="checkSizeTitulo()">
+            {{producto?.titulo}}
+        </div>
+    
+        <div class="tipo">
+            {{producto?.tipoProducto?.nombre}}
+        </div>
+    
+        <div class="descripcion">
+            {{producto?.descripcion}}
+        </div>
+    </div>
+</div>
+
+
+
+
+<p-dialog  [(visible)]="displayResponsive" [modal]="true" [style]="{width: 'auto'}" [maximizable]="false"
+    [draggable]="false" [resizable]="true" 
+    >
+   <app-producto-view [producto]="producto" [imgPerfil]="imgPerfil" [isCurrentUser]="isCurrentUser" ></app-producto-view>
+   
+</p-dialog>

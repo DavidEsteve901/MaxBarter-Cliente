@@ -1,0 +1,118 @@
+<form [formGroup]="form" (submit)="guardar()" class="form">
+    <div class="contenido">
+       <section class="section1">
+            <div>
+                <label for="nombre">Nombre</label>
+
+                <input type="text" pInputText id="nombre" [(ngModel)]="usuario.nombre"  placeholder="Nombre" formControlName="nombre" />
+
+                <span class="error" *ngIf="campoEsValido('nombre')">
+                    <div *ngIf="nombre.errors.required">
+                        Debe escribir un nombre
+                    </div>
+
+                    <div *ngIf="nombre.errors.maxlength">
+                        Alcanzaste el máximo de carácteres
+                    </div>
+                    
+                </span>
+
+            </div>
+
+
+            <div>
+                <label for="apellidos">Apellidos</label>
+            
+                    
+                <input type="text" pInputText  id="apellidos" [(ngModel)]="usuario.apellidos" placeholder="Apellidos" formControlName="apellidos" />
+                
+                <span class="error" *ngIf="campoEsValido('apellidos')">
+                    <div *ngIf="apellidos.errors.required">
+                        Debe escribir los apellidos
+                    </div>
+
+                    <div *ngIf="apellidos.errors.maxlength">
+                        Alcanzaste el máximo de carácteres
+                    </div>
+                </span>
+
+            </div>
+
+            <div>
+                <label for="correo">Correo</label>
+            
+                    
+                <input type="text" pInputText  id="correo" [(ngModel)]="usuario.correo" placeholder="Correo" formControlName="correo" />
+                
+                <span class="error" *ngIf="campoEsValido('correo')">
+                    <div *ngIf="correo.errors.required">
+                        Debe escribir un correo
+                    </div>
+
+                    <div *ngIf="correo.errors.pattern">
+                        Correo introducido inválido
+                    </div>
+                </span>
+
+            </div>
+
+            <div>
+                <label for="telefono">Teléfono</label>
+            
+                    
+                <input type="text" pInputText [(ngModel)]="usuario.telefono" id="telefono"  placeholder="Teléfono" formControlName="telefono" />
+                
+                <span class="error" *ngIf="campoEsValido('telefono')">
+                    <div *ngIf="telefono.errors.required">
+                        Debe escribir un teléfono
+                    </div>
+
+                    <div *ngIf="telefono.errors.pattern">
+                        Teléfono introducido inválido
+                    </div>
+                </span>
+
+            </div>
+
+            <div>
+                <label for="comunidadAutonoma">Comunidad Autónoma</label>
+                <br>
+                <p-dropdown [options]="comunidadesAutonomas" (onChange)="changeHover()" [(ngModel)]="comunidadSelected" [placeholder]="placeHolderComunidad" optionLabel="name" [showClear]="true" formControlName="comunidadAutonoma"></p-dropdown>
+                <br>
+                <span class="error" *ngIf="campoEsValido('comunidadAutonoma')">
+                    Debe seleccionar un tipo
+                </span>
+        
+            </div>
+
+        </section>
+    
+
+        <section>
+
+            <h2>Ubicación <fa-icon [icon]="faLocationDot"></fa-icon></h2>
+            <app-map  *ngIf="usuario" [coordenadas]="usuario.coordenadas" [edit]="true" (updateCoords)="updateCoords($event)"></app-map>
+
+            <h2>Imagen de perfil</h2>
+            <p-fileUpload name="myfile[]" (onSelect)="onUpload($event)"
+                [multiple]="false" accept="image/*" [maxFileSize]="10000000" [showUploadButton]="false"
+                (onRemove)="removeFile($event)" (onClear)="onClear()" [auto]="false" >
+            </p-fileUpload>
+        </section>
+    </div>
+    
+
+    
+
+    <div class="formButton">
+        <button pButton  type="submit" label="Modificar" class="p-button-success boton"></button>
+
+        <span class="error" *ngIf="error">
+            {{error.message}}
+        </span>
+    </div>
+    
+
+
+</form>
+

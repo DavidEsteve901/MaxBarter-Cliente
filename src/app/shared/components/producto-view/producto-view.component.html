@@ -1,0 +1,56 @@
+<div class="cuerpo">
+    <div class="info">
+        <div class="perfil" (click)="showMaximizableDialog()" >
+            <div class="avatar">
+                <img [src]="imgPerfil" alt="Imagen perfil" class="avatarImg" *ngIf="imgPerfil">
+                <div class="pi pi-user p-avatar-icon" *ngIf="!imgPerfil"></div>
+            </div>
+            <div class="infoPerfil">
+                <span>{{producto?.propietario?.nombre}} {{producto?.propietario?.apellidos}}</span>
+                <span class="userName">{{producto?.propietario?.userName}}</span>
+            </div>
+            
+        </div>
+
+        <div class="tipo">
+            Tipo: <span>{{producto?.tipoProducto?.nombre}}</span>
+        </div>
+
+        <div class="titulo" [ngClass]="checkSizeTitulo()">
+            {{producto?.titulo}}
+        </div>
+
+        <p-scrollPanel  [style]="{width: '100%', height: '100px'}">
+            {{producto?.descripcion}}
+            
+            <p-scrollTop target="parent" styleClass="custom-scrolltop" [threshold]="150" icon="pi pi-arrow-up"></p-scrollTop>
+        </p-scrollPanel>
+
+        <div class="botones" *ngIf="showButtons">
+            <div class="noAdminButtons">
+                <button pButton *ngIf="!isCurrentUser" label="Hacer oferta" (click)="doOferta()" class="p-button-success boton"></button>
+                <button pButton *ngIf="isCurrentUser"  label="Modificar" (click)="modifyProduct()" class="p-button-info boton"></button>
+                <button pButton *ngIf="isCurrentUser"  label="Eliminar" (click)="confirm()" class="p-button-danger boton"></button>
+            </div>
+    
+            <div class="adminButtons">
+                <button pButton *ngIf="!isCurrentUser && isAdmin"  label="Modificar" (click)="modifyProduct()" class="p-button-info boton"></button>
+                <button pButton *ngIf="!isCurrentUser && isAdmin"  label="Eliminar" (click)="confirm()" class="p-button-danger boton"></button>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <div class="contGaleria">
+        <app-gallery  class="galeria" [imagenes]="images" ></app-gallery>
+    </div> 
+    
+</div>
+
+<p-dialog  [(visible)]="displayResponsive" [modal]="true" [style]="{width: 'auto'}" [maximizable]="false"
+    [draggable]="false" [resizable]="true" 
+    >
+   <app-perfil-view [usuario]="producto?.propietario" [imgPerfil]="imgPerfil"></app-perfil-view>
+   
+</p-dialog>

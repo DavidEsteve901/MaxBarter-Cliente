@@ -1,0 +1,84 @@
+:host{
+    flex: 1 0;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap:50px;
+    margin:20px;
+    padding: 20px;
+
+}
+
+.contenido{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:50px;
+
+    h2{
+        font-weight: bold;
+    }
+    
+    &>div{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+.misProductos{
+    width: auto;
+    max-width: 600px;
+    padding: 5px;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+    // border:solid black 1px;
+
+}
+
+.botones{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap:10px;
+}
+img{
+    width: 100px;
+}
+
+// `xxl` se aplica a dispositivos de gran tamaño (escritorios grandes, menos de 1400px)
+@media (max-width: 1399.98px) {  }
+
+
+// `xl` se aplica a dispositivos grandes (computadoras de escritorio, menos de 1200 px)
+@media (max-width: 1199.98px) { 
+    
+}
+
+// "lg" se aplica a dispositivos medianos (tabletas, menos de 992 px)
+@media (max-width: 991.98px) {  
+
+    
+}
+
+// `md` se aplica a dispositivos pequeños (teléfonos horizontales, menos de 768px)
+@media (max-width: 767.98px)  { 
+    .contenido{
+        width: 200px;
+        flex-wrap: wrap;
+    }
+
+    .misProductos{
+        width: 300px;
+    }
+}
+
+// `sm` se aplica a dispositivos x-small (teléfonos verticales, menos de 576px)
+@media (max-width: 575.98px) {
+    .contenido{
+        flex-wrap: wrap;
+    }
+}

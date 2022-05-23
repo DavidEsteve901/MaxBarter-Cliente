@@ -1,0 +1,11 @@
+
+<h2>MATCHS</h2>
+
+<div class="matchs" infiniteScroll (scrolled)="onScrollDown(this.filter)">
+    <app-match-view class="animate__animated animate__bounceIn" *ngFor="let oferta of ofertas"  [match]="oferta" >
+    
+    </app-match-view>
+
+    <app-mensaje-not-found *ngIf="noMatch" message="No tienes ningun match"></app-mensaje-not-found>
+
+</div>
